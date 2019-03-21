@@ -6,31 +6,31 @@ prev: hello-world.html
 next: rendering-elements.html
 ---
 
-Consider this variable declaration:
+დაუკვირდით ცვლადის ამ გამოცხადებას:
 
 ```js
 const element = <h1>Hello, world!</h1>;
 ```
 
-This funny tag syntax is neither a string nor HTML.
+ეს სახალისო ტეგ-სინტაქსი არც სტრინგია და არც - HTML.
 
-It is called JSX, and it is a syntax extension to JavaScript. We recommend using it with React to describe what the UI should look like. JSX may remind you of a template language, but it comes with the full power of JavaScript.
+ამ ტეგ-სინტაქსს ჰქვია JSX და წარმოადგენს ჯავასკრიპტის სინტაქსურ გაფართოებას. გირჩევთ, რეაქტის გამოყენებისას ისარგებლოთ ამ ტეგ-სინტაქსით, რომ აღწეროთ, თუ როგორ უნდა გამოიყურებოდეს UI. JSX-მა შესაძლოა მოგაგონოთ ტემპლეიტ ენები, თუმცა რეალურად JSX აქვს იგივე სიმძლავრე, რაც ზოგადად ჯავასკრიპტს.
 
-JSX produces React "elements". We will explore rendering them to the DOM in the [next section](/docs/rendering-elements.html). Below, you can find the basics of JSX necessary to get you started.
+JSX აწარმოებს რეაქტის "ელემენტებს". ელემენტების DOM-ში გარენდერებას შემდგომ სექციაში [შემდგომ სექციაში](/docs/rendering-elements.html) განვიხილავთ. ქვემოთ შეგიძლიათ გაეცნოთ JSX-ის საფუძვლებს, რაც აუცილებელია მისი გამოყენების დასაწყებად.
 
-### Why JSX? {#why-jsx}
+### რატომ JSX? {#why-jsx}
 
-React embraces the fact that rendering logic is inherently coupled with other UI logic: how events are handled, how the state changes over time, and how the data is prepared for display.
+რეაქტი იმ მოცემულობას ემყარება, რომ რენდერის ლოგიკა არსებითად არის დაკავშირებული UI-ის სხვა ლოგიკებთან: ივენთების მართვა, სტეიტის ცვლილება დროში, და მონაცემების შემზადება გამოსაჩენად.
 
-Instead of artificially separating *technologies* by putting markup and logic in separate files, React [separates *concerns*](https://en.wikipedia.org/wiki/Separation_of_concerns) with loosely coupled units called "components" that contain both. We will come back to components in a [further section](/docs/components-and-props.html), but if you're not yet comfortable putting markup in JS, [this talk](https://www.youtube.com/watch?v=x7cQ3mrcKaY) might convince you otherwise.
+იმის მაგივრად, რომ ხელოვნურად დავყოთ *ტექნოლოგიები* ისე რომ მარქაფი და ლოგიკა სხვა და სხვა ფაილებში განვათავსოთ, რეაქტი [ანაწევრებს *ფუნქცნიონალობებს*](https://en.wikipedia.org/wiki/Separation_of_concerns) ურთიერთდამოუკიდებელი ერთეულებით რომელთაც ეწოდებათ "კომპონენტები" და რომლებიც შეიცავენ ორივეს, მარქაფსაც და ლოგიკებსაც. კომპონენტებს [სხვა სექციაში](/docs/components-and-props.html) დავუბრუნდებით, თუმცა თუ თქვენთვის არ არის კომფორტული მარქაფის JS-ში ჩასმა, შესაძლოა [ამ ლექციამ](https://www.youtube.com/watch?v=x7cQ3mrcKaY) გადაგარწმუნოთ საპირისპიროში.
 
-React [doesn't require](/docs/react-without-jsx.html) using JSX, but most people find it helpful as a visual aid when working with UI inside the JavaScript code. It also allows React to show more useful error and warning messages.
+რეაქტი [არ მოითხოვს](/docs/react-without-jsx.html) JSX-ის გამოყენებას, თუმცა დეველოპერთა უმრავლესობა უპირატესობას ანიჭებს მას როგორც ვიზუალურ დამხმარეს UI-ზე ჯავასკრიპტით მუშაობისას. ის, ასევე, საშუალებას აძლევს რეაქტს გამოიტანოს შეცდომებისა და გაფრთხილებების უფრო სასარგებლო შეტყობინებები.
 
-With that out of the way, let's get started!
+ზემოთქმულის გათვალისწინებით, შევუდგეთ საქმეს!
 
-### Embedding Expressions in JSX {#embedding-expressions-in-jsx}
+### გამოსახულებების ჩასმა JSX-ში {#embedding-expressions-in-jsx}
 
-In the example below, we declare a variable called `name` and then use it inside JSX by wrapping it in curly braces:
+ქვემოთმოცემულ მაგალითში, ვაცხადებთ ცვლად `name`-ს და შემდგომ ვიყენებთ მას JSX-ში, ფიგურული ფრჩხილების გარშემო შემოვლებით:
 
 ```js{1,2}
 const name = 'Josh Perez';
@@ -42,9 +42,9 @@ ReactDOM.render(
 );
 ```
 
-You can put any valid [JavaScript expression](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators#Expressions) inside the curly braces in JSX. For example, `2 + 2`, `user.firstName`, or `formatName(user)` are all valid JavaScript expressions.
+ფიგურულ ფრჩხილებში მოქცეული ნებისმიერი ვალიდური [ჯავასკრიპტის გამოსახულება](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators#Expressions) შეგვიძლია ჩავსვათ JSX-ში. მაგალითად, `2 + 2`, `user.firstName`, ან `formatName(user)` - სამივე ჯავასკრიპტის ვალიდური  გამოსახულებაა.
 
-In the example below, we embed the result of calling a JavaScript function, `formatName(user)`, into an `<h1>` element.
+ქვემოთმოცემულ მაგალითში, ჯავასკრიპტის ფუნქციის, `formatName(user)`, გამოძახების შედეგს ვსვამთ `<h1>` ელემენტში.
 
 ```js{12}
 function formatName(user) {
@@ -70,13 +70,13 @@ ReactDOM.render(
 
 [](codepen://introducing-jsx)
 
-We split JSX over multiple lines for readability. While it isn't required, when doing this, we also recommend wrapping it in parentheses to avoid the pitfalls of [automatic semicolon insertion](https://stackoverflow.com/q/2846283).
+ადვილად აღქმადი რომ იყოს, JSX-ს მრავალ ხაზად ვანაწევრებთ. აუცილებელი არ არის, მაგრამ როდესაც ასე დაანაწევრებთ, გირჩევთ, რომ მთლიან JSX-ს მრგვალი ფრჩხილები შემოავლოთ გარშემო, რათა აირიდოთ [წერტილმძიმის ავტომატური ჩამატების](https://stackoverflow.com/q/2846283) შესაძლო სირთულეები.
 
-### JSX is an Expression Too {#jsx-is-an-expression-too}
+### JSX თავადაც გამოსახულებაა {#jsx-is-an-expression-too}
 
-After compilation, JSX expressions become regular JavaScript function calls and evaluate to JavaScript objects.
+კომპილირების შედეგად, JSX გამოსახულებები გარდაიქმნებიან ჯავასკრიპტის ჩვეულებრივი ფუნქციების გამოძახებებად და საბოლოოდ იქცევიან ჯავასკრიპტის ობიექტებად.
 
-This means that you can use JSX inside of `if` statements and `for` loops, assign it to variables, accept it as arguments, and return it from functions:
+ეს იმას ნიშნავს, რომ შეგვიძლია JSX გამოვიყენოთ `if` სტეიტმენტის და `for` ციკლის შიგნით, მივანიჭოთ ცვლადს, მივიღოთ ის როგორც არგუმენტ(ებ)ი, და დავაბრუნოთ ფუნქციის გამოძახებისას:
 
 ```js{3,5}
 function getGreeting(user) {
@@ -87,37 +87,37 @@ function getGreeting(user) {
 }
 ```
 
-### Specifying Attributes with JSX {#specifying-attributes-with-jsx}
+### ატრიბუტების განსაზღვრა JSX-ით {#specifying-attributes-with-jsx}
 
-You may use quotes to specify string literals as attributes:
+ატრიბუტი რომ განვსაზღვროთ როგორც სტრინგი, შეგიძლიათ გამოიყენოთ ბრჭყალები:
 
 ```js
 const element = <div tabIndex="0"></div>;
 ```
 
-You may also use curly braces to embed a JavaScript expression in an attribute:
+ასევე, შეგიძლიათ გამოიყენოთ ფიგურული ფრჩხილები რომ ჩასვათ ჯავასკრიპტის გამოსახულება როგორც ატრიბუტი:
 
 ```js
 const element = <img src={user.avatarUrl}></img>;
 ```
 
-Don't put quotes around curly braces when embedding a JavaScript expression in an attribute. You should either use quotes (for string values) or curly braces (for expressions), but not both in the same attribute.
+არ შემოავლოთ ბრჭყალები ფიგურულ ფრჩხილებს როდესაც სვამთ ჯავასკრიპტის გამოსახულებას ატრიბუტში. ან ბრჭყალები უნდა გამოიყენოთ (სტრინგებისთვის), ან ფიგურული ფრჩხილები (გამოსახულებებისთვის), მაგრამ არა - ორივე ერთი და იმავე ატრიბუტისთვის.
 
->**Warning:**
+>**გაფრთხილება:**
 >
->Since JSX is closer to JavaScript than to HTML, React DOM uses `camelCase` property naming convention instead of HTML attribute names.
+> რადგან JSX უფრო ახლოს არის ჯავასკრიპტთან, ვიდრე HTML-თან, რეაქტი იყენებს `camelCase` თვისების სახელდების კონვენციას HTML-ის ატრიბუტების სახელების მაგივრად.
 >
->For example, `class` becomes [`className`](https://developer.mozilla.org/en-US/docs/Web/API/Element/className) in JSX, and `tabindex` becomes [`tabIndex`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/tabIndex).
+>მაგალითადა, `class` იქნება [`className`](https://developer.mozilla.org/en-US/docs/Web/API/Element/className) JSX-ში, და `tabindex` იქნება [`tabIndex`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/tabIndex).
 
-### Specifying Children with JSX {#specifying-children-with-jsx}
+### Children-ის განსაზღვრა JSX-ით {#specifying-children-with-jsx}
 
-If a tag is empty, you may close it immediately with `/>`, like XML:
+თუ ტეგი ცარიელია, შეგიძლიათ დახუროთ მაშინათვე `/>`, როგორც ეს XML-შია:
 
 ```js
 const element = <img src={user.avatarUrl} />;
 ```
 
-JSX tags may contain children:
+JSX-ის ტეგები შეიძლება შეიცავდნენ childen-ს:
 
 ```js
 const element = (
@@ -128,23 +128,23 @@ const element = (
 );
 ```
 
-### JSX Prevents Injection Attacks {#jsx-prevents-injection-attacks}
+### JSX პრვენციას უკეთებს შეტევას ინექციების მეშვეობით {#jsx-prevents-injection-attacks}
 
-It is safe to embed user input in JSX:
+მომხმარებლის ინფუთის ჩასმა JSX-ში უსაფრთხოა:
 
 ```js
 const title = response.potentiallyMaliciousInput;
-// This is safe:
+// უსაფრთხოა:
 const element = <h1>{title}</h1>;
 ```
 
-By default, React DOM [escapes](https://stackoverflow.com/questions/7381974/which-characters-need-to-be-escaped-on-html) any values embedded in JSX before rendering them. Thus it ensures that you can never inject anything that's not explicitly written in your application. Everything is converted to a string before being rendered. This helps prevent [XSS (cross-site-scripting)](https://en.wikipedia.org/wiki/Cross-site_scripting) attacks.
+დეფოლტად, სანამ გაარენდერებს, რეაქტის DOM [ასუფთავებს](https://stackoverflow.com/questions/7381974/which-characters-need-to-be-escaped-on-html) ნებისმიერ მნიშვნელობას რომელიც JSX-შია ჩასმული. ამდენად, შეუძლებელია ისეთი რამის შეყვანა, რაც ექსპლიციტურად არ არის დაწერილი თქვენს აპლიკაციაში. სანამ გარენდერდება ყველაფერი გადაკონვერტირდება სტრინგად. ასე ხდება [XSS (cross-site-scripting)](https://en.wikipedia.org/wiki/Cross-site_scripting) შეტევების პრევენცია.
 
-### JSX Represents Objects {#jsx-represents-objects}
+### JSX წარმოადგენს ობიექტებს {#jsx-represents-objects}
 
-Babel compiles JSX down to `React.createElement()` calls.
+Babel აკომპილირებს JSX-ს `React.createElement()`-ის გამოძახებებად.
 
-These two examples are identical:
+ეს ორი მაგალითი იდენტურია:
 
 ```js
 const element = (
@@ -162,10 +162,10 @@ const element = React.createElement(
 );
 ```
 
-`React.createElement()` performs a few checks to help you write bug-free code but essentially it creates an object like this:
+`React.createElement()` ასრულებს რამდენიმე შემოწმებას რომ დაგეხმაროთ ბაგებისაგან თავისუფალი კოდის დაწერაში, მაგრამ არსებითად ის უბრალდო ქმნის ამგვარ ობიექტებს:
 
 ```js
-// Note: this structure is simplified
+// შენიშვნა: ქვემოთმოცემული ობიექტის სტრუქტურა გამარტივებულია
 const element = {
   type: 'h1',
   props: {
@@ -175,10 +175,10 @@ const element = {
 };
 ```
 
-These objects are called "React elements". You can think of them as descriptions of what you want to see on the screen. React reads these objects and uses them to construct the DOM and keep it up to date.
+ამ ობიექტებს ეწოდებათ "რეაქტის ელემენტები". ამ ობიექტებს შეგიძლიათ შეხედოთ როგორც აღწერებს იმისა, თუ რისი გამოჩენა გსურთ ეკრანზე. რეაქტი კითხულობს ამ ობიექტებს და იყენებს მათ, იმისათვის რომ ააწყოს და, საჭიროების შემთხვევაში, განაახლოს DOM.
 
-We will explore rendering React elements to the DOM in the next section.
+რეაქტის ელემენტების DOM-ში გარენდერებას განვიხილავთ შემდგომ სექციაში.
 
->**Tip:**
+>**რჩევა:**
 >
->We recommend using the ["Babel" language definition](https://babeljs.io/docs/editors) for your editor of choice so that both ES6 and JSX code is properly highlighted. This website uses the [Oceanic Next](https://labs.voronianski.com/oceanic-next-color-scheme/) color scheme which is compatible with it.
+>გირჩევთ გამოიყენოთ ["Babel" ენის დეფინიცია](https://babeljs.io/docs/editors) თქვენი რჩეული ედიტორისთვის, როგორც ES6-ის, ასევე, JSX-ის კოდიც სწორად რომ გაგიფერადოთ. ეს ვებსაიტი იყენებს [Oceanic Next](https://labs.voronianski.com/oceanic-next-color-scheme/) ფერთა სქემას, რომელიც თავსებადია ზემოთაღნიშნულ დეფინიციასთან.
