@@ -8,68 +8,68 @@ prev: introducing-jsx.html
 next: components-and-props.html
 ---
 
-Elements are the smallest building blocks of React apps.
+ელემენტები React-აპლიკაციის უმცირესი შემადგენელი ნაწილები არიან.
 
-An element describes what you want to see on the screen:
+ელემენტი იმის აღწერაა, რაც გსურთ რომ ეკრანზე გამოჩნდეს:
 
 ```js
 const element = <h1>Hello, world</h1>;
 ```
 
-Unlike browser DOM elements, React elements are plain objects, and are cheap to create. React DOM takes care of updating the DOM to match the React elements.
+ბრაუზერის DOM-ის ელემენტებისაგან განსხვავებით, React-ელემენტები არიან ჩვეულებრივი ობიექტები, და მათი შექმნა არ მოითხოვს დიდ რესურსს. React DOM უზრუნველყოფს ბრაუზერის DOM-ის განახლებას, მისი სრული შესაბამისობა რომ იყოს React-ელემენტებთან.
 
->**Note:**
+>**შენიშვნა:**
 >
->One might confuse elements with a more widely known concept of "components". We will introduce components in the [next section](/docs/components-and-props.html). Elements are what components are "made of", and we encourage you to read this section before jumping ahead.
+>ზოგს შესაძლოა ელემენტები აერიოს უფრო გავრცელებულ კონცეპტში - "კომპონენტები". კომპონენტებს ჩვენ [შემდგომ სექციაში](/docs/components-and-props.html) გავეცნობით. ელემენტები - ეს არის ის, რისგანაც კომპონენტები "არიან შედგენილნი" და, გირჩევთ, ჯერ ეს სექცია წაიკითხოთ, სანამ შემდგომზე გადახვალთ.
 
-## Rendering an Element into the DOM {#rendering-an-element-into-the-dom}
+## ელემენტის გარენდერება DOM-ში {#rendering-an-element-into-the-dom}
 
-Let's say there is a `<div>` somewhere in your HTML file:
+ვთქვათ, თქვენს HTML ფაილში არის `<div>`:
 
 ```html
 <div id="root"></div>
 ```
 
-We call this a "root" DOM node because everything inside it will be managed by React DOM.
+ჩვენ ვუწოდებთ ამ `<div>`-ს "მთავარ" DOM node-ს, რადგან ნებისმიერი მის შიგნით მოქცეული რამ იმართება React DOM-ის მიერ.
 
-Applications built with just React usually have a single root DOM node. If you are integrating React into an existing app, you may have as many isolated root DOM nodes as you like.
+აპლიკაციას, რომელიც აგებულია მხოლოდ React-ის გამოყენებით, როგორც წესი, აქვს მხოლოდ ერთი მთავარი DOM node. თუ თქვენ აინტეგრირებთ React-ს უკვე აწყობილ აპლიკაციაში, შეგიძლიათ გქონდეთ რამდენიც გნებავთ, იმდენი იზოლირებული "მთავარი" DOM node.
 
-To render a React element into a root DOM node, pass both to `ReactDOM.render()`:
+React-ელემენტის მთავარ DOM node-ში გასარენდერებლად `ReactDOM.render()`-ს არგუმენტებად უნდა გადასცეთ ორივე, React-ელემენტიც და მთავარი DOM node-იც:
 
 `embed:rendering-elements/render-an-element.js`
 
 [](codepen://rendering-elements/render-an-element)
 
-It displays "Hello, world" on the page.
+ამ მაგალითს გამოაქვს "Hello, world".
 
-## Updating the Rendered Element {#updating-the-rendered-element}
+## გარენდერებული ელემენტის განახლება {#updating-the-rendered-element}
 
-React elements are [immutable](https://en.wikipedia.org/wiki/Immutable_object). Once you create an element, you can't change its children or attributes. An element is like a single frame in a movie: it represents the UI at a certain point in time.
+React-ელემენტები არიან [უცვლელნი](https://en.wikipedia.org/wiki/Immutable_object). შეუძლებელია ერთხელ შექმნილი ელემენტის children-ის ან ატრიბუტების შეცვლა. ელემენტი გავს ფილმის კადრს: იგი გამოხატავს UI-ის მდგომარეობას დროის რომელიღაც კონკრეტულ მომენტში.
 
-With our knowledge so far, the only way to update the UI is to create a new element, and pass it to `ReactDOM.render()`.
+ჩვენი ახლანდელი ცოდნის გათვალისწინებით, UI-ის განახლების ერთადერთი გზა არის ახალი ელემენტის შექმნა და `ReactDOM.render()`-ისათვის არგუმენტად გადაცემა.
 
-Consider this ticking clock example:
+დაუკვირდით საათის მაგალითს:
 
 `embed:rendering-elements/update-rendered-element.js`
 
 [](codepen://rendering-elements/update-rendered-element)
 
-It calls `ReactDOM.render()` every second from a [`setInterval()`](https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers/setInterval) callback.
+ამ მაგალითში `ReactDOM.render()` გამოიძახება [`setInterval()`](https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers/setInterval)-ის ქოლბექიდან ყოველ წამში ერთხელ.
 
->**Note:**
+>**შენიშვნა:**
 >
->In practice, most React apps only call `ReactDOM.render()` once. In the next sections we will learn how such code gets encapsulated into [stateful components](/docs/state-and-lifecycle.html).
+>პრაქტიკაში, React-აპლიკაციების უმეტესობა `ReactDOM.render()`-ს იძახებს მხოლოდ ერთხელ. შემდგომ სექციებში ვისწავლით, თუ როგორ უნდა განვაახლოთ ინტერფეისი [სტეიტიანი კომპონენტების](/docs/state-and-lifecycle.html) მეშვეობით.
 >
->We recommend that you don't skip topics because they build on each other.
+>გირჩევთ, არ გამოტოვოთ არცერთი თავი, რადგან ყოველი შემდგომი თავი წარმოადგენს წინას გაგრძელებას.
 
-## React Only Updates What's Necessary {#react-only-updates-whats-necessary}
+## React ანახლებს მხოლოდ იმას, რისი განახლებაც აუცილებელია {#react-only-updates-whats-necessary}
 
-React DOM compares the element and its children to the previous one, and only applies the DOM updates necessary to bring the DOM to the desired state.
+React DOM ადარებს ელემენტს და მის children-ს წინა ვერსიასთან და ბრაუზერის DOM-ში შეაქვს მხოლოდ ის ცვლილებები, რაც აუცილებელია DOM-ის სასურველ მდგომარეობაში მოსაყვანად.
 
-You can verify by inspecting the [last example](codepen://rendering-elements/update-rendered-element) with the browser tools:
+შეგიძლიათ შეამოწმოთ [ბოლო მაგალითი](codepen://rendering-elements/update-rendered-element) ბრაუზერის developer tools-ის მეშვეობით:
 
 ![DOM inspector showing granular updates](../images/docs/granular-dom-updates.gif)
 
-Even though we create an element describing the whole UI tree on every tick, only the text node whose contents has changed gets updated by React DOM.
+მიუხედავად იმისა, რომ შევქმენით ელემენტი, რომელიც ყოველწამიერად აღწერს ინტერფეისის მთლიან სტრუქტურას, მხოლოდ ის node ნახლდება React DOM-ის მიერ, რომლის შიგთავსიც შეიცვალა.
 
-In our experience, thinking about how the UI should look at any given moment rather than how to change it over time eliminates a whole class of bugs.
+უფრო ადვილია იფიქრო იმაზე, თუ როგორ უნდა გამოიყურებოდეს UI რომელიმე მოცემულ მომენტში, ვიდრე იფიქრო იმაზე, თუ როგორ შეცვალო UI დროის თითოეულ მომენტში. ჩვენი გამოცდილებით, ასეთი მიდგომა მთელი რიგი შეცდომების თავიდან არიდებაში გვეხმარება.
