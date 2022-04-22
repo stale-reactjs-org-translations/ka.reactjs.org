@@ -1,4 +1,4 @@
-- title: Installation
+- title: დაყენება
   items:
     - id: getting-started
       title: Getting Started
@@ -10,7 +10,7 @@
       title: CDN Links
     - id: release-channels
       title: Release Channels
-- title: Main Concepts
+- title: მთავარი კონცეფციები
   isOrdered: true
   items:
     - id: hello-world
@@ -37,7 +37,7 @@
       title: Composition vs Inheritance
     - id: thinking-in-react
       title: Thinking In React
-- title: Advanced Guides
+- title: სიღრმისეული გზამკვლევი
   items:
     - id: accessibility
       title: Accessibility
@@ -83,7 +83,7 @@
       title: Uncontrolled Components
     - id: web-components
       title: Web Components
-- title: API Reference
+- title: API სქოლიო
   items:
     - id: react-api
       title: React
@@ -106,7 +106,7 @@
       title: JS Environment Requirements
     - id: glossary
       title: Glossary
-- title: Hooks
+- title: Hook-ები
   isOrdered: true
   items:
     - id: hooks-intro
@@ -125,7 +125,7 @@
       title: Hooks API Reference
     - id: hooks-faq
       title: Hooks FAQ
-- title: Testing
+- title: ტესტირება
   items:
     - id: testing
       title: Testing Overview
@@ -133,7 +133,7 @@
       title: Testing Recipes
     - id: testing-environments
       title: Testing Environments
-- title: Contributing
+- title: მოხალისეობა
   items:
     - id: how-to-contribute
       title: How to Contribute
@@ -143,7 +143,7 @@
       title: Implementation Notes
     - id: design-principles
       title: Design Principles
-- title: FAQ
+- title: FAQ (ხშირად დასმული შეკითხვები)
   items:
     - id: faq-ajax
       title: AJAX and APIs
