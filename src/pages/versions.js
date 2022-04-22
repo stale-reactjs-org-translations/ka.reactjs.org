@@ -28,7 +28,7 @@ const Versions = ({location}: Props) => (
           <Header>React-ის ვერსიები</Header>
           <TitleAndMetaTags
             canonicalUrl={`${urlRoot}/versions/`}
-            title="React-ის ვერსიები"
+            title="React - ვერსიები"
           />
           <div css={sharedStyles.markdown}>
             <p>
