@@ -21,13 +21,13 @@ const PageNotFound = ({location}: Props) => (
     <Container>
       <div css={sharedStyles.articleLayout.container}>
         <div css={sharedStyles.articleLayout.content}>
-          <Header>Page Not Found</Header>
-          <TitleAndMetaTags title="React - Page Not Found" />
+          <Header>გვერდი ვერ მოიძებნა</Header>
+          <TitleAndMetaTags title="React - გვერდი ვერ მოიძებნა" />
           <div css={sharedStyles.markdown}>
-            <p>We couldn't find what you were looking for.</p>
+            <p>ჩვენ ვერ ვიპოვეთ ის, რასაც თქვენ ეძებდით.</p>
             <p>
-              Please contact the owner of the site that linked you to the
-              original URL and let them know their link is broken.
+              გთხოვთ, დაუკავშირდით იმ გვერდის მფლობელს, რომლის ბმულმაც აქ
+              მოგიყვანათ და აცნობეთ, რომ მათ მიერ მითითებული ბმული არასწორია.
             </p>
           </div>
         </div>
