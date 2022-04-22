@@ -1,24 +1,24 @@
 community:
-  title: Community
+  title: საზოგადოება
 
 docs:
-  title: Docs
+  title: დოკუმენტაცია
 
 more:
-  title: More
+  title: მეტი
   items:
-    - title: Tutorial
+    - title: გაკვეთილი
       to: /tutorial/tutorial.html
-    - title: Blog
+    - title: ბლოგი
       to: /blog
-    - title: Acknowledgements
+    - title: მადლობა
       to: /acknowledgements.html
     - title: React Native
       to: https://reactnative.dev/
       external: true
 
 channels:
-  title: Channels
+  title: არხები
   items:
     - title: GitHub
       to: https://github.com/facebook/react
@@ -26,13 +26,13 @@ channels:
     - title: Stack Overflow
       to: https://stackoverflow.com/questions/tagged/reactjs
       external: true
-    - title: Discussion Forums
+    - title: სადისკუსიო ფორუმები
       to: https://reactjs.org/community/support.html#popular-discussion-forums
       external: true
-    - title: Reactiflux Chat
+    - title: ჩათი Reactiflux
       to: https://discord.gg/reactiflux
       external: true
-    - title: DEV Community
+    - title: დეველოპერთა საზოგადოება
       to: https://dev.to/t/react
       external: true
     - title: Facebook

@@ -220,7 +220,7 @@ const Header = ({location}: {location: Location}) => (
                   display: 'none',
                 },
               }}>
-              Languages
+              ენები
             </span>
           </Link>
           <a
