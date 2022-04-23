@@ -1,6 +1,6 @@
 ---
 id: tutorial
-title: "Tutorial: Intro to React"
+title: "გაკვეთილი: შესავალი React-ში"
 layout: tutorial
 sectionid: tutorial
 permalink: tutorial/tutorial.html
@@ -12,40 +12,40 @@ redirect_from:
   - "docs/tutorial-zh-CN.html"
 ---
 
-This tutorial doesn't assume any existing React knowledge.
+ეს გაკვეთილი არ მოითხოვს React-ის არანაირ (არსებულ) ცოდნას. 
 
-## Before We Start the Tutorial {#before-we-start-the-tutorial}
+## ვიდრე გაკვეთილს შევუდგებით {#before-we-start-the-tutorial}
 
-We will build a small game during this tutorial. **You might be tempted to skip it because you're not building games -- but give it a chance.** The techniques you'll learn in the tutorial are fundamental to building any React app, and mastering it will give you a deep understanding of React.
+ამ გაკვეთილის მიმდინარეობისას შევქმნით პატარა თამაშს. **თქვენ შესაძლოა მოგინდეთ მისი გამოტოვება, რადგან, შეიძლება მომავალში არ აპირებთ თამაშები შექმნათ, მაგრამ უმჯობესია არ გამოტოვოთ.** მიდგომები, რომლებსაც ამ გაკვეთილის განმავლობაში შეიმეცნებთ ფუნდამენტურია ნებისმიერი React აპლიკაციისთვის, და მათი დაუფლება გაგიმარტივებთ React-ის სიღრმისეულ გააზრებას.
 
->Tip
+>რჩევა
 >
->This tutorial is designed for people who prefer to **learn by doing**. If you prefer learning concepts from the ground up, check out our [step-by-step guide](/docs/hello-world.html). You might find this tutorial and the guide complementary to each other.
+>ეს გაკვეთილი განკუთვნილია მათთვის, ვინც ამჯობინებს **ისწავლოს კეთებით**. თუ ამჯობინებთ, რომ ცნებები მიყოლებით შეისწავლოთ, გამოიყენეთ ჩვენი [ეტაპობრივი სახელმძღვანელო](/docs/hello-world.html). შეიძლება ითქვას, რომ ეს გაკვეთილი და ეტაპობრივი სახელმძღვანელო ერთმანეთს ავსებენ.
 
-The tutorial is divided into several sections:
+გაკვეთილი დაყოფილია რამდენიმე განყოფილებად:
 
-* [Setup for the Tutorial](#setup-for-the-tutorial) will give you **a starting point** to follow the tutorial.
-* [Overview](#overview) will teach you **the fundamentals** of React: components, props, and state.
-* [Completing the Game](#completing-the-game) will teach you **the most common techniques** in React development.
-* [Adding Time Travel](#adding-time-travel) will give you **a deeper insight** into the unique strengths of React.
+* [გარემოს მოწყობა](#setup-for-the-tutorial) დაგეხმარებათ, მიიღოთ **საწყისი პოზიცია**, რათა მიჰყვეთ შემდგომ მითითებებს.
+* [მიმოხილვა](#overview) შეგასწავლით React-ის **ფუნდამენტურ საკითხებს**, როგორებიცაა: კომპონენტები, თვისებები და მდგომარეობა.
+* [თამაშზე მუშაობის დასასრული](#completing-the-game) შეგასწავლით React-ზე წერისას **ყველაზე ხშირად გამოყენებულ მიდგომებს**.
+* [დროში მოგზაურობის დამატება](#adding-time-travel) უფრო **მკაფიოდ დაგანახებთ** React-ის უნიკალურ ძლიერ მხარეებს.
 
-You don't have to complete all of the sections at once to get the value out of this tutorial. Try to get as far as you can -- even if it's one or two sections.
+გაკვეთილისგან სარგებლის მისაღებად არ არის აუცილებელი, რომ ერთდროულად ყველა განყოფილება გაიაროთ. ეცადეთ გაიაროთ იმდენი, რამდენსაც შეძლებთ, თუნდაც ეს იყოს ერთი ან ორი განყოფილება.
 
-### What Are We Building? {#what-are-we-building}
+### რას ვქმნით? {#what-are-we-building}
 
-In this tutorial, we'll show how to build an interactive tic-tac-toe game with React.
+ამ გაკვეთილში გაჩვენებთ, თუ როგორ შექმნათ ინტერაქტიული თამაში - ჯვრები და ნულები React-ის გამოყენებით. 
 
-You can see what we'll be building here: **[Final Result](https://codepen.io/gaearon/pen/gWWZgR?editors=0010)**. If the code doesn't make sense to you, or if you are unfamiliar with the code's syntax, don't worry! The goal of this tutorial is to help you understand React and its syntax.
+თქვენ შეგიძლიათ იხილოთ, თუ რის შექმნას ვაპირებთ: **[საბოლოო შედეგი](https://codepen.io/gaearon/pen/gWWZgR?editors=0010)**. თუ ვერ ჩაწვდით კოდის შინაარსს, ან თუ თქვენთვის კოდის სინტაქსი არ არის ნაცნობი, არ იდარდოთ! გაკვეთილის მიზანი ის არის, რომ დაგეხმაროთ React-ისა და მისი სინტაქსის შეცნობაში.
 
-We recommend that you check out the tic-tac-toe game before continuing with the tutorial. One of the features that you'll notice is that there is a numbered list to the right of the game's board. This list gives you a history of all of the moves that have occurred in the game, and it is updated as the game progresses.
+გირჩევთ, რომ ნახოთ თამაში ჯვრები და ნულების საბოლოო შედეგი, ვიდრე გააგრძელებთ გაკვეთილს. ერთ-ერთი მთავარი მახასიათებელი, რომელიც უნდა გაითვალისწინოთ, არის სათამაშო სივრცის მარჯვენა მხარეს არსებული დანომრილი სია. ეს სია შეიცავს ისტორიას ყველა იმ სვლისა, რომელიც განხორციელდა თამაშის განმავლობაში, ხოლო მისი განახლება ხდება თამაშის მიმდინარეობისას.
 
-You can close the tic-tac-toe game once you're familiar with it. We'll be starting from a simpler template in this tutorial. Our next step is to set you up so that you can start building the game.
+როცა თამაში ჯვრები და ნულების საბოლოო ვერსიას გაეცნობით, შეგიძლიათ დახუროთ. ჩვენ დავიწყებთ უფრო მარტივი ნიმუშით. ჩვენი შემდეგი ნაბიჯია გარემოს მომზადება თამაშის შექმნის პროცესის დასაწყებად.
 
-### Prerequisites {#prerequisites}
+### წინაპირობები {#prerequisites}
 
-We'll assume that you have some familiarity with HTML and JavaScript, but you should be able to follow along even if you're coming from a different programming language. We'll also assume that you're familiar with programming concepts like functions, objects, arrays, and to a lesser extent, classes.
+ჩვენ ვვარაუდობთ, რომ თქვენთვის ნაცნობია HTML და JavaScript, მაგრამ თქვენ შეძლებთ მიყვეთ გაკვეთილს იმ შემთხვევაშიც, თუ თქვენ იცით რომელიმე სხვა პროგრამირების ენა. ჩვენ ასევე ვვარაუდობთ, რომ თქვენთვის ნაცნობია პროგრამირების ცნებები, როგორებიცაა: ფუნქციები, ობიექტები, მასივები და, თუნდაც მცირედით - კლასები. 
 
-If you need to review JavaScript, we recommend reading [this guide](https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript). Note that we're also using some features from ES6 -- a recent version of JavaScript. In this tutorial, we're using [arrow functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions), [classes](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes), [`let`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let), and [`const`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const) statements. You can use the [Babel REPL](babel://es5-syntax-example) to check what ES6 code compiles to.
+თუ აპირებთ, რომ გადახედოთ JavaScript-ის საფუძვლებს, ჩვენ რეკომენდაციას ვუწევთ [ამ გზამკვლევს](https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript). გაითვალისწინეთ, რომ ჩვენ ასევე გამოვიყენებთ ES6-ის (JavaScript-ის უახლესი ვერსია) ზოგიერთ თვისებას, როგორიცაა [ისარ-ფუნქციები](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions), [კლასები](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes), [`let`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let) და [`const`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const). შეგიძლიათ გამოიყენოთ [Babel REPL](babel://es5-syntax-example), რათა იხილოთ, თუ როგორ გამოიყურება ES6 კოდი კომპილაციის შემდეგ.
 
 ## Setup for the Tutorial {#setup-for-the-tutorial}
 
