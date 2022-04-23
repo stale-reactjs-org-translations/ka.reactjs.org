@@ -62,12 +62,12 @@ class CodeEditor extends Component {
     if (showBabelErrorMessage) {
       errorMessage = (
         <span>
-          Babel could not be loaded.
+          Babel ვერ ჩაიტვირთა.
           <br />
           <br />
-          This can be caused by an ad blocker. If you're using one, consider
-          adding reactjs.org to the whitelist so the live code examples will
-          work.
+          შესაძლოა, ეს რეკლამების მბლოკავმა გამოიწვია. თუ თქვენ ასეთს იყენებთ, განიხილეთ
+          reactjs.org-ის დამატება თეთრ სიაში, რათა კოდის მაგალითების მყისიერი ჩვენება
+          მოხერხდეს.
         </span>
       );
     } else if (error != null) {
@@ -105,7 +105,7 @@ class CodeEditor extends Component {
                 color: colors.white,
               }}>
               <MetaTitle onDark={true}>
-                Live JSX Editor
+                მყისიერი JSX რედაქტორი
                 <label
                   css={{
                     fontSize: 14,
@@ -175,7 +175,7 @@ class CodeEditor extends Component {
                   cssProps={{
                     color: colors.white,
                   }}>
-                  Error
+                  შეცდომა
                 </MetaTitle>
               </div>
               <pre
@@ -206,7 +206,7 @@ class CodeEditor extends Component {
                   padding: '0 10px',
                   backgroundColor: colors.divider,
                 }}>
-                <MetaTitle>Result</MetaTitle>
+                <MetaTitle>შედეგი</MetaTitle>
               </div>
               <div
                 id={containerNodeID}
