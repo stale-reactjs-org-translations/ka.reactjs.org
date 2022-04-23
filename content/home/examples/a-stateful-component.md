@@ -1,7 +1,7 @@
 ---
-title: A Stateful Component
+title: კომპონენტი მდგომარეობით
 order: 1
 domid: timer-example
 ---
 
-In addition to taking input data (accessed via `this.props`), a component can maintain internal state data (accessed via `this.state`). When a component's state data changes, the rendered markup will be updated by re-invoking `render()`.
+გარდა იმისა, რომ შეგვიძლია გადაცემულ მონაცემებს მივწვდეთ (`this.props`-ის მეშვეობით), კომპონენტს შეუძლია, შეინახოს მისი შიდა მდგომარეობის მონაცემები (ხელმისაწვდომია `this.state`-ის მეშვეობით). როცა კომპონენტის მდგომარეობის აღმნიშვნელი მონაცემები იცვლება, ავტომატურად ხდება `render()`-ის ხელახალი გამოძახება და გენერირებული ჰიპერტექსტური მარკირების განახლება.
