@@ -141,7 +141,8 @@ class Home extends Component {
                         fontSize: 30,
                       },
                     }}>
-                    JavaScript-ის ბიბლიოთეკა მომხმარებლის ინტერფეისების შესაქმნელად
+                    JavaScript-ის ბიბლიოთეკა მომხმარებლის ინტერფეისების
+                    შესაქმნელად
                   </p>
                   <Flex
                     valign="center"
@@ -164,7 +165,7 @@ class Home extends Component {
                     </CtaItem>
                     <CtaItem>
                       <ButtonLink to="/tutorial/tutorial.html" type="secondary">
-                        გადასვლა გაკვეთილზე
+                        სახელმძღვანელოზე გადასვლა
                       </ButtonLink>
                     </CtaItem>
                   </Flex>
@@ -307,7 +308,7 @@ class Home extends Component {
                 </CtaItem>
                 <CtaItem>
                   <ButtonLink to="/tutorial/tutorial.html" type="secondary">
-                    გადასვლა გაკვეთილზე
+                    სახელმძღვანელოზე გადასვლა
                   </ButtonLink>
                 </CtaItem>
               </Flex>

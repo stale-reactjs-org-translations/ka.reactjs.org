@@ -2,7 +2,7 @@ items:
   - title: დოკუმენტაცია
     to: /docs/getting-started.html
     activeSelector: /docs/
-  - title: გაკვეთილი
+  - title: სახელმძღვანელო
     to: /tutorial/tutorial.html
     activeSelector: /tutorial
   - title: ბლოგი

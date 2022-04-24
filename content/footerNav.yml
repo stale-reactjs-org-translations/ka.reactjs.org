@@ -7,7 +7,7 @@ docs:
 more:
   title: მეტი
   items:
-    - title: გაკვეთილი
+    - title: სახელმძღვანელო
       to: /tutorial/tutorial.html
     - title: ბლოგი
       to: /blog
