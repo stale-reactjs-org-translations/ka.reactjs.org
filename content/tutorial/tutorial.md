@@ -1,6 +1,6 @@
 ---
 id: tutorial
-title: "გაკვეთილი: შესავალი React-ში"
+title: "სახელმძღვანელო: შესავალი React-ში"
 layout: tutorial
 sectionid: tutorial
 permalink: tutorial/tutorial.html
@@ -12,97 +12,97 @@ redirect_from:
   - "docs/tutorial-zh-CN.html"
 ---
 
-ეს გაკვეთილი არ მოითხოვს React-ის არანაირ (არსებულ) ცოდნას. 
+ეს სახელმძღვანელო არ მოითხოვს React-ის არანაირ (არსებულ) ცოდნას. 
 
-## ვიდრე გაკვეთილს შევუდგებით {#before-we-start-the-tutorial}
+## ვიდრე საქმეს შევუდგებოდეთ {#before-we-start-the-tutorial}
 
-ამ გაკვეთილის მიმდინარეობისას შევქმნით პატარა თამაშს. **თქვენ შესაძლოა მოგინდეთ მისი გამოტოვება, რადგან, შეიძლება მომავალში არ აპირებთ თამაშები შექმნათ, მაგრამ უმჯობესია არ გამოტოვოთ.** მიდგომები, რომლებსაც ამ გაკვეთილის განმავლობაში შეიმეცნებთ ფუნდამენტურია ნებისმიერი React აპლიკაციისთვის, და მათი დაუფლება გაგიმარტივებთ React-ის სიღრმისეულ გააზრებას.
+ამ პრაქტიკული სამუშაოს მიმდინარეობისას შევქმნით პატარა თამაშს. **თქვენ შესაძლოა მოგინდეთ მისი გამოტოვება, რადგან, შეიძლება მომავალში არ აპირებთ თამაშები შექმნათ, მაგრამ უმჯობესია არ გამოტოვოთ.** მიდგომები, რომლებსაც ამ სახელმძღვანელოდან შეიმეცნებთ, ფუნდამენტურია ნებისმიერი React აპლიკაციისთვის, და მათი დაუფლება გაგიმარტივებთ React-ის სიღრმისეულად გააზრებას.
 
 >რჩევა
 >
->ეს გაკვეთილი განკუთვნილია მათთვის, ვინც ამჯობინებს **ისწავლოს კეთებით**. თუ ამჯობინებთ, რომ ცნებები მიყოლებით შეისწავლოთ, გამოიყენეთ ჩვენი [ეტაპობრივი სახელმძღვანელო](/docs/hello-world.html). შეიძლება ითქვას, რომ ეს გაკვეთილი და ეტაპობრივი სახელმძღვანელო ერთმანეთს ავსებენ.
+>ეს სახელმძღვანელო განკუთვნილია მათთვის, ვინც ამჯობინებს **ისწავლოს კეთებით**. თუ ამჯობინებთ, რომ ცნებები მიყოლებით შეისწავლოთ, გამოიყენეთ ჩვენი [ეტაპობრივი სახელმძღვანელო](/docs/hello-world.html). შეიძლება ითქვას, რომ პრაქტიკული სამუშაო და ეტაპობრივი სახელმძღვანელო ერთმანეთს ავსებენ.
 
-გაკვეთილი დაყოფილია რამდენიმე განყოფილებად:
+სახელმძღვანელო დაყოფილია რამდენიმე განყოფილებად:
 
 * [გარემოს მოწყობა](#setup-for-the-tutorial) დაგეხმარებათ, მიიღოთ **საწყისი პოზიცია**, რათა მიჰყვეთ შემდგომ მითითებებს.
 * [მიმოხილვა](#overview) შეგასწავლით React-ის **ფუნდამენტურ საკითხებს**, როგორებიცაა: კომპონენტები, თვისებები და მდგომარეობა.
 * [თამაშზე მუშაობის დასასრული](#completing-the-game) შეგასწავლით React-ზე წერისას **ყველაზე ხშირად გამოყენებულ მიდგომებს**.
 * [დროში მოგზაურობის დამატება](#adding-time-travel) უფრო **მკაფიოდ დაგანახებთ** React-ის უნიკალურ ძლიერ მხარეებს.
 
-გაკვეთილისგან სარგებლის მისაღებად არ არის აუცილებელი, რომ ერთდროულად ყველა განყოფილება გაიაროთ. ეცადეთ გაიაროთ იმდენი, რამდენსაც შეძლებთ, თუნდაც ეს იყოს ერთი ან ორი განყოფილება.
+სახელმძღვანელოდან სარგებლის მისაღებად არ არის აუცილებელი, რომ ერთდროულად ყველა განყოფილება გაიაროთ. ეცადეთ გაიაროთ იმდენი, რამდენსაც შეძლებთ, თუნდაც ეს იყოს ერთი ან ორი განყოფილება.
 
 ### რას ვქმნით? {#what-are-we-building}
 
-ამ გაკვეთილში გაჩვენებთ, თუ როგორ შექმნათ ინტერაქტიული თამაში - ჯვრები და ნულები React-ის გამოყენებით. 
+ამ სახელმძღვანელოში გაჩვენებთ, თუ როგორ შექმნათ ინტერაქტიული თამაში - ჯვრები და ნულები React-ის გამოყენებით. 
 
-თქვენ შეგიძლიათ იხილოთ, თუ რის შექმნას ვაპირებთ: **[საბოლოო შედეგი](https://codepen.io/gaearon/pen/gWWZgR?editors=0010)**. თუ ვერ ჩაწვდით კოდის შინაარსს, ან თუ თქვენთვის კოდის სინტაქსი არ არის ნაცნობი, არ იდარდოთ! გაკვეთილის მიზანი ის არის, რომ დაგეხმაროთ React-ისა და მისი სინტაქსის შეცნობაში.
+თქვენ შეგიძლიათ იხილოთ, თუ რის შექმნას ვაპირებთ: **[საბოლოო შედეგი](https://codepen.io/gaearon/pen/gWWZgR?editors=0010)**. თუ ვერ ჩაწვდით კოდის შინაარსს, ან თუ თქვენთვის კოდის სინტაქსი არ არის ნაცნობი, არ იდარდოთ! სახელმძღვანელოს მიზანი ის არის, რომ დაგეხმაროთ React-ისა და მისი სინტაქსის შეცნობაში.
 
-გირჩევთ, რომ ნახოთ თამაში ჯვრები და ნულების საბოლოო შედეგი, ვიდრე გააგრძელებთ გაკვეთილს. ერთ-ერთი მთავარი მახასიათებელი, რომელიც უნდა გაითვალისწინოთ, არის სათამაშო სივრცის მარჯვენა მხარეს არსებული დანომრილი სია. ეს სია შეიცავს ისტორიას ყველა იმ სვლისა, რომელიც განხორციელდა თამაშის განმავლობაში, ხოლო მისი განახლება ხდება თამაშის მიმდინარეობისას.
+გირჩევთ, რომ ნახოთ თამაში ჯვრები და ნულების საბოლოო შედეგი, ვიდრე შეუდგებით პრაქტიკულ მუშაობას. ერთ-ერთი მთავარი მახასიათებელი, რომელიც უნდა გაითვალისწინოთ, არის სათამაშო სივრცის მარჯვენა მხარეს არსებული დანომრილი სია. ეს სია შეიცავს ისტორიას ყველა იმ სვლისა, რომელიც განხორციელდა თამაშის განმავლობაში, ხოლო მისი განახლება ხდება თამაშის მიმდინარეობისას.
 
 როცა თამაში ჯვრები და ნულების საბოლოო ვერსიას გაეცნობით, შეგიძლიათ დახუროთ. ჩვენ დავიწყებთ უფრო მარტივი ნიმუშით. ჩვენი შემდეგი ნაბიჯია გარემოს მომზადება თამაშის შექმნის პროცესის დასაწყებად.
 
 ### წინაპირობები {#prerequisites}
 
-ჩვენ ვვარაუდობთ, რომ თქვენთვის ნაცნობია HTML და JavaScript, მაგრამ თქვენ შეძლებთ მიყვეთ გაკვეთილს იმ შემთხვევაშიც, თუ თქვენ იცით რომელიმე სხვა პროგრამირების ენა. ჩვენ ასევე ვვარაუდობთ, რომ თქვენთვის ნაცნობია პროგრამირების ცნებები, როგორებიცაა: ფუნქციები, ობიექტები, მასივები და, თუნდაც მცირედით - კლასები. 
+ჩვენ ვვარაუდობთ, რომ თქვენთვის ნაცნობია HTML და JavaScript, მაგრამ თქვენ შეძლებთ მიყვეთ სახელმძღვანელოს იმ შემთხვევაშიც, თუ თქვენ იცით რომელიმე სხვა პროგრამირების ენა. ჩვენ ასევე ვვარაუდობთ, რომ თქვენთვის ნაცნობია პროგრამირების ცნებები, როგორებიცაა: ფუნქციები, ობიექტები, მასივები და, თუნდაც მცირედით - კლასები. 
 
 თუ აპირებთ, რომ გადახედოთ JavaScript-ის საფუძვლებს, ჩვენ რეკომენდაციას ვუწევთ [ამ გზამკვლევს](https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript). გაითვალისწინეთ, რომ ჩვენ ასევე გამოვიყენებთ ES6-ის (JavaScript-ის უახლესი ვერსია) ზოგიერთ თვისებას, როგორიცაა [ისარ-ფუნქციები](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions), [კლასები](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes), [`let`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let) და [`const`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const). შეგიძლიათ გამოიყენოთ [Babel REPL](babel://es5-syntax-example), რათა იხილოთ, თუ როგორ გამოიყურება ES6 კოდი კომპილაციის შემდეგ.
 
-## Setup for the Tutorial {#setup-for-the-tutorial}
+## გარემოს მოწყობა {#setup-for-the-tutorial}
 
-There are two ways to complete this tutorial: you can either write the code in your browser, or you can set up a local development environment on your computer.
+ამ სახელმძღვანელოთი სარგებლობის ორი გზა არსებობს: წეროთ კოდი თქვენს ბრაუზერში, ან მოაწყოთ ლოკალური დეველოპმენტის გარემო თქვენს კომპიუტერში.
 
-### Setup Option 1: Write Code in the Browser {#setup-option-1-write-code-in-the-browser}
+### ვარიანტი 1: კოდის წერა ბრაუზერში {#setup-option-1-write-code-in-the-browser}
 
-This is the quickest way to get started!
+ეს უსწრაფესი გზაა დასაწყებას! 
 
-First, open this **[Starter Code](https://codepen.io/gaearon/pen/oWWQNa?editors=0010)** in a new tab. The new tab should display an empty tic-tac-toe game board and React code. We will be editing the React code in this tutorial.
+პირველ რიგში, გახსენით ეს **[საწყისი კოდი](https://codepen.io/gaearon/pen/oWWQNa?editors=0010)** ახალ ჩანართში. თქვენ დაინახავთ თამაში - ჯვრები და ნულების ცარიელ ცხრილს და React-ის კოდს. პრაქტიკული სამუშაოს განმავლობაში სწორედ ამ კოდის რედაქტირებას მოვახდენთ.
 
-You can now skip the second setup option, and go to the [Overview](#overview) section to get an overview of React.
+შეგიძლიათ გამოტოვოთ გარემოს მოწყობის მეორე ვარიანტი და გადახვიდეთ განყოფილებაზე, სადაც [მიმოვიხილავთ](#overview) React-ს.
 
-### Setup Option 2: Local Development Environment {#setup-option-2-local-development-environment}
+### ვარიანტი 2: ლოკალური დეველოპმენტის გარემო {#setup-option-2-local-development-environment}
 
-This is completely optional and not required for this tutorial!
+ეს არის არჩევითი და არასავალდებულო ამ პრაქტიკული სამუშაოსთვის!
 
 <br>
 
 <details>
 
-<summary><b>Optional: Instructions for following along locally using your preferred text editor</b></summary>
+<summary><b>არასავალდებულო: ინსტრუქციები, რომლებიც დაგეხმარებათ, შეძლოთ თქვენი რჩეული ტექსტური რედაქტორის გამოყენება პრაქტიკული მუშაობისთვის</b></summary>
 
-This setup requires more work but allows you to complete the tutorial using an editor of your choice. Here are the steps to follow:
+ეს არის უფრო შრომატევადი გზა, მაგრამ, ამ გზით შეძლებთ, პრაქტიკული მუშაობისას გამოიყენოთ თქვენი რჩეული რედაქტორი. აი, რა უნდა გააკეთოთ:
 
-1. Make sure you have a recent version of [Node.js](https://nodejs.org/en/) installed.
-2. Follow the [installation instructions for Create React App](/docs/create-a-new-react-app.html#create-react-app) to make a new project.
+1. დარწმუნდით, რომ თქვენს მოწყობილობაზე დაყენებულია [Node.js](https://nodejs.org/en/)-ის უახლესი ვერსია.
+2. მიყევით [Create React App-ის დაყენების ინსტრუქციას](/docs/create-a-new-react-app.html#create-react-app), რომ შექმნათ ახალი პროექტი.
 
 ```bash
 npx create-react-app my-app
 ```
 
-3. Delete all files in the `src/` folder of the new project 
+3. წაშალეთ ახალი პროექტის `src/` საქაღალდეში არსებული ყველა ფაილი
 
-> Note:
+> შენიშვნა:
 >
->**Don't delete the entire `src` folder, just the original source files inside it.** We'll replace the default source files with examples for this project in the next step.
+>**არ წაშალოთ `src` საქაღალდე მთლიანად, წაშალეთ მხოლოდ მასში არსებული ფაილები.** ჩვენ ამ ფაილებს ჩვენი პროექტისთვის შესაბამისი ფაილებით ჩავანაცვლებთ.
 
 ```bash
 cd my-app
 cd src
 
-# If you're using a Mac or Linux:
+# თუ თქვენ იყენებთ Mac-ს ან Linux-ს:
 rm -f *
 
-# Or, if you're on Windows:
+# ან, თუ Windows-ს იყენებთ:
 del *
 
-# Then, switch back to the project folder
+# შემდეგ დაბრუნდით უკან, პროექტის საქაღალდეში:
 cd ..
 ```
 
-4. Add a file named `index.css` in the `src/` folder with [this CSS code](https://codepen.io/gaearon/pen/oWWQNa?editors=0100).
+4. `src/` საქაღალდეში შექმენით `index.css` ფაილი და ჩაწერეთ მასში [ეს CSS კოდი](https://codepen.io/gaearon/pen/oWWQNa?editors=0100).
 
-5. Add a file named `index.js` in the `src/` folder with [this JS code](https://codepen.io/gaearon/pen/oWWQNa?editors=0010).
+5. `src/` საქაღალდეში შექმენით `index.js` ფაილი და ჩაწერეთ მასში [ეს JS კოდი](https://codepen.io/gaearon/pen/oWWQNa?editors=0010).
 
-6. Add these three lines to the top of `index.js` in the `src/` folder:
+6. `src/` საქაღალდეში არსებულ `index.js` ფაილის თავში (ზემოთ), დაამატეთ ეს სამი ხაზი:
 
 ```js
 import React from 'react';
@@ -110,15 +110,15 @@ import ReactDOM from 'react-dom';
 import './index.css';
 ```
 
-Now if you run `npm start` in the project folder and open `http://localhost:3000` in the browser, you should see an empty tic-tac-toe field.
+ამის შემდეგ, თუ თქვენ გაუშვებთ `npm start` ბრძანებას პროექტის საქაღალდეში და ბრაუზერში გახსნით `http://localhost:3000` მისამართს, თქვენ უნდა დაინახოთ თამაში - ჯვრები და ნულების ცარიელი ცხრილი.
 
-We recommend following [these instructions](https://babeljs.io/docs/editors/) to configure syntax highlighting for your editor.
+ჩვენ გირჩევთ, მიყვეთ [ამ ინსტრუქციებს](https://babeljs.io/docs/editors/), რომ მოახდინოთ სინტაქსის ხაზგასმის რეგულირება თქვენი რედაქტორისთვის.
 
 </details>
 
-### Help, I'm Stuck! {#help-im-stuck}
+### დამეხმარეთ, გავიჭედე! {#help-im-stuck}
 
-If you get stuck, check out the [community support resources](/community/support.html). In particular, [Reactiflux Chat](https://discord.gg/reactiflux) is a great way to get help quickly. If you don't receive an answer, or if you remain stuck, please file an issue, and we'll help you out.
+თუ თქვენ გაიჭედეთ, გთხოვთ, შეამოწმეთ [საზოგადოების მხარდაჭერის წყაროები](/community/support.html). განსაკუთრებით, [ჩათი Reactiflux](https://discord.gg/reactiflux) არის დიდებული გზა, დახმარების უსწრაფესად მიღებისთვის. თუ პასუხს ვერ მიიღებთ, ან თუ ვერ დაგეხმარებიან, გთხოვთ, [განაცხადეთ ჩვენთან](https://github.com/reactjs/ru.reactjs.org/issues/new) და ჩვენ დაგეხმარებით.
 
 ## Overview {#overview}
 
