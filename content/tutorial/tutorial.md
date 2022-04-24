@@ -80,7 +80,7 @@ npx create-react-app my-app
 
 3. წაშალეთ ახალი პროექტის `src/` საქაღალდეში არსებული ყველა ფაილი
 
-> შენიშვნა:
+>შენიშვნა:
 >
 >**არ წაშალოთ `src` საქაღალდე მთლიანად, წაშალეთ მხოლოდ მასში არსებული ფაილები.** ჩვენ ამ ფაილებს ჩვენი პროექტისთვის შესაბამისი ფაილებით ჩავანაცვლებთ.
 
@@ -120,22 +120,22 @@ import './index.css';
 
 თუ თქვენ გაიჭედეთ, გთხოვთ, შეამოწმეთ [საზოგადოების მხარდაჭერის წყაროები](/community/support.html). განსაკუთრებით, [ჩათი Reactiflux](https://discord.gg/reactiflux) არის დიდებული გზა, დახმარების უსწრაფესად მიღებისთვის. თუ პასუხს ვერ მიიღებთ, ან თუ ვერ დაგეხმარებიან, გთხოვთ, [განაცხადეთ ჩვენთან](https://github.com/reactjs/ru.reactjs.org/issues/new) და ჩვენ დაგეხმარებით.
 
-## Overview {#overview}
+## მიმოხილვა {#overview}
 
-Now that you're set up, let's get an overview of React!
+ახლა, როცა ყველაფერი მოვამზადეთ, მოდით, მიმოვიხილოთ React!
 
-### What Is React? {#what-is-react}
+### რა არის React? {#what-is-react}
 
-React is a declarative, efficient, and flexible JavaScript library for building user interfaces. It lets you compose complex UIs from small and isolated pieces of code called "components".
+React არის დეკლარაციაული, ეფექტური და მოქნილი JavaScript-ის ბიბლიოთეკა მომხმარებლის ინტერფეისების შესაქმნელად. ის საშუალებას გაძლევთ, შეადგინოთ რთული UI-ს სტრუქტურა პატარა, იზოლირებული კოდის ნაწილებისგან, - „კომპონენტებისგან“.
 
-React has a few different kinds of components, but we'll start with `React.Component` subclasses:
+React-ში გვაქვს რამოდენიმე, ერთმანეთისგან განსხვავებული სახის კომპონენტები, მაგრამ, ჩვენ დავიწყებთ `React.Component`-ის ქვეკლასებით: 
 
 ```javascript
 class ShoppingList extends React.Component {
   render() {
     return (
       <div className="shopping-list">
-        <h1>Shopping List for {this.props.name}</h1>
+        <h1>საყიდლების სია {this.props.name}-სათვის</h1>
         <ul>
           <li>Instagram</li>
           <li>WhatsApp</li>
@@ -146,51 +146,51 @@ class ShoppingList extends React.Component {
   }
 }
 
-// Example usage: <ShoppingList name="Mark" />
+// გამოყენების მაგალითი: <ShoppingList name="მარკი" />
 ```
 
-We'll get to the funny XML-like tags soon. We use components to tell React what we want to see on the screen. When our data changes, React will efficiently update and re-render our components.
+ჩვენ ისევ მივუბრუნდებით ამ სახალისო, XML-ის მსგავს ტეგებს. კომპონენტების გამოყენებით ჩვენ ვეუბნებით React-ს, თუ რისი დანახვა გვინდა ეკრანზე. როცა მონაცემები იცვლება, React ეფექტურად ანახლებს და ხელახლა ასახავს ჩვენს კომპონენტებს.
 
-Here, ShoppingList is a **React component class**, or **React component type**. A component takes in parameters, called `props` (short for "properties"), and returns a hierarchy of views to display via the `render` method.
+*ShoppingList* არის **React-ის კლასური კომპონენტის** მაგალითი. კომპონენტს გადაეცემა პარამეტრები, რომლებსაც ეწოდება - `props` (`properties`-ის, ანუ *თვისებების* შემოკლებული ვარიანტი), და შედეგად აბრუნებს ვიზუალურ იერარქიას `render` მეთოდის გამოყენებით.
 
-The `render` method returns a *description* of what you want to see on the screen. React takes the description and displays the result. In particular, `render` returns a **React element**, which is a lightweight description of what to render. Most React developers use a special syntax called "JSX" which makes these structures easier to write. The `<div />` syntax is transformed at build time to `React.createElement('div')`. The example above is equivalent to:
+`render` მეთოდი აბრუნებს იმის *აღწერას*, თუ რისი ნახვა გვინდა ეკრანზე. React იღებს ამ აღწერას და გვიჩვენებს ვიზუალურ შედეგს. უფრო კონკრეტულად, `render` აბრუნებს **React-ის ელემენტს**, რომელიც არის მსუბუქი აღწერა იმისა, თუ რისი ასახვა გვსურს. React დეველოპერების უმეტესობა იყენებს სპეციალურ სინტაქსს, ეგრედ წოდებულ "JSX"-ს, რომელიც ამ სტრუქტურების აგებას ამარტივებს. აგების მომენტში, `<div />` გარდაიქმნება - `React.createElement('div')`-ად. ზემოთ მოცემული მაგალითი იგივეა, რაც:
 
 ```javascript
 return React.createElement('div', {className: 'shopping-list'},
-  React.createElement('h1', /* ... h1 children ... */),
-  React.createElement('ul', /* ... ul children ... */)
+  React.createElement('h1', /* ... h1-ის შვილობილები ... */),
+  React.createElement('ul', /* ... ul-ის შვილობილები ... */)
 );
 ```
 
-[See full expanded version.](babel://tutorial-expanded-version)
+[იხილეთ სრული ვერსია.](babel://tutorial-expanded-version)
 
-If you're curious, `createElement()` is described in more detail in the [API reference](/docs/react-api.html#createelement), but we won't be using it in this tutorial. Instead, we will keep using JSX.
+თუ დაინტერესდებით, `createElement()` დეტალურად არის განხილული [API სქოლიო](/docs/react-api.html#createelement)-ში, მაგრამ, ამ პრაქტიკულ სახელმძღვანელოში მას აღარ გამოვიყენებთ. მის ნაცვლად გავაგრძელებთ JSX-ის გამოყენებას.
 
-JSX comes with the full power of JavaScript. You can put *any* JavaScript expressions within braces inside JSX. Each React element is a JavaScript object that you can store in a variable or pass around in your program.
+JSX აღჭურვილია JavaScript-ის სრული ძალით. JSX-ში, ფიგურილ ფრჩხილებს შორის, შეგიძლიათ გამოიყენოთ *ნებისმიერი* JavaScript გამოსახულება. React-ის ყოველი ელემენტი არის JavaScript-ის ობიექტი, რომელიც შეგიძლიათ შეინახოთ ცვლადში, ან გაავრცელოთ თქვენი პროგრამის ფარგლებში.
 
-The `ShoppingList` component above only renders built-in DOM components like `<div />` and `<li />`. But you can compose and render custom React components too. For example, we can now refer to the whole shopping list by writing `<ShoppingList />`. Each React component is encapsulated and can operate independently; this allows you to build complex UIs from simple components.
+ზემოთ მოცემული `ShoppingList` კომპონენტი, მხოლოდ DOM-ში ჩაშენებულ კომპონენტებს გამოსახავს, როგორიცაა `<div />` და `<li />`. მაგრამ, ასევე შეგვიძლია, გამოვსახოთ ჩვენს მიერ შექმნილი კომპონენტებიც. მაგალითად, ახლა შეგვიძლია გამოვსახოთ საყიდლების სრული სია `<ShoppingList />`-ის დაწერით. React-ის ყოველი კომპონენტი ინკაფსულირებულია, და შესაძლოა, გამოყენებულ იქნეს დამოუკიდებლად; ეს საშუალებას გვაძლევს, შევქმნათ რთული ინტერფეისები - მარტივი კომპონენტებისგან.
 
-### Inspecting the Starter Code {#inspecting-the-starter-code}
+### გავერკვეთ საწყის კოდში {#inspecting-the-starter-code}
 
-If you're going to work on the tutorial **in your browser,** open this code in a new tab: **[Starter Code](https://codepen.io/gaearon/pen/oWWQNa?editors=0010)**. If you're going to work on the tutorial **locally,** instead open `src/index.js` in your project folder (you have already touched this file during the [setup](#setup-option-2-local-development-environment)).
+თუ აპირებთ, რომ პრაქტიკული მუშაობა განაგრძოთ **თქვენს ბრაუზერში,** გახსენით **[საწყისი კოდი](https://codepen.io/gaearon/pen/oWWQNa?editors=0010)** ახალ ჩანართში. თუ გაგრძელებას **ლოკალურ გარემოში** აპირებთ, გახსენით `src/index.js` ფაილი, რომელიც თქვენი პროექტის საქაღალდეშია (ეს ფაილი [სამუშაო გარემოს მოწყობისას](#setup-option-2-local-development-environment) შექმენით).
 
-This Starter Code is the base of what we're building. We've provided the CSS styling so that you only need to focus on learning React and programming the tic-tac-toe game.
+ეს კოდი არის საწყისი წერტილი იმისა, რის შექმნასაც ვაპირებთ. უკვე უზრუნველვყავით საჭირო CSS სტილები, ასე რომ, შეგიძლიათ ფოკუსირდეთ მხოლოდ React-ის შესწავლაზე და თამაში - ჯვრები და ნულების შექმნაზე.
 
-By inspecting the code, you'll notice that we have three React components:
+თუ კოდს დააკვირდებით, შენიშნავთ, რომ მოცემული გვაქვს სამი React კომპონენტი:
 
-* Square
-* Board
-* Game
+* Square (უჯრედი)
+* Board (დაფა)
+* Game (თამაში)
 
-The Square component renders a single `<button>` and the Board renders 9 squares. The Game component renders a board with placeholder values which we'll modify later. There are currently no interactive components.
+ყოველი `Square` კომპონენტი ასახავს თითო `<button>`-ს, ხოლო `Board` კომპონენტი ასახავს - ცხრა `<Square />`-ს. `Game` კომპონენტი ასახავს `<Board />`-ს და რამოდენიმე ელემენტს, რომლებსაც მოგვიანებით გადავაკეთებთ. ჯერ არ გვაქვს არც ერთი ინტერაქტიული კომპონენტი.
 
-### Passing Data Through Props {#passing-data-through-props}
+### მონაცემთა მიწოდება Props-ის მეშვეობით {#passing-data-through-props}
 
-To get our feet wet, let's try passing some data from our Board component to our Square component.
+მოდით, ვცადოთ რაიმე მონაცემის გადაწოდება `Board` კომპონენტიდან - `Square` კომპონენტში.
 
-We strongly recommend typing code by hand as you're working through the tutorial and not using copy/paste. This will help you develop muscle memory and a stronger understanding.
+გირჩევთ პრაქტიკული სამუშაოს განმავლობაში კოდი წეროთ თქვენი ხელით, არ გამოიყენოთ კოპირება-ჩასმის მიდგომა. ეს გაგიადვილებთ საკითხის შეცნობას და გაგიუმჯობესებთ მეხსიერებას.
 
-In Board's `renderSquare` method, change the code to pass a prop called `value` to the Square:
+`Board` კომპონენტის `renderSquare` მეთოდში შევიტანოთ ცვლილება, `Square` კომპონენტს გადავაწოდოთ `value` თვისება (`Prop`):
 
 ```js{3}
 class Board extends React.Component {
@@ -200,7 +200,7 @@ class Board extends React.Component {
 }
 ```
 
-Change Square's `render` method to show that value by replacing `{/* TODO */}` with `{this.props.value}`:
+შევცვალოთ `Square` კომპონენტის `render` მეთოდი, რათა მოვახდინოთ მიღებული მნიშვნელობის ჩვენება ეკრანზე. ამისათვის, `{/* TODO */}` ჩავანაცვლოთ `{this.props.value}`-ით:
 
 ```js{5}
 class Square extends React.Component {
@@ -214,28 +214,28 @@ class Square extends React.Component {
 }
 ```
 
-Before:
+ცვლილებამდე:
 
 ![React Devtools](../images/tutorial/tictac-empty.png)
 
-After: You should see a number in each square in the rendered output.
+ცვლილების შემდეგ: ყოველი უჯრედის შიგნით იხალავთ ციფრს.
 
 ![React Devtools](../images/tutorial/tictac-numbers.png)
 
-**[View the full code at this point](https://codepen.io/gaearon/pen/aWWQOG?editors=0010)**
+**[იხილეთ სრული კოდი ამჟამინდელი მდგომარეობით](https://codepen.io/gaearon/pen/aWWQOG?editors=0010)**
 
-Congratulations! You've just "passed a prop" from a parent Board component to a child Square component. Passing props is how information flows in React apps, from parents to children.
+გილოცავთ! ახლახანს წარმატებით „გადააწოდეთ თვისება (prop)“ მშობელი `Board` კომპონენტიდან, - შვილობილ `Square` კომპონენტს. თვისებების გადაწოდება React-ის აპლიკაციებში არის გზა ინფორმაციის დინებისა მშობელი კომპონენტებიდან - შვილობილებში.
 
-### Making an Interactive Component {#making-an-interactive-component}
+### გავხადოთ კომპონენტი ინტერაქტიული {#making-an-interactive-component}
 
-Let's fill the Square component with an "X" when we click it.
-First, change the button tag that is returned from the Square component's `render()` function to this:
+მოდით, `Square` კომპონენტზე დაწკაპუნებისას, მასში ჩავწეროთ სიმბოლო - „X“.
+პირველ რიგში, გადავაკეთოთ `Square` კომპონენტის `render()` ფუნქციის მიერ დაბრუნებული `button` ტეგი: 
 
 ```javascript{4}
 class Square extends React.Component {
   render() {
     return (
-      <button className="square" onClick={function() { console.log('click'); }}>
+      <button className="square" onClick={function() { console.log('დააწკაპუნეთ'); }}>
         {this.props.value}
       </button>
     );
@@ -243,17 +243,17 @@ class Square extends React.Component {
 }
 ```
 
-If you click on a Square now, you should see 'click' in your browser's devtools console.
+ამის შემდეგ, თუ თქვენ რომელიმე უჯრედზე დააკლიკებთ, თქვენი ბრაუზერის კონსოლში გამოჩნდება შეტყობინება - „დააწკაპუნეთ“.
 
->Note
+>შენიშვნა
 >
->To save typing and avoid the [confusing behavior of `this`](https://yehudakatz.com/2011/08/11/understanding-javascript-function-invocation-and-this/), we will use the [arrow function syntax](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions) for event handlers here and further below:
+>იმისათვის, რომ ნაკლები ვწეროთ და თავი ავარიდოთ [`this`-ის დამაბნეველ ქცევას](https://yehudakatz.com/2011/08/11/understanding-javascript-function-invocation-and-this/), მოვლენების დამმუშავებლებისთვის (აქ და შემდგომში) გამოვიყენებთ [ისარ-ფუნქციების სინტაქსს](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions):
 >
 >```javascript{4}
 >class Square extends React.Component {
 >  render() {
 >    return (
->      <button className="square" onClick={() => console.log('click')}>
+>      <button className="square" onClick={() => console.log('დააწკაპუნეთ')}>
 >        {this.props.value}
 >      </button>
 >    );
@@ -261,13 +261,13 @@ If you click on a Square now, you should see 'click' in your browser's devtools 
 >}
 >```
 >
->Notice how with `onClick={() => console.log('click')}`, we're passing *a function* as the `onClick` prop. React will only call this function after a click. Forgetting `() =>` and writing `onClick={console.log('click')}` is a common mistake, and would fire every time the component re-renders.
+>მიაქციეთ ყურედღება, თუ როგორ გადავცემთ `onClick={() => console.log('click')}`-ით *ფუნქციას*, როგორც `onClick` თვისებას (prop). React ამ ფუნქციას გამოიძახებს მხოლოდ დაწკაპუნების შემდეგ. `() =>`-ის გამოტოვება, და `onClick={console.log('click')}`-ის დაწერა არის ხშირი შეცდომა. მსგავსი კოდი გაეშვება იმდენჯერ, რამდენჯერაც კომპონენტის ასახვა (render) მოხდება.
 
-As a next step, we want the Square component to "remember" that it got clicked, and fill it with an "X" mark. To "remember" things, components use **state**.
+ჩვენი შემდეგი მიზანია `Square` კომპონენტმა „დაიმახსოვროს“, რომ მასზე მოხდა დაწკაპუნება და ჩავწეროთ მასში სიმბოლო - „X“. იმისათვის, რომ კომპონენტმა რამე „დაიმახსოვროს“, იყენებს **state**-ს (მდგომარეობა).
 
-React components can have state by setting `this.state` in their constructors. `this.state` should be considered as private to a React component that it's defined in. Let's store the current value of the Square in `this.state`, and change it when the Square is clicked.
+React-ის კომპონენტებისთვის მდგომარეობის განსასაზღვრად, მათსავე კონსტრუქტორში `this.state` უნდა დავამატოთ. `this.state` უნდა განვიხილოთ, როგორც React-ის იმ კომპონენტის კერძო საკუთრება, რომელშიც განსაზღვრულია. მოდით, შევინახოთ `Square`-ის მიმდინარე მნიშვნელობა `this.state`-ში და მოვახდინოთ მისი შეცვლა, როცა `Square`-ზე მოხდება დაწკაპუნება.
 
-First, we'll add a constructor to the class to initialize the state:
+state-ის ინიციალიზებისთვის, პირველ რიგში, კლასს უნდა დავამატოთ კონსტრუქტორი:
 
 ```javascript{2-7}
 class Square extends React.Component {
@@ -280,7 +280,7 @@ class Square extends React.Component {
 
   render() {
     return (
-      <button className="square" onClick={() => console.log('click')}>
+      <button className="square" onClick={() => console.log('დააწკაპუნეთ')}>
         {this.props.value}
       </button>
     );
@@ -288,17 +288,17 @@ class Square extends React.Component {
 }
 ```
 
->Note
+>შენიშვნა
 >
->In [JavaScript classes](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes), you need to always call `super` when defining the constructor of a subclass. All React component classes that have a `constructor` should start with a `super(props)` call.
+>[JavaScript-ის კლასებში](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes), როცა შვილობილი კლასის კონსტრუქტორს განვსაზღვრავთ, ყოველთვის გვჭირდება `super`-ის გამოძახება. React-ის ყოველი კლასური კომპონენტი, რომელსაც `constructor` გააჩნია, უნდა იწყებოდეს `super(props)`-ის გამოძახებით.
 
-Now we'll change the Square's `render` method to display the current state's value when clicked:
+ახლა მოდით, შევცვალოთ  `Square` კომპონენტის `render` მეთოდი, რომ ავსახოთ მიმდინარე მდგომარეობის (state) მნიშვნელობა დაწკაპუნებისას:
 
-* Replace `this.props.value` with `this.state.value` inside the `<button>` tag.
-* Replace the `onClick={...}` event handler with `onClick={() => this.setState({value: 'X'})}`.
-* Put the `className` and `onClick` props on separate lines for better readability.
+* `<button>` ტეგში, `this.props.value` შევცვალოთ `this.state.value`-ით.
+* შევცვალოთ `onClick={...}` მოვლენის დამმუშავებელი `onClick={() => this.setState({value: 'X'})}`-ით.
+* `className` და `onClick`  თვისებები (props) მოვათავსოთ სხვადასხვა ხაზზე, რათა კოდი გავხადოთ უფრო მარტივად წაკითხვადი.
 
-After these changes, the `<button>` tag that is returned by the Square's `render` method looks like this:
+ამ ცვლილებების შემდეგ, `Square` კომპონენტის `render` მეთოდის მიერ დაბრუნებული `<button>` ტეგი ასე გამოიყურება:
 
 ```javascript{12-13,15}
 class Square extends React.Component {
@@ -322,28 +322,28 @@ class Square extends React.Component {
 }
 ```
 
-By calling `this.setState` from an `onClick` handler in the Square's `render` method, we tell React to re-render that Square whenever its `<button>` is clicked. After the update, the Square's `this.state.value` will be `'X'`, so we'll see the `X` on the game board. If you click on any Square, an `X` should show up.
+`Square` კომპონენტის `render` მეთოდში `onClick` დამმუშავებლის მიერ `this.setState`-ის გამოძახებით, ჩვენ React-ს ვეუბნებით, რომ `Square` კომპონენტი ასახოს (render) ხელახლა, როცა მასში არსებულ `<button>`-ზე მოხდება დაწკაპუნება. განახლების შემდეგ, `Square` კომპონენტის `this.state.value`-ს მნიშვნელობა გახდება `'X'`, ამიტომ, თამაშის დაფაზე გამოჩნდება სიმბოლო -`X`.
 
-When you call `setState` in a component, React automatically updates the child components inside of it too.
+როცა კომპონენტში ვიძახებთ `setState`-ს, React ავტომატურად ანახლებს ამ კომპონენტში მოთავსებულ, შვილობილ კომპონენტებსაც.
 
-**[View the full code at this point](https://codepen.io/gaearon/pen/VbbVLg?editors=0010)**
+**[იხილეთ სრული კოდი ამჟამინდელი მდგომარეობით](https://codepen.io/gaearon/pen/VbbVLg?editors=0010)**
 
-### Developer Tools {#developer-tools}
+### დეველოპერის ინსტრუმენტები {#developer-tools}
 
-The React Devtools extension for [Chrome](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en) and [Firefox](https://addons.mozilla.org/en-US/firefox/addon/react-devtools/) lets you inspect a React component tree with your browser's developer tools.
+[Chrome](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en)-ისა და [Firefox](https://addons.mozilla.org/en-US/firefox/addon/react-devtools/)-ისათვის განკუთვნილი დამატება (extension) - React Devtools საშუალებას გაძლევთ, თქვენი ბრაუზერის დეველოპერის ხელსაწყოთა ჩანართიდან დააკვირდეთ React კომპონენტების იერარქიას.
 
 <img src="../images/tutorial/devtools.png" alt="React Devtools" style="max-width: 100%">
 
-The React DevTools let you check the props and the state of your React components.
+React Devtools დამატება საშუალებას მოგცემთ, შეამოწმოთ თქვენი React კომპონენტების თვისებები (props) და მდგომარეობა (state).
 
-After installing React DevTools, you can right-click on any element on the page, click "Inspect" to open the developer tools, and the React tabs ("⚛️ Components" and "⚛️ Profiler") will appear as the last tabs to the right. Use "⚛️ Components" to inspect the component tree.
+React Devtools დამატების ინსტალაციის შემდეგ, შეგიძლიათ მაუსის მარჯვენა ღილაკით დააწკაპუნოთ გვერდზე არსებულ ნებისმიერ ელემენტზე, შემდეგ დააწკაპუნოთ `Inspect` (`გამოკვლევა`)-ზე, რომ გახსნათ დეველოპერის ხელსაწყოთა ჩანართი, რომელშიც მარჯვნივ გამოჩნდება React-ის განყოფილებები ("⚛️ Components" და "⚛️ Profiler"). კომპონენტების იერარქიის სანახავად გამოიყენება "⚛️ Components" განყოფილება.
 
-**However, note there are a few extra steps to get it working with CodePen:**
+**მაგრამ იმისათვის, რომ ეს CodePen-ზე ავამუშავოთ, რამოდენიმე დამატებითი ეტაპის გავლაა საჭირო:**
 
-1. Log in or register and confirm your email (required to prevent spam).
-2. Click the "Fork" button.
-3. Click "Change View" and then choose "Debug mode".
-4. In the new tab that opens, the devtools should now have a React tab.
+1. გაიარეთ ავტორიზაცია, ან დარეგისტრირდით და დაადასტურეთ თქვენი ელ. ფოსტის მისამართის ავთენტურობა (აუცილებელია სპამის თავიდან ასაცილებლად).
+2. დააწკაპუნეთ "Fork" ღილაკზე.
+3. დააწკაპუნეთ "Change View"-ზე და შემდეგ აირჩიეთ "Debug mode". 
+4. ახალ ჩანართში, რომელიც გაიხსნება, დეველოპერის ხელსაწყოთა შორის უნდა იყოს React-ის განყოფილება.
 
 ## Completing the Game {#completing-the-game}
 
