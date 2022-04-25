@@ -56,28 +56,28 @@
           href: /tutorial/tutorial.html#developer-tools
           forceInternal: true
     - id: completing-the-game
-      title: თამაშზე მუშაობის დასასრული
+      title: დავასრულოთ თამაშზე მუშაობა
       href: /tutorial/tutorial.html#completing-the-game
       forceInternal: true
       subitems:
         - id: lifting-state-up
-          title: Lifting State Up
+          title: მდგომარეობის გადატანა ზემოთ
           href: /tutorial/tutorial.html#lifting-state-up
           forceInternal: true
         - id: why-immutability-is-important
-          title: Why Immutability Is Important
+          title: რატომ არის უცვლელობა მნიშვნელოვანი?
           href: /tutorial/tutorial.html#why-immutability-is-important
           forceInternal: true
         - id: function-components
-          title: Function Components
+          title: ფუნქციური კომპონენტები
           href: /tutorial/tutorial.html#function-components
           forceInternal: true
         - id: taking-turns
-          title: Taking Turns
+          title: სვლების მონაცვლეობა
           href: /tutorial/tutorial.html#taking-turns
           forceInternal: true
         - id: declaring-a-winner
-          title: Declaring a Winner
+          title: გამარჯვებულის გამოვლენა
           href: /tutorial/tutorial.html#declaring-a-winner
           forceInternal: true
     - id: adding-time-travel

@@ -243,7 +243,7 @@ class Square extends React.Component {
 }
 ```
 
-ამის შემდეგ, თუ თქვენ რომელიმე უჯრედზე დააკლიკებთ, თქვენი ბრაუზერის კონსოლში გამოჩნდება შეტყობინება - „დააწკაპუნეთ“.
+ამის შემდეგ, თუ თქვენ რომელიმე უჯრედზე დააწკაპუნებთ, თქვენი ბრაუზერის კონსოლში გამოჩნდება შეტყობინება - „დააწკაპუნეთ“.
 
 >შენიშვნა
 >
@@ -324,7 +324,7 @@ class Square extends React.Component {
 
 `Square` კომპონენტის `render` მეთოდში `onClick` დამმუშავებლის მიერ `this.setState`-ის გამოძახებით, ჩვენ React-ს ვეუბნებით, რომ `Square` კომპონენტი ასახოს (render) ხელახლა, როცა მასში არსებულ `<button>`-ზე მოხდება დაწკაპუნება. განახლების შემდეგ, `Square` კომპონენტის `this.state.value`-ს მნიშვნელობა გახდება `'X'`, ამიტომ, თამაშის დაფაზე გამოჩნდება სიმბოლო -`X`.
 
-როცა კომპონენტში ვიძახებთ `setState`-ს, React ავტომატურად ანახლებს ამ კომპონენტში მოთავსებულ, შვილობილ კომპონენტებსაც.
+როცა კომპონენტში ვიძახებთ `setState`-ს, React ანგარიშმიუცემლად ანახლებს ამ კომპონენტში მოთავსებულ, შვილობილ კომპონენტებსაც.
 
 **[იხილეთ სრული კოდი ამჟამინდელი მდგომარეობით](https://codepen.io/gaearon/pen/VbbVLg?editors=0010)**
 
@@ -345,21 +345,21 @@ React Devtools დამატების ინსტალაციის შ
 3. დააწკაპუნეთ "Change View"-ზე და შემდეგ აირჩიეთ "Debug mode". 
 4. ახალ ჩანართში, რომელიც გაიხსნება, დეველოპერის ხელსაწყოთა შორის უნდა იყოს React-ის განყოფილება.
 
-## Completing the Game {#completing-the-game}
+## დავასრულოთ თამაშზე მუშაობა {#completing-the-game}
 
-We now have the basic building blocks for our tic-tac-toe game. To have a complete game, we now need to alternate placing "X"s and "O"s on the board, and we need a way to determine a winner.
+ჩვენ უკვე მზად გვაქვს ძირითადი ელემენტები ჩვენი თამაშისთვის - ჯვრები და ნულები. იმისათვის, რომ თამაში დავასრულოთ, გვჭირდება "X" და "O" სიმბოლოების მონაცვლეობითი ასახვა დაფაზე, და გამარჯვებულის გამოვლენის გზა.
 
-### Lifting State Up {#lifting-state-up}
+### მდგომარეობის გადატანა ზემოთ {#lifting-state-up}
 
-Currently, each Square component maintains the game's state. To check for a winner, we'll maintain the value of each of the 9 squares in one location.
+ამჟამად, ყოველი `Square` კომპონენტი ინახავს თამაშის მდგომარეობას. იმისათვის, რომ გამარჯვებულის განსაზღვრა შევძლოთ, ცხრავე უჯრედის მნიშვნელობა ერთ ადგინზე უნდა შევინახოთ.
 
-We may think that Board should just ask each Square for the Square's state. Although this approach is possible in React, we discourage it because the code becomes difficult to understand, susceptible to bugs, and hard to refactor. Instead, the best approach is to store the game's state in the parent Board component instead of in each Square. The Board component can tell each Square what to display by passing a prop, [just like we did when we passed a number to each Square](#passing-data-through-props).
+შესაძლოა ვიფიქროთ, რომ საჭიროა, უბრალოდ `Board` კომპონენტმა მოახდინოს ყოველი `Square` კომპონენტის მდგომარეობის შემოწმება. მიუხედავად იმისა, რომ ასეთი რამ React-ში შესაძლებელია, ჩვენ უარვყოფთ ამ მიდგომას, რადგან კოდი ხდება რთულად გასაგები, რთულია მისი [რესტრუქტურიზაცია](https://en.wikipedia.org/wiki/Code_refactoring) და იზრდება შეცდომების დაშვების ალბათობა. ყოველ `Square` კომპონენტში ცალ-ცალკე შენახვის ნაცვლად, თამაშის მდგომარეობის შენახვისათვის საუკეთესო ადგილია მშობელი, `Board` კომპონენტი. `Board` კომპონენტს შეუძლია თვისების გადაწოდების გზით უთხრას თითოეულ `Square`-ს, თუ რა უნდა ასახოს ეკრანზე, [ისევე, როგორც ეს გავაკეთეთ, როცა თითოეულ `Square`-ს გადავაწოდეთ ციფრი](#passing-data-through-props).
 
-**To collect data from multiple children, or to have two child components communicate with each other, you need to declare the shared state in their parent component instead. The parent component can pass the state back down to the children by using props; this keeps the child components in sync with each other and with the parent component.**
+**იმისათვის, რომ შევაგროვოთ მრავალი შვილობილი კომპონენტების მონაცემები, ან გვქონდეს ორ კომპონენტს შორის კავშირი, საჭიროა, შევქმნათ საზიარო მდგომარეობა მათ მშობელ კომპონენტში. მშობელი კომპონენტიდან შეგვიძლია მდგომარეობა გადავაწოდოთ შვილობილ კომპონენტებს თვისებების სახით; ამ გზით შვილობილი კომპონენტები ერწყმიან ერთმანეთს და - მშობელ კომპონენტს.**
 
-Lifting state into a parent component is common when React components are refactored -- let's take this opportunity to try it out.
+მდგომარეობის გადატანა მშობელ კომპონენტში ხშიარია, -- როცა ხდება React-ის კომპონენტების რესტრუქტურიზაცია. მოდით, გამოვიყენოთ ხელსაყრელი შესაძლებლობა და ვცადოთ ამის გაკეთება.
 
-Add a constructor to the Board and set the Board's initial state to contain an array of 9 nulls corresponding to the 9 squares:
+`Board` კომპონენში დავამატოთ კონსტრუქტორი და საწყის მდგომარეობად განვსაზღვროთ ცხრა ელემენტისგან (რომელთა მნიშვნელობაა - `null`) შემდგარი მასივი. ეს ელემენტები შეესაბამება ცხრა უჯრედს:
 
 ```javascript{2-7}
 class Board extends React.Component {
@@ -375,7 +375,7 @@ class Board extends React.Component {
   }
 ```
 
-When we fill the board in later, the `this.state.squares` array will look something like this:
+შემდგომში, როცა დაფას შევავსებთ, `this.state.squares` მასივი დაემსგავსება რაღაც ასეთს:
 
 ```javascript
 [
@@ -385,7 +385,7 @@ When we fill the board in later, the `this.state.squares` array will look someth
 ]
 ```
 
-The Board's `renderSquare` method currently looks like this:
+`Board` კომპონენტის `renderSquare` მეთოდი ამჟამად ასე გამოიყურება:
 
 ```javascript
   renderSquare(i) {
@@ -393,9 +393,9 @@ The Board's `renderSquare` method currently looks like this:
   }
 ```
 
-In the beginning, we [passed the `value` prop down](#passing-data-through-props) from the Board to show numbers from 0 to 8 in every Square. In a different previous step, we replaced the numbers with an "X" mark [determined by Square's own state](#making-an-interactive-component). This is why Square currently ignores the `value` prop passed to it by the Board.
+დასაწყისში, ჩვენ [გადავაწოდეთ `value` თვისება შვილობილ კომპონენტს](#passing-data-through-props) `Board` კომპონენტიდან, რათა ყოველ უჯრედში გვეჩვენებინა ციფრები 0-დან 8-ის ჩათვლით. შემდეგ, ჩვენ ჩავანაცვლეთ ციფრები სიმბოლო „X“-ით, რომელიც განვსაზღვრეთ [უშუალოდ `Square` კომპონენტის მდგომარეობად](#making-an-interactive-component). ამიტომაც აღარ აქცევს ყურადღებას `Square` კომპონენტი `Board` კომპონენტისაგან გადმოწოდებულ `value` თვისებას.
 
-We will now use the prop passing mechanism again. We will modify the Board to instruct each individual Square about its current value (`'X'`, `'O'`, or `null`). We have already defined the `squares` array in the Board's constructor, and we will modify the Board's `renderSquare` method to read from it:
+ახლა ისევ თვისების გადაწოდების ხერხს გამოვიყენებთ. ჩვენ გადავეკეთებთ `Board` კომპონენტს ისე, რომ ყოველ ცალკეულ უჯრედს უთხრას, თუ რა არის მისი მიმდინარე მნიშვნელობა (`'X'`, `'O'`, თუ `null`). `Board` კომპონენტის კონსტრუქტორში უკვე განვსაზღვრეთ `squares` მასივი, ახლა ჩვენ გადავაკეთებთ `Board` კომპონენტის `renderSquare` მეთოდს ისე, რომ მნიშვნელობები ამ მასივიდან წაიკითხოს:
 
 ```javascript{2}
   renderSquare(i) {
@@ -403,13 +403,13 @@ We will now use the prop passing mechanism again. We will modify the Board to in
   }
 ```
 
-**[View the full code at this point](https://codepen.io/gaearon/pen/gWWQPY?editors=0010)**
+**[იხილეთ სრული კოდი ამჟამინდელი მდგომარეობით](https://codepen.io/gaearon/pen/gWWQPY?editors=0010)**
 
-Each Square will now receive a `value` prop that will either be `'X'`, `'O'`, or `null` for empty squares.
+ახლა ყოველი `Square` კომპონენტი მიიღებს `value` თვისებას, რომლის მნიშვნელობაც იქნება `'X'`, `'O'`, ან `null` - ცარიელი უჯრედებისათვის.
 
-Next, we need to change what happens when a Square is clicked. The Board component now maintains which squares are filled. We need to create a way for the Square to update the Board's state. Since state is considered to be private to a component that defines it, we cannot update the Board's state directly from Square.
+ახლა ჩვენ გვჭირდება, რომ შევცვალოთ უჯრედზე დაწკაპუნების შედეგი. ახლა `Board` კომპონენტი ადგენს, თუ რომელი უჯრედებია შევსებული. უნდა ვიპოვოთ გზა, რომლითაც `Square` კომპონენტიდან მოვახერხებთ `Board` კომპონენტის მდგომარეობის განახლებას. რადგან მდგომარეობა მიჩნეულია იმ კომპონენტის კერძო მახასიათებლად, რომელშიც არის განსაზღვრული, ჩვენ არ შეგვიძლია `Board` კომპონენტის მდგომარეობის განახლება უშუალოდ `Square` კომპონენტიდან.
 
-Instead, we'll pass down a function from the Board to the Square, and we'll have Square call that function when a square is clicked. We'll change the `renderSquare` method in Board to:
+ნაცვლად ამისა, ჩვენ `Board` კომპონენტიდან `Square` კომპონენტს გადავაწვდით ფუნქციას, და უჯრედზე დაწკაპუნებისას, `Square` კომპონენში მოხდება ამ ფუნქციის გამოძახება. მოდით, შევცვალოთ `Board` კომპონენტის `renderSquare` მეთოდი:
 
 ```javascript{5}
   renderSquare(i) {
@@ -422,17 +422,18 @@ Instead, we'll pass down a function from the Board to the Square, and we'll have
   }
 ```
 
->Note
+>შენიშვნა
 >
->We split the returned element into multiple lines for readability, and added parentheses so that JavaScript doesn't insert a semicolon after `return` and break our code.
+>ჩვენ წარმოვადგინეთ დაბრუნებული ელემენტი მრავალ ხაზზე უკეთესი წაკითხვადობისთვის, და მოვაქციეთ ფრჩხილებს შორის, რადგან, ზოგადად, JavaScript-ში `return`-ის შემდეგ არ იწერება წერტილ-მძიმე, ეს იწვევს კოდის მუშაობის შეწყვეტას.
 
 Now we're passing down two props from Board to Square: `value` and `onClick`. The `onClick` prop is a function that Square can call when clicked. We'll make the following changes to Square:
+ამჟამად, `Board` კომპონენტიდან `Square` კომპონენტს ვაწვდით ორ თვისებას: `value` და `onClick`. `onClick` თვისება არის ფუნქცია, რომელიც `Square` კომპონენტმა უნდა გამოიძახოს მასზე (უჯრედზე) დაწკაპუნებისას. მოდით, `Square` კომპონენტში შევიტანოთ შემდეგი ცვლილებები:
 
-* Replace `this.state.value` with `this.props.value` in Square's `render` method
-* Replace `this.setState()` with `this.props.onClick()` in Square's `render` method
-* Delete the `constructor` from Square because Square no longer keeps track of the game's state
+* `Square` კომპონენტის `render` მეთოდში `this.state.value` ჩავანაცვლოთ `this.props.value`-ით.
+* `Square` კომპონენტის `render` მეთოდში `this.setState()` ჩავანაცვლოთ `this.props.onClick()`-ით.
+* `Square` კომპონენტიდან ამოვშალოთ `constructor`, რადგან `Square` კომპონენტი აღარ არის თამაშის მდგომარეობის შენახვაზე პასუხისმგებელი.
 
-After these changes, the Square component looks like this:
+ამ ცვლილებების შემდეგ `Square` კომპონენტი ასე გამოიყურება:
 
 ```javascript{1,2,6,8}
 class Square extends React.Component {
@@ -449,19 +450,19 @@ class Square extends React.Component {
 }
 ```
 
-When a Square is clicked, the `onClick` function provided by the Board is called. Here's a review of how this is achieved:
+როცა უჯრედზე დავაწკაპუნებთ, მოხდება `Board` კომპონენტის მიერ უზრუნველყოფილი `onClick` ფუნქციის გამოძახება. განვიხილოთ, როგორ მიიღწევა ეს:
 
-1. The `onClick` prop on the built-in DOM `<button>` component tells React to set up a click event listener.
-2. When the button is clicked, React will call the `onClick` event handler that is defined in Square's `render()` method.
-3. This event handler calls `this.props.onClick()`. The Square's `onClick` prop was specified by the Board.
-4. Since the Board passed `onClick={() => this.handleClick(i)}` to Square, the Square calls `this.handleClick(i)` when clicked.
-5. We have not defined the `handleClick()` method yet, so our code crashes. If you click a square now, you should see a red error screen saying something like "this.handleClick is not a function".
+1. DOM-ის ჩაშენებული `<button>` კომპონენტის `onClick` თვისება ეუბნება React-ს, შექმნას მოვლენის (დაწკაპუნების) დამმუშავებელი.
+2. როცა ღილაკზე დაწკაპუნება მოხდება, React გამოიძახებს `Square` კომპონენტის `render()` მეთოდში განსაზღვრულ `onClick` მოვლენის დამმუშავებელს.
+3. ეს მოვლენის დამმუშავებელი იძახებს `this.props.onClick()`-ს. `Square` კომპონენტის `onClick` თვისება გადმოწოდებულია `Board` კომპონენტიდან.
+4. რადგან `Board` კომპონენტიდან `Square` კომპონენტში გადმოწოდებულია - `onClick={() => this.handleClick(i)}`, დაწკაპუნებისას `Square` კომპონენტი იძახებს `this.handleClick(i)`-ს.
+5. ჩვენ ჯერ არ განგვისაზღვრავს `handleClick()` მეთოდი, ამიტომ ჩვენი კოდი არ იმუშავებს. თუ თქვენ ახლა უჯრედზე დააწკაპუნებთ, დაინახავთ წითელ ეკრანს შეცდომის მსგავსი შეტყობინებით:  „this.handleClick is not a function“.
 
->Note
+>შენიშვნა
 >
->The DOM `<button>` element's `onClick` attribute has a special meaning to React because it is a built-in component. For custom components like Square, the naming is up to you. We could give any name to the Square's `onClick` prop or Board's `handleClick` method, and the code would work the same. In React, it's conventional to use `on[Event]` names for props which represent events and `handle[Event]` for the methods which handle the events.
+>DOM-ის `<button>` ელემენტის `onClick` ატრიბუტს React-ისთვის განსაკუთრებული მნიშვნელობა აქვს, რადგან ეს არის ჩაშენებული კომპონენტი. `Square`-ის მსგავსი, ინდივიდუალური კომპონენტებისთვის სახელების შერჩევა თქვენს განკარგულებაშია. ჩვენ შეგვიძლია, `Square`-ის `onClick` თვისებას, ან `Board`-ის `handleClick` მეთოდს დავარქვათ ნებისმიერი სახელი, და კოდი ისევ იგივენაირად იმუშავებს. React-ში, ზოგადად მიღებულია, `on[Event]` - ვუწოდოთ მახასიათებლებს, რომლებიც წარმოადგენენ მოვლენებს, და `handle[Event]` - ვუწოდოთ მოვლენების დამმუშავებელ მეთოდებს.
 
-When we try to click a Square, we should get an error because we haven't defined `handleClick` yet. We'll now add `handleClick` to the Board class:
+როდესაც უჯრედზე დავაწკაპუნებთ, მივიღებთ შეცდომას, რადგან `handleClick` მეთოდი ჯერ არ განგვისაზღვრავს. მოდით, დავამატოთ `handleClick` მეთოდი `Board` კლასში:
 
 ```javascript{9-13}
 class Board extends React.Component {
@@ -514,63 +515,63 @@ class Board extends React.Component {
 }
 ```
 
-**[View the full code at this point](https://codepen.io/gaearon/pen/ybbQJX?editors=0010)**
+**[იხილეთ სრული კოდი ამჟამინდელი მდგომარეობით](https://codepen.io/gaearon/pen/ybbQJX?editors=0010)**
 
-After these changes, we're again able to click on the Squares to fill them, the same as we had before. However, now the state is stored in the Board component instead of the individual Square components. When the Board's state changes, the Square components re-render automatically. Keeping the state of all squares in the Board component will allow it to determine the winner in the future.
+ამ ცვლილებების შემდეგ, ჩვენ შევძლებთ უჯრედების შევსებას მათსე დაწკაპუნებით ისევე, როგორც ადრე. თუმცა, ახლა ყოველი ცალკეული `Square` კომპონენტის ნაცვლად, მდგომარეობა ინახება - `Board` კომპონენტში. როცა `Board` კომპონენტის მდგომარეობა იცვლება, ანგარიშმიუცემლად ხდება ყოველი `Square` კომპონენტის ხელახლა ასახვა. ყოველი უჯრედის მდგომარეობის შენახვა `Board` კომპონენტში, მომავალში, საშუალებას მოგვცემს, - გამოვავლინოთ გამარჯვებული.
 
-Since the Square components no longer maintain state, the Square components receive values from the Board component and inform the Board component when they're clicked. In React terms, the Square components are now **controlled components**. The Board has full control over them.
+მას შემდეგ, რაც `Square` კომპონენტი აღარ ინახავს მდგომარეობას, უჯრედები მნიშვნელობებს იღებენ `Board` კომპონენტისაგან, და ატყობინებენ `Board` კომპონენტს, როცა მათზე ხდება დაწკაპუნება. React-ის ენით რომ ვთქვათ, `Square` კომპონენტი ახლა არის - **კონტროლირებადი კომპონენტი**. მას სრულად აკონტროლებს `Board` კომპონენტი.
 
-Note how in `handleClick`, we call `.slice()` to create a copy of the `squares` array to modify instead of modifying the existing array. We will explain why we create a copy of the `squares` array in the next section.
+გასათვალისწინებელია, `handleClick` მეთოდში როგორ ვქმნით `squares` მასივის ასლს `.slice()`-ის გამოძახებით გარდაქმნისთვის იმის ნაცვლად, რომ გარდავქმნათ უკვე არსებული მასივი. შემდეგ განყოფილებაში განვმარტავთ, თუ რატომ გვჭირდება `squares` მასივის ასლის შექმნა.
 
-### Why Immutability Is Important {#why-immutability-is-important}
+### რატომ არის უცვლელობა მნიშვნელოვანი? {#why-immutability-is-important}
 
-In the previous code example, we suggested that you use the `.slice()` method to create a copy of the `squares` array to copy instead of modifying the existing array. We'll now discuss immutability and why immutability is important to learn.
+კოდის წინა მაგალითში `.slice()` მეთოდის გამოყენებით `squares` მასივის ასლი შევქმენით, ნაცვლად იმისა, რომ ცვლილება მოგვეხდინა უშუალოდ არსებულ მასივზე. ახლა განვიხილავთ უცვლელობას და გავარკვევთ, თუ რატომ არის მისი შესწავლა ასე მნიშვნელოვანი.
 
-There are generally two approaches to changing data. The first approach is to *mutate* the data by directly changing the data's values. The second approach is to replace the data with a new copy which has the desired changes.
+მონაცემში ცვლილების შეტანის ორი საშუალება არსებობს. პირველი საშუალება არის უშუალოდ მონაცემის მნიშვნელობის *მუტაცია* (შეცვლა). მეორე საშუალებაა - ამ მონაცემის ჩანაცვლება მისი ასლით, რომელიც შეიცავს სასურველ ცვლილებს.
 
-#### Data Change with Mutation {#data-change-with-mutation}
+#### მონაცემთა უშუალო ცვლილება {#data-change-with-mutation}
 ```javascript
-var player = {score: 1, name: 'Jeff'};
+var player = {score: 1, name: 'გიორგი'};
 player.score = 2;
-// Now player is {score: 2, name: 'Jeff'}
+// ახლა player-ის მნიშვნელობა არის {score: 2, name: 'გიორგი'}
 ```
 
-#### Data Change without Mutation {#data-change-without-mutation}
+#### მონაცემთა ირიბი ცვლილება {#data-change-without-mutation}
 ```javascript
-var player = {score: 1, name: 'Jeff'};
+var player = {score: 1, name: 'გიორგი'};
 
 var newPlayer = Object.assign({}, player, {score: 2});
-// Now player is unchanged, but newPlayer is {score: 2, name: 'Jeff'}
+// player-ის მნიშვნელობა არ შეცვლილა, მაგრამ newPlayer-ის მნიშვნელობა არის {score: 2, name: 'გიორგი'}
 
-// Or if you are using object spread syntax proposal, you can write:
+// ან, თუ თქვენ იყენებთ ობიექტის განვრცობის (spread) სინტაქსს, შეგიძლიათ დაწეროთ:
 // var newPlayer = {...player, score: 2};
 ```
 
-The end result is the same but by not mutating (or changing the underlying data) directly, we gain several benefits described below.
+საბოლოო შედეგი იგივე იქნება, ოღონდ (საწყისი მნიშვნელობის) უშუალო ცვლილების გარეშე. ამ მიდგომის რამოდენიმე უპირატესობა განხილულია ქვემოთ.
 
-#### Complex Features Become Simple {#complex-features-become-simple}
+#### მარტივდება რთული ფუნქციონალი {#complex-features-become-simple}
 
-Immutability makes complex features much easier to implement. Later in this tutorial, we will implement a "time travel" feature that allows us to review the tic-tac-toe game's history and "jump back" to previous moves. This functionality isn't specific to games -- an ability to undo and redo certain actions is a common requirement in applications. Avoiding direct data mutation lets us keep previous versions of the game's history intact, and reuse them later.
+უცვლელობა გაცილებით ამარტივებს რთული ფუნქციონალის გამართვას. ამ სახელმძღვანელოში, მოგვიანებით, შევიმუშავებთ „დროში მოგზაურობის“ ფუნქციონალს, რომელიც საშუალებას მოგვცემს, გადავხედოთ თამაშის ისტორიას და წინა სვლებზე „გადავხტეთ“. ეს არ არის მხოლოდ თამაშებისთვის განკუთვნილი ფუნქციონალი, წინ და უკან „ხტომის“ შესაძლებლობა ხშირად გვხვდება სხვადასხვა სახის აპლიკაციებში. მონაცემთა უშუალო ცვლილების თავიდან აცილებით საშუალება გვეძლევა, ხელუხლებლად შევინარჩუნოთ თამაშის ისტორიის უწინდელი მდგომარეობა, და მოგვიანებით ხელახლა გამოვიყენოთ.
 
-#### Detecting Changes {#detecting-changes}
+#### ცვლილებების გამოვლენა {#detecting-changes}
 
-Detecting changes in mutable objects is difficult because they are modified directly. This detection requires the mutable object to be compared to previous copies of itself and the entire object tree to be traversed.
+ცვალებად ობიექტებში ცვლილებების გამოვლენა რთულია, რადგან ისინი უშუალოდ იცვლებიან. ასეთ შემთხვევაში ცვლილებების გამოსავლენად ცვალებადი ობიექტის შედარება უნდა მოხდეს მისი წინა ვერსიების ასლი ობიექტების მთელ ხესთან.
 
-Detecting changes in immutable objects is considerably easier. If the immutable object that is being referenced is different than the previous one, then the object has changed.
+უცვლელ ობიექტებში ცვლილებების გამოვლენა ბევრად მარტივია. თუ წარმოდგენილი უცვლელი ობიექტი წინასგან განსხვავებულია, გამოდის, რომ ეს ობიექტი შეიცვალა.
 
-#### Determining When to Re-Render in React {#determining-when-to-re-render-in-react}
+#### დავადგინოთ, როდის უნდა მოხდეს React-ში ხელახალი ასახვა {#determining-when-to-re-render-in-react}
 
-The main benefit of immutability is that it helps you build _pure components_ in React. Immutable data can easily determine if changes have been made, which helps to determine when a component requires re-rendering.
+უცვლელობის მთავარი ხეირი ის არის, რომ ის React-ში _სუფთა (pure) კომპონენტების_ შექმნაში გვეხმარება. უცვლელ მონაცემებში ადვილი გამოსავლენია ცვლილება, რაც გვეხმარება იმის დადგენაში, თუ როდის საჭიროებს კომპონენტი ხელახლა ასახვას.
 
-You can learn more about `shouldComponentUpdate()` and how you can build *pure components* by reading [Optimizing Performance](/docs/optimizing-performance.html#examples).
+[წარმადობის გაუმჯობესების](/docs/optimizing-performance.html#examples) შესახებ წაკითხვით შეიტყობთ მეტს `shouldComponentUpdate()`-ისა და იმის შესახებ, თუ როგორ იქმნება _სუფთა (pure) კომპონენტები_.
 
-### Function Components {#function-components}
+### ფუნქციური კომპონენტები {#function-components}
 
-We'll now change the Square to be a **function component**.
+ახლა `Square` კომპონენტს გადავაკეთებთ **ფუნქციურ კომპონენტად**.
 
-In React, **function components** are a simpler way to write components that only contain a `render` method and don't have their own state. Instead of defining a class which extends `React.Component`, we can write a function that takes `props` as input and returns what should be rendered. Function components are less tedious to write than classes, and many components can be expressed this way.
+React-ში **ფუნქციური კომპონენტი** არის უფრო მოკრძალებული ხერხი კომპონენტის ჩაწერისა. ასეთი კომპონენტები შეიცავენ მხოლოდ `render` მეთოდს, და არ გააჩნიათ საკუთარი მდგომარეობა. `React.Component`-ის შვილობილი კლასის განსაზღვრის ნაცვლად, შეგვიძლია შევქმნათ მარტივი ფუნქცია, რომელსაც გადაეცემა `props`, და აბრუნებს ვიზუალურ იერარქიას. ფუნქციური კომპონენტის ჩაწერა, კლასურთან შედარებით ნაკლებად შრომატევადია, და მრავალი კომპონენტი შეიძლება გამოისახოს ამ ხერხით.
 
-Replace the Square class with this function:
+ჩავანაცვლოთ `Square` კლასი ამ ფუნქციით:
 
 ```javascript
 function Square(props) {
@@ -582,19 +583,19 @@ function Square(props) {
 }
 ```
 
-We have changed `this.props` to `props` both times it appears.
+ორივეგან, სადაც `this.props` ფიგურირებს, ჩავანაცვლეთ `props`-ით.
 
-**[View the full code at this point](https://codepen.io/gaearon/pen/QvvJOv?editors=0010)**
+**[იხილეთ სრული კოდი ამჟამინდელი მდგომარეობით](https://codepen.io/gaearon/pen/QvvJOv?editors=0010)**
 
->Note
+>შენიშვნა
 >
->When we modified the Square to be a function component, we also changed `onClick={() => this.props.onClick()}` to a shorter `onClick={props.onClick}` (note the lack of parentheses on *both* sides).
+>როცა `Square` კომპონენტი გადავაკეთეთ ფუნქციურ კომპონენტად, ასევე შევცვალეთ ჩანაწერი `onClick={() => this.props.onClick()}` უფრო მოკლე ჩანაწერით - `onClick={props.onClick}` (გაითვალისწინეთ, *ორივე* მხარეს მოშორდა ფრჩხილები).
 
-### Taking Turns {#taking-turns}
+### სვლების მონაცვლეობა {#taking-turns}
 
-We now need to fix an obvious defect in our tic-tac-toe game: the "O"s cannot be marked on the board.
+ახლა საჭიროა, გავასწოროთ ჩვენი თამაშის აშკარა ნაკლი: დაფაზე შეუძლებელია გამოისახოს სიმბოლო - „O“.
 
-We'll set the first move to be "X" by default. We can set this default by modifying the initial state in our Board constructor:
+ნაგულისხმევად, პირველი სვლას განახორციელებს - „X“. ნაგულისხმევი მნიშვნელობის განსაზღვრა შეგვიძლია `Board` კომპონენტის კონსტრუქტორში საწყისი მდგომარეობის გარდაქმნით:
 
 ```javascript{6}
 class Board extends React.Component {
@@ -607,7 +608,7 @@ class Board extends React.Component {
   }
 ```
 
-Each time a player moves, `xIsNext` (a boolean) will be flipped to determine which player goes next and the game's state will be saved. We'll update the Board's `handleClick` function to flip the value of `xIsNext`:
+მოთამაშის ყოველი სვლის შემდეგ, `xIsNext` (ლოგიკური გამოსახულება)-ის მნიშვნელობა შეიცვლება საპირისპიროთი, - რათა დადგინდეს შემდეგი სვლის მფლობელის ვინაობა, - და მოხდება თამაშის მდგომარეობის შენახვა. მოდით, განვაახლოთ `Board` კომპონენტის `handleClick` ფუნქცია, რომ მოვახდინოთ `xIsNext`-ის მნიშვნელობის შეცვლა - საპირისპიროთი:
 
 ```javascript{3,6}
   handleClick(i) {
@@ -620,19 +621,19 @@ Each time a player moves, `xIsNext` (a boolean) will be flipped to determine whi
   }
 ```
 
-With this change, "X"s and "O"s can take turns. Try it!
+ამ ცვლილებით, „X“-სა და „O“-ს შორის მოხდება სვლის მონაცვლეობა. სცადეთ!
 
-Let's also change the "status" text in Board's `render` so that it displays which player has the next turn:
+მოდით, „სტატუსის“ ტექსტიც შევცვალოთ `Board` კომპონენტის `render`-ში ისე, რომ გვაჩვენოს მოთამაშე, რომელმაც უნდა გააკეთოს შემდეგი სვლა:
 
 ```javascript{2}
   render() {
     const status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
 
     return (
-      // the rest has not changed
+      // დანარჩენი არ შეცვლილა
 ```
 
-After applying these changes, you should have this Board component:
+ამ ცვლილებების შემდეგ თქვენი `Board` კომპონენტი ასე უნდა გამოიყურებოდეს:
 
 ```javascript{6,11-16,29}
 class Board extends React.Component {
@@ -689,11 +690,11 @@ class Board extends React.Component {
 }
 ```
 
-**[View the full code at this point](https://codepen.io/gaearon/pen/KmmrBy?editors=0010)**
+**[იხილეთ სრული კოდი ამჟამინდელი მდგომარეობით](https://codepen.io/gaearon/pen/KmmrBy?editors=0010)**
 
-### Declaring a Winner {#declaring-a-winner}
+### გამარჯვებულის გამოვლენა {#declaring-a-winner}
 
-Now that we show which player's turn is next, we should also show when the game is won and there are no more turns to make. Copy this helper function and paste it at the end of the file:
+ახლა, როცა ვაჩვენებთ მოთამაშეს, რომელმაც უნდა გააკეთოს შემდეგი სვლა, თამაშის დასრულებისას ასევე უნდა ვაჩვენოთ, რომ სვლა აღარ არის. განათავსეთ ამ დამხმარე ფუნქციის ასლი თქვენი ფაილის ბოლოში:
 
 ```javascript
 function calculateWinner(squares) {
@@ -717,9 +718,9 @@ function calculateWinner(squares) {
 }
 ```
 
-Given an array of 9 squares, this function will check for a winner and return `'X'`, `'O'`, or `null` as appropriate.
+გადაცემული 9 უჯრედის მასივით, ეს ფუნქცია დაადგენს გამარჯვებულს და შესაბამისად დააბრუნებს `'X'`-ს, `'O'`-ს, ან - `null`-ს.
 
-We will call `calculateWinner(squares)` in the Board's `render` function to check if a player has won. If a player has won, we can display text such as "Winner: X" or "Winner: O". We'll replace the `status` declaration in Board's `render` function with this code:
+`Board` კომპონენტის `render` ფუნქციაში გამოვიძახებთ `calculateWinner(squares)`-ს იმის შესამოწმებლად, გაიმარჯვა თუ არა მოთამაშემ. თუ მოთამაშე გაიმარჯვებს, შეგვიძლია გამოვაჩინოთ შეტყობინება "გამარჯვებული: X", ან - "გამარჯვებული: O". `Board` კომპონენტის `render` ფუნქციაში `სტატუსის` გამოცხადების მიდგომა უნდა შევცვალოთ ასე:
 
 ```javascript{2-8}
   render() {
@@ -732,10 +733,10 @@ We will call `calculateWinner(squares)` in the Board's `render` function to chec
     }
 
     return (
-      // the rest has not changed
+      // დანარჩენი არ შეცვლილა
 ```
 
-We can now change the Board's `handleClick` function to return early by ignoring a click if someone has won the game or if a Square is already filled:
+ახლა ჩვენ შეგვიძლია `Board` კომპონენტის `handleClick` ფუნქცია შევცვალოთ ისე, რომ თუ ვიღაცამ გაიმარჯვა, ან თუ უჯრედი უკვე შევსებულია, მოხდეს ფუნქციიდან ნაადრევი გამოსვლა:
 
 ```javascript{3-5}
   handleClick(i) {
@@ -751,9 +752,9 @@ We can now change the Board's `handleClick` function to return early by ignoring
   }
 ```
 
-**[View the full code at this point](https://codepen.io/gaearon/pen/LyyXgK?editors=0010)**
+**[იხილეთ სრული კოდი ამჟამინდელი მდგომარეობით](https://codepen.io/gaearon/pen/LyyXgK?editors=0010)**
 
-Congratulations! You now have a working tic-tac-toe game. And you've just learned the basics of React too. So *you're* probably the real winner here.
+გილოცავთ! ახლა თქვენ გაქვთ მუშა თამაში - ჯვრები და ნულები. ამასთანავე, ახლახანს შეისწავლეთ React-ის საფუძვლები. როგორც ჩანს, აქ საბოლოო გამარჯვებული *თქვენ ხართ*.
 
 ## Adding Time Travel {#adding-time-travel}
 
