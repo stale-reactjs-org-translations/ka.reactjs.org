@@ -166,7 +166,7 @@ return React.createElement('div', {className: 'shopping-list'},
 
 თუ დაინტერესდებით, `createElement()` დეტალურად არის განხილული [API სქოლიო](/docs/react-api.html#createelement)-ში, მაგრამ, ამ პრაქტიკულ სახელმძღვანელოში მას აღარ გამოვიყენებთ. მის ნაცვლად გავაგრძელებთ JSX-ის გამოყენებას.
 
-JSX აღჭურვილია JavaScript-ის სრული ძალით. JSX-ში, ფიგურილ ფრჩხილებს შორის, შეგიძლიათ გამოიყენოთ *ნებისმიერი* JavaScript გამოსახულება. React-ის ყოველი ელემენტი არის JavaScript-ის ობიექტი, რომელიც შეგიძლიათ შეინახოთ ცვლადში, ან გაავრცელოთ თქვენი პროგრამის ფარგლებში.
+JSX აღჭურვილია JavaScript-ის სრული ძალით. JSX-ში, ფიგურილ ფრჩხილებს შორის, შეგიძლიათ გამოიყენოთ *ნებისმიერი* JavaScript გამოსახულება. React-ის ყოველი ელემენტი არის JavaScript-ის ობიექტი, რომელიც შეგიძლიათ შეინახოთ ცვლადში, ან გაავრცელოთ თქვენი აპლიკაციის ფარგლებში.
 
 ზემოთ მოცემული `ShoppingList` კომპონენტი, მხოლოდ DOM-ში ჩაშენებულ კომპონენტებს გამოსახავს, როგორიცაა `<div />` და `<li />`. მაგრამ, ასევე შეგვიძლია, გამოვსახოთ ჩვენს მიერ შექმნილი კომპონენტებიც. მაგალითად, ახლა შეგვიძლია გამოვსახოთ საყიდლების სრული სია `<ShoppingList />`-ის დაწერით. React-ის ყოველი კომპონენტი ინკაფსულირებულია, და შესაძლოა, გამოყენებულ იქნეს დამოუკიდებლად; ეს საშუალებას გვაძლევს, შევქმნათ რთული ინტერფეისები - მარტივი კომპონენტებისგან.
 
@@ -756,21 +756,21 @@ function calculateWinner(squares) {
 
 გილოცავთ! ახლა თქვენ გაქვთ მუშა თამაში - ჯვრები და ნულები. ამასთანავე, ახლახანს შეისწავლეთ React-ის საფუძვლები. როგორც ჩანს, აქ საბოლოო გამარჯვებული *თქვენ ხართ*.
 
-## Adding Time Travel {#adding-time-travel}
+## დავამატოთ დროში მოგზაურობა {#adding-time-travel}
 
-As a final exercise, let's make it possible to "go back in time" to the previous moves in the game.
+როგორც დასკვნითი სავარჯიშო, მოდით, ჩვენს თამაშს დავამატოთ „დროის უკან დაბრუნების“, ანუ წინა სვლებზე დაბრუნების შესაძლებლობა.
 
-### Storing a History of Moves {#storing-a-history-of-moves}
+### სვლების ისტორიის შენახვა {#storing-a-history-of-moves}
 
-If we mutated the `squares` array, implementing time travel would be very difficult.
+თუ მოვახდენდით `squares` მასივის უშუალო გარდაქმნას, დროში მოგზაურობის ფუნქციონალის განხორციელება ძალიან რთული იქნებოდა.
 
-However, we used `slice()` to create a new copy of the `squares` array after every move, and [treated it as immutable](#why-immutability-is-important). This will allow us to store every past version of the `squares` array, and navigate between the turns that have already happened.
+თუმცა, ჩვენ გამოვიყენეთ `slice()` მეთოდი, რათა ყოველი სვლის განხორციელებისას შექმნილიყო `squares` მასივის ახალი ასლი, [თავდაპირველი მნიშვნელობის უშუალო ცვლილების (მუტაციის) გარეშე](#why-immutability-is-important). ეს `squares` მასივის ყოველი წარსული მდგომარეობის შენახვისა და უკვე შესრულებულ სვლებს შორის გადაადგილების საშუალებას მოგვცემს.
 
-We'll store the past `squares` arrays in another array called `history`. The `history` array represents all board states, from the first to the last move, and has a shape like this:
+`squares` მასივის უწინდელ ვერსიებს შევინახავთ სხვა მასივში, რომელსაც `history`-ს დავარქმევთ. `history` მასივი შეინარჩუნებს დაფის ყოველ მდგომარეობას - პირველიდან ბოლო სვლამდე. მისი აგებულება ასეთი იქნება:
 
 ```javascript
 history = [
-  // Before first move
+  // პირველ სვლამდე
   {
     squares: [
       null, null, null,
@@ -778,7 +778,7 @@ history = [
       null, null, null,
     ]
   },
-  // After first move
+  // პირველი სვლის შემდეგ
   {
     squares: [
       null, null, null,
@@ -786,7 +786,7 @@ history = [
       null, null, null,
     ]
   },
-  // After second move
+  // მეორე სვლის შემდეგ
   {
     squares: [
       null, null, null,
@@ -798,15 +798,15 @@ history = [
 ]
 ```
 
-Now we need to decide which component should own the `history` state.
+ახლა საჭიროა გადავწყვიტოთ, თუ რომელ კომპონენტს მივაკუთნებთ `history` მდგომარეობას.
 
-### Lifting State Up, Again {#lifting-state-up-again}
+### მდგომარეობის გადატანა ზემოთ. ისევ {#lifting-state-up-again}
 
-We'll want the top-level Game component to display a list of past moves. It will need access to the `history` to do that, so we will place the `history` state in the top-level Game component.
+გვჭირდება, რომ `Game` კომპონენტში წარმოვადგინოთ უწინდელი სვლების სია. ამისათვის მას სჭირდება წვდომა `history`-ზე, ასე რომ, `history` მდგომარეობა უნდა გამოსვახოთ `Game` კომპონენტში.
 
-Placing the `history` state into the Game component lets us remove the `squares` state from its child Board component. Just like we ["lifted state up"](#lifting-state-up) from the Square component into the Board component, we are now lifting it up from the Board into the top-level Game component. This gives the Game component full control over the Board's data, and lets it instruct the Board to render previous turns from the `history`.
+`history` მდგომარეობის `Game` კომპონენტში განთავსების შემდეგ, შეგვიძლია შვილობილი, - `Board` კომპონენტიდან `squares` მდგომარეობა წავშალოთ. როგორც `Square` კომპონენტიდან [„გადავიტანეთ მდგომარეობა ზემოთ“](#lifting-state-up), - `Board` კომპონენტში, ასევე გადაგვაქვს `Board` კომპონენტიდან მშობელ, - `Game` კომპონენტში. ამით `Game` კომპონენტს ეძლევა სრული კონტროლი `Board` კომპონენტის მონაცემებზე, და საშუალება აქვს `Board` კომპონენტს გამოასახვინოს უწინდელი სვლები `history`-დან:
 
-First, we'll set up the initial state for the Game component within its constructor:
+პირველ რიგში, უნდა განვსაზღვროთ `Game` კომპონენტის საწყისი მდგომარეობა მის კონსტრუქტორში:
 
 ```javascript{2-10}
 class Game extends React.Component {
@@ -836,13 +836,13 @@ class Game extends React.Component {
 }
 ```
 
-Next, we'll have the Board component receive `squares` and `onClick` props from the Game component. Since we now have a single click handler in Board for many Squares, we'll need to pass the location of each Square into the `onClick` handler to indicate which Square was clicked. Here are the required steps to transform the Board component:
+ამის შემდეგ გვჭირდება, რომ `Board` კომპონენტმა, `Game` კომპონენტისაგან მიიღოს `squares` და `onClick` თვისებები. მას შემდეგ, რაც `Board` კომპონენტში არსებული ერთადერთი დაწკაპუნების დამმუშავებელი გვაქვს მრავალი `Square`-სათვის, იმის გასაგებად, თუ რომელ უჯრედზე მოხდა დაწკაპუნება, საჭიროა, ყოველი `Square`-ის მდებარეობა გადავცეთ `onClick` დამმუშავებელს. `Board` კომპონენტის გადასაკეთებლად, უნდა გავიაროთ შემდეგი ეტაპები:
 
-* Delete the `constructor` in Board.
-* Replace `this.state.squares[i]` with `this.props.squares[i]` in Board's `renderSquare`.
-* Replace `this.handleClick(i)` with `this.props.onClick(i)` in Board's `renderSquare`.
+* `Board`-იდან ამოვშალოთ `constructor`.
+* `Board`-ის `renderSquare` მეთოდში `this.state.squares[i]` ჩავანაცვლოთ `this.props.squares[i]`-ით.
+* `Board`-ის `renderSquare` მეთოდში `this.handleClick(i)` ჩავანაცვლოთ `this.props.onClick(i)`-ით.
 
-The Board component now looks like this:
+`Board` კომპონენტი ახლა ასე გამოიყურება:
 
 ```javascript{17,18}
 class Board extends React.Component {
@@ -900,7 +900,7 @@ class Board extends React.Component {
 }
 ```
 
-We'll update the Game component's `render` function to use the most recent history entry to determine and display the game's status:
+მოდით, განვაახლოთ `Game` კომპონენტის `render` ფუნქცია ისე, რომ თამაშის სტატუსის საჩვენებლად გამოყენებულ იქნეს ისტორიის უახლესი ჩანაწერი:
 
 ```javascript{2-11,16-19,22}
   render() {
@@ -932,7 +932,7 @@ We'll update the Game component's `render` function to use the most recent histo
   }
 ```
 
-Since the Game component is now rendering the game's status, we can remove the corresponding code from the Board's `render` method. After refactoring, the Board's `render` function looks like this:
+რადგან `Game` კომპონენტი უკვე ასახავს თამაშის სტატუსს, შეგვიძლია იგივე საქმეზე პასუხისმგებელი კოდი ამოვიღოთ `Board` კომპონენტის `render` მეთოდიდან. ცვლილებების შემდეგ `Board` კომპონენტის `render` მეთოდი ასე გამოიყურება:
 
 ```js{1-4}
   render() {
@@ -958,7 +958,7 @@ Since the Game component is now rendering the game's status, we can remove the c
   }
 ```
 
-Finally, we need to move the `handleClick` method from the Board component to the Game component. We also need to modify `handleClick` because the Game component's state is structured differently. Within the Game's `handleClick` method, we concatenate new history entries onto `history`.
+დაბოლოს, გვჭირდება `handleClick` მეთოდის `Board` კომპონენტიდან `Game` კომპონენტში გადატანა. ასევე დაგვჭირდება `handleClick` მეთოდში ცვლილებების შეტანა, რადგან `Game` კომპონენტის მდგომარეობის სტრუქტურა განსხვავებულია. `Game` კომპონენტის `handleClick` მეთოდიდან მოხდება `history`-ში ახალი ჩანაწერების შეტანა (კონკატენაცია):
 
 ```javascript{2-4,10-12}
   handleClick(i) {
@@ -978,30 +978,30 @@ Finally, we need to move the `handleClick` method from the Board component to th
   }
 ```
 
->Note
+>შენიშვნა
 >
->Unlike the array `push()` method you might be more familiar with, the `concat()` method doesn't mutate the original array, so we prefer it.
+>ნაცვლად მასივის `push()` მეთოდისა, რომელიც, ალბათ უფრო ნაცნობია თქვენთვის, გირჩევთ `concat()` მეთოდის გამოყენებას, რომელიც არ ახდენს თავდაპირველი მასივის უშუალო ცვლილებას.
 
-At this point, the Board component only needs the `renderSquare` and `render` methods. The game's state and the `handleClick` method should be in the Game component.
+ამ ეტაპზე, `Board` კომპონენტს მხოლოდ `renderSquare` და `render` მეთოდები სჭირდება. თამაშის მდგომარეობა და `handleClick` მეთოდი უნდა იყოს `Game` კომპონენტში.
 
-**[View the full code at this point](https://codepen.io/gaearon/pen/EmmOqJ?editors=0010)**
+**[იხილეთ სრული კოდი ამჟამინდელი მდგომარეობით](https://codepen.io/gaearon/pen/EmmOqJ?editors=0010)**
 
-### Showing the Past Moves {#showing-the-past-moves}
+### უწინდელი სვლების ჩვენება {#showing-the-past-moves}
 
-Since we are recording the tic-tac-toe game's history, we can now display it to the player as a list of past moves.
+რამდენადაც ჩვენ ვიწერთ თამაშის ისტორიას, შეგვიძლია, მოთამაშეს ვუჩვენოთ წინა სვლების სია.
 
-We learned earlier that React elements are first-class JavaScript objects; we can pass them around in our applications. To render multiple items in React, we can use an array of React elements.
+როგორც ადრე განვიხილეთ, React-ის ელემენტები ჩვეულებრივი JavaScript-ის ობიექტებია, რომლებიც შეგვიძლია გავავრცელოთ აპლიკაციის ფარგლებში. React-ში მრავალი ობიექტის ასახვისთვის, შეგვიძლია React-ის ელემენტთა მასივი გამოვიყენოთ.
 
-In JavaScript, arrays have a [`map()` method](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) that is commonly used for mapping data to other data, for example:
+JavaScript-ში მასივებს გააჩნიათ [`map()` მეთოდი](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map), რომელიც, ჩვეულებრივ მონაცემთა გარდაქმნისთვის გამოიყენება. მაგალითად:
 
 ```js
 const numbers = [1, 2, 3];
 const doubled = numbers.map(x => x * 2); // [2, 4, 6]
 ```
 
-Using the `map` method, we can map our history of moves to React elements representing buttons on the screen, and display a list of buttons to "jump" to past moves.
+`map` მეთოდის გამოყენებით ჩვენ შეგვიძლია სვლების ისტორია React-ის ელემენტებით გამოვსახოთ: წარმოვადგინოთ ღილაკების სია, რომლებიც წინა სვლებზე „გადავხტომაში“ დაგვეხმარება.
 
-Let's `map` over the `history` in the Game's `render` method:
+მოდით, გამოვიყენოთ `map` მეთოდი `Game` კომპონენტის `render` მეთოდში `history`-ის წარმოსადგენად:
 
 ```javascript{6-15,34}
   render() {
@@ -1044,56 +1044,62 @@ Let's `map` over the `history` in the Game's `render` method:
   }
 ```
 
-**[View the full code at this point](https://codepen.io/gaearon/pen/EmmGEa?editors=0010)**
+**[იხილეთ სრული კოდი ამჟამინდელი მდგომარეობით](https://codepen.io/gaearon/pen/EmmGEa?editors=0010)**
 
-For each move in the tic-tac-toe game's history, we create a list item `<li>` which contains a button `<button>`. The button has a `onClick` handler which calls a method called `this.jumpTo()`. We haven't implemented the `jumpTo()` method yet. For now, we should see a list of the moves that have occurred in the game and a warning in the developer tools console that says:
+თამაშის ისტორიის ყოველი სვლის ასახვისთვის, ჩვენ ვქმნით სიის ელემენტს `<li>`, რომელიც შეიცავს ღილაკს `<button>`. ღილაკს აქვს `onClick` დამმუშავებელი, რომელიც `this.jumpTo()` მეთოდს იძახებს. ჩვენ ჯერ არ შეგვიქმნია `jumpTo()` მეთოდი. ამჟამად, ჩვენ უნდა დავინახოთ ყოველი (განხორციელებული) სვლების სია და გაფრთხილება დეველოპერის ხელსაწყოთა ჩანართში (კონსოლში), რომელიც გვეუბნება:
 
 >  Warning:
 >  Each child in an array or iterator should have a unique "key" prop. Check the render method of "Game".
 
-Let's discuss what the above warning means.
+რაც ითარგმნება, როგორც:
 
-### Picking a Key {#picking-a-key}
+>  გაფრთხილება:
+>  მასივის ყოველ ელემენტს ან იტერატორს (გამმეორებელს) უნდა გააჩნდეს უნიკალური „key“ (გასაღები) თვისება. შეამოწმეთ `Game`-ის `render` მეთოდი.
 
-When we render a list, React stores some information about each rendered list item. When we update a list, React needs to determine what has changed. We could have added, removed, re-arranged, or updated the list's items.
+მოდით, განვიხილოთ ამ გაფრთხილების მნიშვნელობა.
 
-Imagine transitioning from
+### გასაღების შერჩევა {#picking-a-key}
 
-```html
-<li>Alexa: 7 tasks left</li>
-<li>Ben: 5 tasks left</li>
-```
+როდესაც სიას გამოვსახავთ, ყოველი გამოსახული სიის ელემენტის შესახებ React ინახავს რაღაც ინფორმაციას. როდესაც ხდება სიის განახლება, React-ს სჭირდება დაადგინოს, თუ რა შეიცვალა. ჩვენ შესაძლოა დავამატეთ, ამოვშალეთ, ხელახლა განვათავსეთ ან განვაახლეთ სიის ელემენტები.
 
-to
+წარმოიდგინეთ, ამის გარდაქმნა
 
 ```html
-<li>Ben: 9 tasks left</li>
-<li>Claudia: 8 tasks left</li>
-<li>Alexa: 5 tasks left</li>
+<li>დემნა: 7 დარჩენილი სამუშაო</li> //Alexa
+<li>ზურა: 5 დარჩენილი სამუშაო</li> //Ben
 ```
 
-In addition to the updated counts, a human reading this would probably say that we swapped Alexa and Ben's ordering and inserted Claudia between Alexa and Ben. However, React is a computer program and does not know what we intended. Because React cannot know our intentions, we need to specify a *key* property for each list item to differentiate each list item from its siblings. One option would be to use the strings `alexa`, `ben`, `claudia`. If we were displaying data from a database, Alexa, Ben, and Claudia's database IDs could be used as keys.
+ამაში
 
 ```html
-<li key={user.id}>{user.name}: {user.taskCount} tasks left</li>
+<li>ზურა: 9 დარჩენილი სამუშაო</li> //Ben
+<li>ბარბარე: 8 დარჩენილი სამუშაო</li> //Claudia
+<li>დემნა: 5 დარჩენილი სამუშაო</li> //Alexa
 ```
 
-When a list is re-rendered, React takes each list item's key and searches the previous list's items for a matching key. If the current list has a key that didn't exist before, React creates a component. If the current list is missing a key that existed in the previous list, React destroys the previous component. If two keys match, the corresponding component is moved. Keys tell React about the identity of each component which allows React to maintain state between re-renders. If a component's key changes, the component will be destroyed and re-created with a new state.
-
-`key` is a special and reserved property in React (along with `ref`, a more advanced feature). When an element is created, React extracts the `key` property and stores the key directly on the returned element. Even though `key` may look like it belongs in `props`, `key` cannot be referenced using `this.props.key`. React automatically uses `key` to decide which components to update. A component cannot inquire about its `key`.
-
-**It's strongly recommended that you assign proper keys whenever you build dynamic lists.** If you don't have an appropriate key, you may want to consider restructuring your data so that you do.
-
-If no key is specified, React will present a warning and use the array index as a key by default. Using the array index as a key is problematic when trying to re-order a list's items or inserting/removing list items. Explicitly passing `key={i}` silences the warning but has the same problems as array indices and is not recommended in most cases.
-
-Keys do not need to be globally unique; they only need to be unique between components and their siblings.
+გარდა შეცვლილი ციფრებისა, ადამიანი, რომელიც ამას წაიკითხავს ალბათ იტყვის, რომ დემნასა და ზურას ადგილები გადავუნაცვლეთ და მათ შორის ჩავსვით ბარბარე. რადგან კომპიუტერული პროგრამაა, React-ს არ შეუძლია ჩვენი განზრახვების მიხვედრა, ამიტომ სიის ელემენტების ერთმანეთისგან გასარჩევად, ყოველ ელემენტს უნდა განვუსაზღვროთ (უნიკალური) *key* (გასაღები) თვისება. ამ შემთხვევაში ერთ-ერთი ვარიანტია სტრიქონების -- `დემნა`, `ზურა`, `ბარბარე` -- გამოყენება. თუკი მონაცემები მონაცემთა ბაზიდან მოგვაქვს, შეგვიძლია უნიკალური იდენტიფიკატორები (id) გამოვიყენოთ, როგორც გასაღებები.
 
 
-### Implementing Time Travel {#implementing-time-travel}
+```html
+<li key={user.id}>{user.name}: {user.taskCount} დარჩენილი სამუშაო</li>
+```
 
-In the tic-tac-toe game's history, each past move has a unique ID associated with it: it's the sequential number of the move. The moves are never re-ordered, deleted, or inserted in the middle, so it's safe to use the move index as a key.
+როცა სიის ხელახალი ასახვა ხდება, React იღებს სიის ყოველი ელემენტის გასაღებს და უწინდელი სიის ელემენტების გასაღებებს ადარებს. თუ მიმდინარე სიაში არის ელემენტი გასაღებით, როგორიც წინაში არ არსებობდა, React ქმნის ახალ კომპონენტს. თუ მიმდინარე სიაში არ არის ელემენტი გასაღებით, როგორიც იყო წინაში, React ანადგურებს წინა კომპონენტს. თუ ორი გასაღები ემთხვევა, მოხდება შესაბამისი კომპონენტის გადაადგილება. React-ში გასაღებები მუშაობენ როგორც კომპონენტთა იდენტიფიკატორები, რაც React-ს ხელახლა ასახვებს შორის მდგომარეობის შენარჩუნებაში ეხმარება. თუ კომპონენტის გასაღები შეიცვლება, მოხდება ამ კომპონენტის განადგურება და ხელახლა შექმნა - ახალი მდგომარეობით.
 
-In the Game component's `render` method, we can add the key as `<li key={move}>` and React's warning about keys should disappear:
+React-ში `key` არის განსაკუთრებული, რეზერვირებული თვისება (`ref`-ის მსგავსად, რომელიც შედარებით სიღრმისეული ფუნქციონალის ნაწილია). როდესაც ელემენტი იქმნება, React იღებს `key` თვისებას და ინახავს მას უშუალოდ დაბრუნებულ ელემენტში. მიუხედავად იმისა, რომ `key` თითქოს `props`-ს ეკუთვნის, მასზე წვდომა შეუძლებელია `this.props.key` ჩანაწერით. React ავტომატურად იყენებს `key`-ს იმის დასადგენად, თუ რომელი კომპონენტების განახლება უნდა მოხდეს. კომპონენტს არ შეუძლია, მისწვდეს საკუთარ `key`-ს.
+
+**რეკომენდებულია გასაღებების სწორად შერჩევა ყოველთვის, როდესაც ქმნით დინამიურ სიებს.** თუ არ გაქვთ შესაბამასი გასაღები, განიხილეთ თქვენი მონაცემების რესტრუქტურირება ისე, რომ გქონდეთ.
+
+თუ გასაღებს არ განვსაზღვრავთ, React დაგვიბრუნებს გაფრთხილებას, და გასაღების ნაგულისხმევ მნიშვნელობად მასივის ინდექსს გამოიყენებს. მასივის ინდექსის გასაღებად გამოყენება გამოიწვევს პრობლემებს, როდესაც სიის ელემენტების ხელახლა დალაგებას, ან ელემენტების შეტანა/ამოშლას ვეცდებით. `key={i}`-ის გადაწოდება ცალსახად გააქრობს გაფრთხილებას, მაგრამ ექნება იგივე პრობლემები მასივის ინდექსებთან დაკავშირებით, ამიტომ, უმეტეს შემთხვევაში ამის გაკეთება არ არის რეკომენდებული.
+
+არ არის აუცილებელი გასაღებების გლობალური უნიკალურობა. მათი უნიკალურობა მხოლოდ მეზობელ კომპონენტებს შორის არის საჭირო.
+
+
+### დროში მოგზაურობის სისრულეში მოყვანა {#implementing-time-travel}
+
+თამაშის (ჯვრები და ნულები) ისტორიაში, ყოველ შესრულებულ სვლას აქვს უნიკალური ID, - სვლის რიგითი ნომერი. არასოდეს ხდება სვლების ხელახლა დალაგება, ამოშლა ან ახლის შეტანა სიის შუაში, ასე რომ, სვლის ინდექსის, როგორც გასაღების გამოყენება საიმედოა.
+
+`Game` კომპონენტის `render` მეთოდში შეგვიძლია დავამატოთ ასეთი გასაღები: `<li key={move}>`. და React-ის გაფრთხილება გასაღებების შესახებ გაქრება:
 
 ```js{6}
     const moves = history.map((step, move) => {
@@ -1108,11 +1114,11 @@ In the Game component's `render` method, we can add the key as `<li key={move}>`
     });
 ```
 
-**[View the full code at this point](https://codepen.io/gaearon/pen/PmmXRE?editors=0010)**
+**[იხილეთ სრული კოდი ამჟამინდელი მდგომარეობით](https://codepen.io/gaearon/pen/PmmXRE?editors=0010)**
 
-Clicking any of the list item's buttons throws an error because the `jumpTo` method is undefined. Before we implement `jumpTo`, we'll add `stepNumber` to the Game component's state to indicate which step we're currently viewing.
+სიაში მოცემულთაგან ნებისმიერ ღილაკზე დაწკაპუნება გამოიწვევს შეცდომას, რადგან `jumpTo` მეთოდი არ არის განსაზღვრული. სანამ `jumpTo`-ს შევქმნიდეთ, მოდით `Game` კომპონენტის მდგომარეობის ამსახველ ობიექტში ჩავამატოთ `stepNumber` იმის დასადგენად, თუ რომელ სვლაზე ვიმყოფებით ამჟამად.
 
-First, add `stepNumber: 0` to the initial state in Game's `constructor`:
+პირველ რიგში, `Game`-ის `constructor`-ში, საწყისი მდგომარეობის ამსახველ ობიექტში, ჩავამატოთ `stepNumber: 0`:
 
 ```js{8}
 class Game extends React.Component {
@@ -1128,11 +1134,11 @@ class Game extends React.Component {
   }
 ```
 
-Next, we'll define the `jumpTo` method in Game to update that `stepNumber`. We also set `xIsNext` to true if the number that we're changing `stepNumber` to is even:
+ამის შემდეგ, `stepNumber`-ის მნიშვნელობის განახლებისთვის, `Game`-ში შევქმნათ `jumpTo` მეთოდი. ასევე, როცა როცხვი, რომელსაც `stepNumber` უნდა გაუტოლდეს იქნება ლუწი, `xIsNext`-ის მნიშვნელობა უნდა გახდეს - `true`:
 
 ```javascript{5-10}
   handleClick(i) {
-    // this method has not changed
+    // ეს მეთოდი არ შეცვლილა
   }
 
   jumpTo(step) {
@@ -1143,15 +1149,15 @@ Next, we'll define the `jumpTo` method in Game to update that `stepNumber`. We a
   }
 
   render() {
-    // this method has not changed
+    // ეს მეთოდი არ შეცვლილა
   }
 ```
 
-We will now make a few changes to the Game's `handleClick` method which fires when you click on a square.
+`Game`-ის `handleClick` მეთოდში, რომლის გამოძახებაც უჯრედზე დაწკაპუნებისას ხდება, ახლა რამოდენიმე ცვლილებას შევიტანთ.
 
-The `stepNumber` state we've added reflects the move displayed to the user now. After we make a new move, we need to update `stepNumber` by adding `stepNumber: history.length` as part of the `this.setState` argument. This ensures we don't get stuck showing the same move after a new one has been made.
+ჩვენს მიერ დამატებული `stepNumber` ასახავს სვლას, რომელსაც მომხმარებელი ამჟამად ხედავს. ახალი სვლის განხორციელების შემდეგ, საჭიროა `stepNumber`-ის განახლება `stepNumber: history.length`-ის, როგორც `this.setState`-ის არგუმენტის ნაწილის გამოყენებით. ამით თავიდან ავირიდებთ გაჭედვას ძველი სვლის ჩვენებაზე, როდესაც ახალი სვლა უკვე გაკეთებულია.
 
-We will also replace reading `this.state.history` with `this.state.history.slice(0, this.state.stepNumber + 1)`. This ensures that if we "go back in time" and then make a new move from that point, we throw away all the "future" history that would now become incorrect.
+ასევე, `this.state.history` უნდა ჩავანაცვლოთ - `this.state.history.slice(0, this.state.stepNumber + 1)`-ით. ეს იძლევა იმის გარანტიას, რომ, თუ ჩვენ „დროში უკან გადავხტებით“, და ამ მდგომარეობიდან გავაკეთებთ ახალ სვლას, სრულად წაიშლება „მომავლის“ შეუსაბამო ისტორია.
 
 ```javascript{2,13}
   handleClick(i) {
@@ -1172,7 +1178,7 @@ We will also replace reading `this.state.history` with `this.state.history.slice
   }
 ```
 
-Finally, we will modify the Game component's `render` method from always rendering the last move to rendering the currently selected move according to `stepNumber`:
+დაბოლოს, უნდა გადავაკეთოთ `Game` კომპონენტის `render` მეთოდი ისე, რომ უკანასკნელი სვლის ნაცვლად, აისახოს `stepNumber`-ის მიმდინარე მნიშვნელობის შესაბამისი სვლა:
 
 ```javascript{3}
   render() {
@@ -1180,33 +1186,33 @@ Finally, we will modify the Game component's `render` method from always renderi
     const current = history[this.state.stepNumber];
     const winner = calculateWinner(current.squares);
 
-    // the rest has not changed
+    // დანარჩენი კოდი არ შეცვლილა
 ```
 
-If we click on any step in the game's history, the tic-tac-toe board should immediately update to show what the board looked like after that step occurred.
+თუ თამაშის ისტორიის რომელიმე სვლაზე დავაწკაპუნებთ, დაფა დაუყოვნებლივ განახლდება და გვაჩვენებს, თუ როგორ გამოიყურებოდა იგი ამ სვლის გაკეთების შემდეგ.
 
-**[View the full code at this point](https://codepen.io/gaearon/pen/gWWZgR?editors=0010)**
+**[იხილეთ სრული კოდი ამჟამინდელი მდგომარეობით](https://codepen.io/gaearon/pen/gWWZgR?editors=0010)**
 
-### Wrapping Up {#wrapping-up}
+### შეჯამება {#wrapping-up}
 
-Congratulations! You've created a tic-tac-toe game that:
+გილოცავთ! თქვენ შექმენით თამაში - ჯვრები და ნულები, რომელიც:
 
-* Lets you play tic-tac-toe,
-* Indicates when a player has won the game,
-* Stores a game's history as a game progresses,
-* Allows players to review a game's history and see previous versions of a game's board.
+* საშუალებას გაძლევთ, ითამაშოთ - ჯვრები და ნულები,
+* ადგენს გამარჯვებულს,
+* ინახავს თამაშის ისტორიას,
+* მოთამაშეებს საშუალებას აძლევს, იხილონ თამაშის ისტორია და დაბრუნდნენ წინა სვლებზე.
 
-Nice work! We hope you now feel like you have a decent grasp of how React works.
+მშვენიერი ნამუშევარია! ვიმედოვნებთ, რომ ახლა მშვენივრად გესმით, თუ როგორ მუშაობს React.
 
-Check out the final result here: **[Final Result](https://codepen.io/gaearon/pen/gWWZgR?editors=0010)**.
+იხილეთ თამაშის დასრულებული ვერსია აქ: **[საბოლოო შედეგი](https://codepen.io/gaearon/pen/gWWZgR?editors=0010)**.
 
-If you have extra time or want to practice your new React skills, here are some ideas for improvements that you could make to the tic-tac-toe game which are listed in order of increasing difficulty:
+თუ გაქვთ დამატებით დრო, ან გსურთ, გამოსცადოთ თქვენი ახალი უნარები React-ში, ქვემოთ მოცემულია თამაში - ჯვრები და ნულების გაუმჯობესების რამოდენიმე იდეა (დალაგებულია სირთულის ზრდადობის მიხედვით):
 
-1. Display the location for each move in the format (col, row) in the move history list.
-2. Bold the currently selected item in the move list.
-3. Rewrite Board to use two loops to make the squares instead of hardcoding them.
-4. Add a toggle button that lets you sort the moves in either ascending or descending order.
-5. When someone wins, highlight the three squares that caused the win.
-6. When no one wins, display a message about the result being a draw.
+1. სვლების ისტორიის სიაში წარმოადგინეთ ყოველი სვლის პოზიცია ფორმატში (სვეტი, რიგი).
+2. სვლების სიაში მონიშნეთ არჩეული ელემენტი.
+3. ხელახლა დაწერეთ `Board` კომპონენტი ისე, რომ უჯრედები - ხელით ჩაწერის ნაცვლად, - დაგენერირდეს ციკლების გამოყენებით.
+4. დაამატეთ გადამრთველი, რომელიც საშუალებას მოგცემთ, დაალაგოთ სვლები აღმავალი ან დაღმავალი მიმდევრობით.
+5. როცა ვიღაც გაიმარჯვებს, მონიშნეთ ის სამი უჯრედი, რომელმაც გამოიწვია მოგება.
+6. როცა არავინ გაიმარჯვებს, გამოჩნდეს შეტყობინება, რომელიც იუწყება, რომ თამაში ფრედ დამთავრდა.
 
-Throughout this tutorial, we touched on React concepts including elements, components, props, and state. For a more detailed explanation of each of these topics, check out [the rest of the documentation](/docs/hello-world.html). To learn more about defining components, check out the [`React.Component` API reference](/docs/react-component.html).
+ამ სახელმძღვანელოში ჩვენ შევეხეთ React-ის ისეთ ცნებებს, როგორიცაა ელემენტები, კომპონენტები, თვისებები (props) და მდგომარეობა (state). ამ თემების უფრო დეტალური განმარტებების მისაღებად, იხილეთ [დოკუმენტაციის დანარჩენი ნაწილი](/docs/hello-world.html). კომპონენტების შექმნასთან დაკავშირებით დეტალური ინფორმაციის მისაღებად, იხილეთ [`React.Component`-ის API სქოლიო](/docs/react-component.html).

@@ -81,31 +81,31 @@
           href: /tutorial/tutorial.html#declaring-a-winner
           forceInternal: true
     - id: adding-time-travel
-      title: დროში მოგზაურობის დამატება
+      title: დავამატოთ დროში მოგზაურობა
       href: /tutorial/tutorial.html#adding-time-travel
       forceInternal: true
       subitems:
         - id: storing-a-history-of-moves
-          title: Storing a History of Moves
+          title: სვლების ისტორიის შენახვა
           href: /tutorial/tutorial.html#storing-a-history-of-moves
           forceInternal: true
         - id: lifting-state-up-again
-          title: Lifting State Up, Again
+          title: მდგომარეობის გადატანა ზემოთ. ისევ
           href: /tutorial/tutorial.html#lifting-state-up-again
           forceInternal: true
         - id: showing-the-past-moves
-          title: Showing the Past Moves
+          title: უწინდელი სვლების ჩვენება
           href: /tutorial/tutorial.html#showing-the-past-moves
           forceInternal: true
         - id: picking-a-key
-          title: Picking a Key
+          title: გასაღების შერჩევა
           href: /tutorial/tutorial.html#picking-a-key
           forceInternal: true
         - id: implementing-time-travel
-          title: Implementing Time Travel
+          title: დროში მოგზაურობის სისრულეში მოყვანა
           href: /tutorial/tutorial.html#implementing-time-travel
           forceInternal: true
         - id: wrapping-up
-          title: Wrapping Up
+          title: შეჯამება
           href: /tutorial/tutorial.html#wrapping-up
           forceInternal: true
