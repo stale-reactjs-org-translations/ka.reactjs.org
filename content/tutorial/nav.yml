@@ -1,4 +1,4 @@
-- title: სახელმძღვანელო
+- title: გაკვეთილი
   items:
     - id: before-we-start-the-tutorial
       title: ვიდრე საქმეს შევუდგებოდეთ
@@ -65,7 +65,7 @@
           href: /tutorial/tutorial.html#lifting-state-up
           forceInternal: true
         - id: why-immutability-is-important
-          title: რატომ არის უცვლელობა მნიშვნელოვანი?
+          title: რატომ არის უცვლადობა მნიშვნელოვანი?
           href: /tutorial/tutorial.html#why-immutability-is-important
           forceInternal: true
         - id: function-components
