@@ -25,27 +25,27 @@ const Versions = ({location}: Props) => (
     <Container>
       <div css={sharedStyles.articleLayout.container}>
         <div css={sharedStyles.articleLayout.content}>
-          <Header>React Versions</Header>
+          <Header>React-ის ვერსიები</Header>
           <TitleAndMetaTags
             canonicalUrl={`${urlRoot}/versions/`}
-            title="React - Versions"
+            title="React - ვერსიები"
           />
           <div css={sharedStyles.markdown}>
             <p>
-              A complete release history for React is available{' '}
+              React-ის ვერსიების სრული ისტორია ხელმისაწვდომია{' '}
               <a
                 href="https://github.com/facebook/react/releases"
                 target="_blank"
                 rel="noopener">
-                on GitHub
+                GitHub-ზე
               </a>
               .<br />
-              Documentation for recent releases can also be found below.
+              უახლესი ვერსიების დოკუმენტაცია ასევე შეგიძლიათ იხილოთ ქვემოთ.
             </p>
             <p>
-              See our FAQ for information about{' '}
+              იხილეთ FAQ (ხშირად დასმული შეკითხვები) სექცია, რათა შეიტყოთ მეტი{' '}
               <a href="/docs/faq-versioning.html">
-                our versioning policy and commitment to stability
+                ჩვენი ვერსიირებისა და სტაბილურობის მეთოდიკის შესახებ
               </a>
               .
             </p>
@@ -55,13 +55,13 @@ const Versions = ({location}: Props) => (
                 <ul>
                   <li>
                     <a href={version.changelog} target="_blank" rel="noopener">
-                      Changelog
+                      ცვლილებების ჩამონათვალი
                     </a>
                   </li>
                   {version.path && (
                     <li>
                       <a href={version.path} rel="nofollow">
-                        Documentation
+                        დოკუმენტაცია
                       </a>
                     </li>
                   )}
