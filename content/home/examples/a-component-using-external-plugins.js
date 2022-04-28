@@ -17,7 +17,7 @@ class MarkdownEditor extends React.Component {
   render() {
     return (
       <div className="MarkdownEditor">
-        <h3>შეტანა</h3>
+        <h3>შემავალი</h3>
         <label htmlFor="markdown-content">
           შეიყვანეთ რაიმე markdown ფორმატში
         </label>
@@ -26,7 +26,7 @@ class MarkdownEditor extends React.Component {
           onChange={this.handleChange}
           defaultValue={this.state.value}
         />
-        <h3>გამოტანა</h3>
+        <h3>გამომავალი</h3>
         <div
           className="content"
           dangerouslySetInnerHTML={this.getRawMarkup()}
