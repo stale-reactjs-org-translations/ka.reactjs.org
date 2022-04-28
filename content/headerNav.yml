@@ -1,13 +1,13 @@
 items:
-  - title: Docs
+  - title: დოკუმენტაცია
     to: /docs/getting-started.html
     activeSelector: /docs/
-  - title: Tutorial
+  - title: გაკვეთილი
     to: /tutorial/tutorial.html
     activeSelector: /tutorial
-  - title: Blog
+  - title: ბლოგი
     to: /blog/
     activeSelector: /blog
-  - title: Community
+  - title: საზოგადოება
     to: /community/support.html
     activeSelector: /community
