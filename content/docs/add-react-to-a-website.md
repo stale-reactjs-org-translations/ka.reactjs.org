@@ -1,6 +1,6 @@
 ---
 id: add-react-to-a-website
-title: React-ის დამატება ვებსაიტისათვის
+title: ვებსაიტისათვის React-ის დამატება
 permalink: docs/add-react-to-a-website.html
 redirect_from:
   - "docs/add-react-to-an-existing-app.html"
