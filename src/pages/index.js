@@ -50,7 +50,7 @@ class Home extends Component {
     return (
       <Layout location={location}>
         <TitleAndMetaTags
-          title="React &ndash; JavaScript-ის ბიბლიოთეკა მომხმარებლის ინტერფეისების შესაქმნელად"
+          title="React &ndash; JavaScript-ბიბლიოთეკა მომხმარებლის ინტერფეისების შესაქმნელად"
           canonicalUrl={createCanonicalUrl('/')}
         />
         <div
@@ -141,7 +141,7 @@ class Home extends Component {
                         fontSize: 30,
                       },
                     }}>
-                    JavaScript-ის ბიბლიოთეკა მომხმარებლის ინტერფეისების
+                    JavaScript-ბიბლიოთეკა მომხმარებლის ინტერფეისების
                     შესაქმნელად
                   </p>
                   <Flex
