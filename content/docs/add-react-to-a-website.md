@@ -8,195 +8,195 @@ prev: getting-started.html
 next: create-a-new-react-app.html
 ---
 
-Use as little or as much React as you need.
+გამოიყენეთ React თქვენთვის საჭირო დოზით.
 
-React has been designed from the start for gradual adoption, and **you can use as little or as much React as you need**. Perhaps you only want to add some "sprinkles of interactivity" to an existing page. React components are a great way to do that.
+React თავიდანვე იმისათვის შეიქმნა, რომ მისი დანერგვა თანდათანობით მომხდარიყო. ასე რომ, **საჭიროების შესაბამისად, React შეგიძლიათ გამოიყენოთ დიდი ან მცირე დოზით**. შესაძლოა, თქვენ მხოლოდ მცირედი ინტერაქტიულობის დამატება გსურთ არსებულ გვერდზე; React-კომპონენტები დიდებული გზაა ამის გასაკეთებლად.
 
-The majority of websites aren't, and don't need to be, single-page apps. With **a few lines of code and no build tooling**, try React in a small part of your website. You can then either gradually expand its presence, or keep it contained to a few dynamic widgets.
+არსებული ვებსაიტების უმეტესობა არ არის - და არც არის საჭირო, რომ იყოს - ერთგვერდიანი (single-page) აპლიკაცია. გამოსცადეთ React თქვენი ვებსაიტის მცირე ნაწილში **კოდის რამდენიმე ხაზით, ხელსაწყოთა ნაკრების საჭიროების გარეშე**. შემდგომ ამისა, შეგიძლიათ, თანდათანობით გაზარდოთ React-ის მასშტაბურობა თქვენს პროექტში, ან გამოიყენოთ იგი მხოლოდ რამდენიმე დინამიური ვიჯეტისათვის.
 
 ---
 
-- [Add React in One Minute](#add-react-in-one-minute)
-- [Optional: Try React with JSX](#optional-try-react-with-jsx) (no bundler necessary!)
+- [დაამატეთ React ერთ წუთში](#add-react-in-one-minute)
+- [არააუცილებელი: სცადეთ React -- JSX-ით](#optional-try-react-with-jsx) (bundler-ის საჭიროების გარეშე!)
 
-## Add React in One Minute {#add-react-in-one-minute}
+## დაამატეთ React ერთ წუთში {#add-react-in-one-minute}
 
-In this section, we will show how to add a React component to an existing HTML page. You can follow along with your own website, or create an empty HTML file to practice.
+ამ განყოფილებაში ისწავლით, თუ როგორ ხდება არსებულ HTML-გვერდზე React-კომპონენტის დამატება. მოცემული ინსტრუქცია შეგიძლიათ გამოსცადოთ თქვენს ვებსაიტზე, ან დემონსტრირებისათვის შექმნათ ცარიელი HTML-ფაილი.
 
-There will be no complicated tools or install requirements -- **to complete this section, you only need an internet connection, and a minute of your time.**
+რთული ინსტრუმენტების გამოყენება ან რაიმეს დაყენება არ იქნება საჭირო: **ყველაფერი, რაც ამ განყოფილებაში მოცემული მითითებების შესასრულებლად დაგჭირდებათ, არის კავშირი ინტირნეტთან და თქვენი ძვირფასი დროიდან ერთი წუთის გამოყოფა.**
 
-Optional: [Download the full example (2KB zipped)](https://gist.github.com/gaearon/6668a1f6986742109c00a581ce704605/archive/f6c882b6ae18bde42dcf6fdb751aae93495a2275.zip)
+არასავალდებულო: [ჩამოტვირთეთ მზა მაგალითი (2KB სიდიდის არქივი)](https://gist.github.com/gaearon/6668a1f6986742109c00a581ce704605/archive/f6c882b6ae18bde42dcf6fdb751aae93495a2275.zip)
 
-### Step 1: Add a DOM Container to the HTML {#step-1-add-a-dom-container-to-the-html}
+### ნაბიჯი 1: დაამატეთ DOM-კონტეინერი HTML-ში {#step-1-add-a-dom-container-to-the-html}
 
-First, open the HTML page you want to edit. Add an empty `<div>` tag to mark the spot where you want to display something with React. For example:
+პირველ რიგში გახსენით HTML-გვერდი, რომლის რედაქტირებაც გსურთ. დაამატეთ ცარიელი `<div>`-ტეგი, რათა აღნიშნოთ ადგილი, სადაც React-ის გამოყენებით გსურთ რაიმეს ასახვა. მაგალითად:
 
 ```html{3}
-<!-- ... existing HTML ... -->
+<!-- ... არსებული HTML ... -->
 
 <div id="like_button_container"></div>
 
-<!-- ... existing HTML ... -->
+<!-- ... არსებული HTML ... -->
 ```
 
-We gave this `<div>` a unique `id` HTML attribute. This will allow us to find it from the JavaScript code later and display a React component inside of it.
+მოცემულ `<div>`-ს მივანიჭეთ უნიკალური `id` (HTML) ატრიბუტი. შემდგომში ეს საშუალებას მოგვცემს, მივწვდეთ ამ ელემენტს JavaScript-კოდიდან და ავსახოთ მასში React-კომპონენტი.
 
->Tip
+>რჩევა
 >
->You can place a "container" `<div>` like this **anywhere** inside the `<body>` tag. You may have as many independent DOM containers on one page as you need. They are usually empty -- React will replace any existing content inside DOM containers.
+>მსგავსი „კონტეინერი“ `<div>` შეგიძლიათ, `<body>`-ტეგის შიგნით, **ნებისმიერ ადგილას** განათავსოთ. ასევე, შეგიძლიათ იმდენი დამოუკიდებელი DOM-კონტეინერი გქონდეთ ერთ გვერდზე, რამდენიც გჭირდებათ. ჩვეულებრივ, მსგავსი კონტეინერები ცარიელია, რადგან მათი შიგთავსის ჩანაცვლება მაინც მოხდება React-ის მიერ.
 
-### Step 2: Add the Script Tags {#step-2-add-the-script-tags}
+### ნაბიჯი 2: დაამატეთ Script-ტეგები {#step-2-add-the-script-tags}
 
-Next, add three `<script>` tags to the HTML page right before the closing `</body>` tag:
+შემდგომ ამისა, თქვენს HTML-გვერდს, -- დამხურავ `</body>`-ტეგამდე -- დაამატეთ სამი `<script>`-ტეგი:
 
 ```html{5,6,9}
-  <!-- ... other HTML ... -->
+  <!-- ... არსებული HTML ... -->
 
-  <!-- Load React. -->
-  <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
+  <!-- React-ის ჩატვირთვა. -->
+  <!-- შენიშვნა: როცა გვერდის წარმოებაში ჩაშვებას (deploy) დააპირებთ, „development.js“ ჩაანაცვლეთ „production.min.js“-ით -->
   <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
   <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
 
-  <!-- Load our React component. -->
+  <!-- ჩვენი React-კომპონენტის ჩატვირთვა. -->
   <script src="like_button.js"></script>
 
 </body>
 ```
 
-The first two tags load React. The third one will load your component code.
+პირველი ორი ტეგი ჩატვირთავს React-ს, მესამე - თქვენი კომპონენტის კოდს.
 
-### Step 3: Create a React Component {#step-3-create-a-react-component}
+### ნაბიჯი 3: შექმენით React-კომპონენტი {#step-3-create-a-react-component}
 
-Create a file called `like_button.js` next to your HTML page.
+HTML-ფაილის გვერდით (იმავე საქაღალდეში) შექმენით ფაილი, სახელად `like_button.js`.
 
-Open **[this starter code](https://gist.github.com/gaearon/0b180827c190fe4fd98b4c7f570ea4a8/raw/b9157ce933c79a4559d2aa9ff3372668cce48de7/LikeButton.js)** and paste it into the file you created.
+გახსენით **[ეს საწყისი კოდი](https://gist.github.com/gaearon/0b180827c190fe4fd98b4c7f570ea4a8/raw/b9157ce933c79a4559d2aa9ff3372668cce48de7/LikeButton.js)** და მისი ასლი ჩასვით თქვენს მიერ შექმნილ ფაილში.
 
->Tip
+>რჩევა
 >
->This code defines a React component called `LikeButton`. Don't worry if you don't understand it yet -- we'll cover the building blocks of React later in our [hands-on tutorial](/tutorial/tutorial.html) and [main concepts guide](/docs/hello-world.html). For now, let's just get it showing on the screen!
+>ამ კოდში განსაზღვრულია React-კომპონენტი, სახელად `LikeButton`. არ იდარდოთ, თუ მის შინაარსს ვერ გაიგებთ. React-ის ცნებებს მოგვიანებით განვიხილავთ [პრაქტიკულ სახელმძღვანელოში](/tutorial/tutorial.html) და [ძირითად ცნებათა გზამკვლევში](/docs/hello-world.html). ამ მომენტისათვის, მოდით, უბრალოდ ავსახოთ კომპონენტი ეკრანზე!
 
-After **[the starter code](https://gist.github.com/gaearon/0b180827c190fe4fd98b4c7f570ea4a8/raw/b9157ce933c79a4559d2aa9ff3372668cce48de7/LikeButton.js)**, add two lines to the bottom of `like_button.js`:
+**[საწყისი კოდის](https://gist.github.com/gaearon/0b180827c190fe4fd98b4c7f570ea4a8/raw/b9157ce933c79a4559d2aa9ff3372668cce48de7/LikeButton.js)** შენდეგ, `like_button.js` ფაილის ბოლოში (ქვემოთ), დაამატეთ კიდევ ორი ხაზი:
 
 ```js{3,4}
-// ... the starter code you pasted ...
+// ... თქვენს მიერ ჩასმული საწყისი კოდი ...
 
 const domContainer = document.querySelector('#like_button_container');
 ReactDOM.render(e(LikeButton), domContainer);
 ```
 
-These two lines of code find the `<div>` we added to our HTML in the first step, and then display our "Like" button React component inside of it.
+კოდის ეს ორი ხაზი პოულობს `<div>`-ს, -- რომელიც „ნაბიჯი 1“-ში დავამატეთ ჩვენს HTML-ს, -- და მასში ასახავს ჩვენს React-კომპონენტს („მოწონების“ ღილაკს).
 
-### That's It! {#thats-it}
+### სულ ეს არის! {#thats-it}
 
-There is no step four. **You have just added the first React component to your website.**
+მეოთხე ნაბიჯი აღარ გვაქვს, სულ ეს იყო. **თქვენს ვებსაიტს ახლახან შემატეთ პირველი React-კომპონენტი.** 
 
-Check out the next sections for more tips on integrating React.
+React-ის ინტეგრირებასთან დაკავშირებით დამატებითი რჩევების მისაღებად, იხილეთ შემდეგი განყოფილებები.
 
-**[View the full example source code](https://gist.github.com/gaearon/6668a1f6986742109c00a581ce704605)**
+**[იხილეთ მაგალითში მოცემული კოდის სრული ვარიანტი](https://gist.github.com/gaearon/6668a1f6986742109c00a581ce704605)**
 
-**[Download the full example (2KB zipped)](https://gist.github.com/gaearon/6668a1f6986742109c00a581ce704605/archive/f6c882b6ae18bde42dcf6fdb751aae93495a2275.zip)**
+**[ჩამოტვირთეთ მზა მაგალითი (2KB სიდიდის არქივი)](https://gist.github.com/gaearon/6668a1f6986742109c00a581ce704605/archive/f6c882b6ae18bde42dcf6fdb751aae93495a2275.zip)**
 
-### Tip: Reuse a Component {#tip-reuse-a-component}
+### რჩევა: გამოიყენეთ კომპონენტი ხელახლა {#tip-reuse-a-component}
 
-Commonly, you might want to display React components in multiple places on the HTML page. Here is an example that displays the "Like" button three times and passes some data to it:
+ხშირ შემთხვევაში, შესაძლოა, ერთ HTML-გვერდზე, რამდენიმე ადგილას (არაერთხელ) დაგჭირდეთ React-კომპონენტების ასახვა. აი, მაგალითი, რომელშიც „მოწონების“ ღილაკის ასახვა სამჯერ ხდება სხვადასხვა მონაცემებით:
 
-[View the full example source code](https://gist.github.com/gaearon/faa67b76a6c47adbab04f739cba7ceda)
+[იხილეთ კოდის მაგალითი სრულად](https://gist.github.com/gaearon/faa67b76a6c47adbab04f739cba7ceda)
 
-[Download the full example (2KB zipped)](https://gist.github.com/gaearon/faa67b76a6c47adbab04f739cba7ceda/archive/9d0dd0ee941fea05fd1357502e5aa348abb84c12.zip)
+[ჩამოტვირთეთ მზა მაგალითი (2KB სიდიდის არქივი)](https://gist.github.com/gaearon/faa67b76a6c47adbab04f739cba7ceda/archive/9d0dd0ee941fea05fd1357502e5aa348abb84c12.zip)
 
->Note
+>შენიშვნა
 >
->This strategy is mostly useful while React-powered parts of the page are isolated from each other. Inside React code, it's easier to use [component composition](/docs/components-and-props.html#composing-components) instead.
+>ეს მიდგომა, ძირითადად მაშინ არის გამოსადეგი, როცა გვერდის ის ნაწილები, რომლებიც React-ის მიერ არის მართული, გამოყოფილია (იზოლირებულია) ერთმანეთისაგან. თუ კოდი სრულად React-ის განკარგულებაშია, მაშინ კიდევ უფრო მარტივია [კომპონენტთა შედგენა](/docs/components-and-props.html#composing-components).
 
-### Tip: Minify JavaScript for Production {#tip-minify-javascript-for-production}
+### რჩევა: JavaScript-კოდის შეკუმშვა წარმოებაში ჩაშვებამდე {#tip-minify-javascript-for-production}
 
-Before deploying your website to production, be mindful that unminified JavaScript can significantly slow down the page for your users.
+ვიდრე თქვენს ვებსაიტს  წარმოებაში ჩაუშვებდეთ, გაითვალისწინეთ, რომ შეუკუმშავ JavaScript-ს შეუძლია, მნიშვნელოვნად შეანელოს გვერდის სიჩქარე მომხმარებელთათვის.
 
-If you already minify the application scripts, **your site will be production-ready** if you ensure that the deployed HTML loads the versions of React ending in `production.min.js`:
+თუ უკვე მოახდინეთ შეკუმშვა, გამოდის, რომ **თქვენი ვებსაიტი მზად არის წარმოებაში ჩასაშვებად**, მაგრამ, საჭიროა, დარწმუნდეთ იმაშიც, რომ წარმოებაში ჩაშვებული HTML-გვერდი ჩატვირთავს React-ის იმ ვერსიებს, რომელთა დასახელებაც `production.min.js`-ით ბოლოვდება:
 
 ```js
 <script src="https://unpkg.com/react@17/umd/react.production.min.js" crossorigin></script>
 <script src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js" crossorigin></script>
 ```
 
-If you don't have a minification step for your scripts, [here's one way to set it up](https://gist.github.com/gaearon/42a2ffa41b8319948f9be4076286e1f3).
+თუ ჯერ არ გაქვთ ნაპოვნი გზა, რომლითაც მოხდება თქვენი კოდის შეკუმშვა, [აქ მოცემულია ერთ-ერთი ხერხი ამის გასაკეთებლად](https://gist.github.com/gaearon/42a2ffa41b8319948f9be4076286e1f3).
 
-## Optional: Try React with JSX {#optional-try-react-with-jsx}
+## არააუცილებელი: სცადეთ React -- JSX-ით {#optional-try-react-with-jsx}
 
-In the examples above, we only relied on features that are natively supported by browsers. This is why we used a JavaScript function call to tell React what to display:
+ზემოთ მოყვანილ მაგალითებში მხოლოდ იმ ფუნქციონალს ვეყრდნობოდით, რომლებიც მხარდაჭერილია ბრაუზერების მიერ. სწორედ ამიტომ ავირჩიეთ React-ის მიერ ეკრანზე გამოსატანი შედეგის აღსაწერად JavaScript-ფუნქციის გამოძახების გზა:
 
 ```js
 const e = React.createElement;
 
-// Display a "Like" <button>
+// <button>-ის ჩვენება ტექსტით - „მოწონება“
 return e(
   'button',
   { onClick: () => this.setState({ liked: true }) },
-  'Like'
+  'მოწონება'
 );
 ```
 
-However, React also offers an option to use [JSX](/docs/introducing-jsx.html) instead:
+თუმცა, React ასევე გვთავაზობს სპეციალური სინტაქსის, [JSX](/docs/introducing-jsx.html)-ის გამოყენების შესაძლებლობას:
 
 ```js
-// Display a "Like" <button>
+// <button>-ის ჩვენება ტექსტით - „მოწონება“
 return (
   <button onClick={() => this.setState({ liked: true })}>
-    Like
+    მოწონება
   </button>
 );
 ```
 
-These two code snippets are equivalent. While **JSX is [completely optional](/docs/react-without-jsx.html)**, many people find it helpful for writing UI code -- both with React and with other libraries.
+კოდის მოცემული ორი ფრაგმენტი თანაბარი მნიშვნელობისაა (ექვივალენტურია). მიუხედავად იმისა, რომ **JSX-ის გამოყენება [სრულიად არააუცილებელია](/docs/react-without-jsx.html)**, ბევრისთვის მისი გამოყენებით მომხმარებლის ინტერფეისებისათვის განკუთვნილი კოდის წერა ბევრად მოსახერხებელია -- არა მარტო React-თან, არამედ სხვა ბიბლიოთეკებთანაც.
 
-You can play with JSX using [this online converter](https://babeljs.io/en/repl#?babili=false&browsers=&build=&builtIns=false&spec=false&loose=false&code_lz=DwIwrgLhD2B2AEcDCAbAlgYwNYF4DeAFAJTw4B88EAFmgM4B0tAphAMoQCGETBe86WJgBMAXJQBOYJvAC-RGWQBQ8FfAAyaQYuAB6cFDhkgA&debug=false&forceAllTransforms=false&shippedProposals=false&circleciRepo=&evaluate=false&fileSize=false&timeTravel=false&sourceType=module&lineWrap=true&presets=es2015%2Creact%2Cstage-2&prettier=false&targets=&version=7.4.3).
+შეგიძლიათ, JSX-ის დემონსტრირებისათვის გამოიყენოთ [ეს ონლაინ გარდამქმნელი](https://babeljs.io/en/repl#?babili=false&browsers=&build=&builtIns=false&spec=false&loose=false&code_lz=DwIwrgLhD2B2AEcDCAbAlgYwNYF4DeAFAJTw4B88EAFmgM4B0tAphAMoQCGETBe86WJgBMAXJQBOYJvAC-RGWQBQ8FfAAyaQYuAB6cFDhkgA&debug=false&forceAllTransforms=false&shippedProposals=false&circleciRepo=&evaluate=false&fileSize=false&timeTravel=false&sourceType=module&lineWrap=true&presets=es2015%2Creact%2Cstage-2&prettier=false&targets=&version=7.4.3).
 
-### Quickly Try JSX {#quickly-try-jsx}
+### გამოსცადე JSX სწრაფად {#quickly-try-jsx}
 
-The quickest way to try JSX in your project is to add this `<script>` tag to your page:
+თქვენს პროექტში JSX-ის გამოცდის უსწრაფესი გზა არის ამ `<script>`-ტეგის დამატება თქვენი გვერდისათვის:
 
 ```html
 <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
 ```
 
-Now you can use JSX in any `<script>` tag by adding `type="text/babel"` attribute to it. Here is [an example HTML file with JSX](https://raw.githubusercontent.com/reactjs/reactjs.org/main/static/html/single-file-example.html) that you can download and play with.
+ახლა თქვენ შეძლებთ JSX-ის გამოყენებას ნებისმიერ `<script>`-ტეგში, ოღონდ, ამ ტეგს უნდა დაამატოთ ატრიბუტი: `type="text/babel"`. დემონსტრირებისათვის, შეგიძლიათ, ჩამოტვირთოთ [JSX-ით აღჭურვილი HTML-ფაილის მაგალითი](https://raw.githubusercontent.com/reactjs/reactjs.org/main/static/html/single-file-example.html).
 
-This approach is fine for learning and creating simple demos. However, it makes your website slow and **isn't suitable for production**. When you're ready to move forward, remove this new `<script>` tag and the `type="text/babel"` attributes you've added. Instead, in the next section you will set up a JSX preprocessor to convert all your `<script>` tags automatically.
+ეს მიდგომა კარგია დემონსტრირებისა და სწავლისათვის, მაგრამ, ამით თქვენი ვებსაიტი ნელდება და ამ მდგომარეობით მისი **წარმოებაში ჩაშვება არცთუ ისე სახარბიელოა**. როცა შემდეგი ნაბიჯისათვის მზად იქნებით, წაშალეთ თქვენს მიერ დამატებული `<script>`-ტეგი და `type="text/babel"`-ატრიბუტები. ნაცვალ ამისა, შემდეგ განყოფილებაში დააყენებთ JSX-პრეპროცესორს, რათა ავტომატურად მოხდეს თქვენი `<script>`-ტეგების გარდაქმნა.
 
-### Add JSX to a Project {#add-jsx-to-a-project}
+### პროექტისათვის JSX-ის დამატება {#add-jsx-to-a-project}
 
-Adding JSX to a project doesn't require complicated tools like a bundler or a development server. Essentially, adding JSX **is a lot like adding a CSS preprocessor.** The only requirement is to have [Node.js](https://nodejs.org/) installed on your computer.
+პროექტისათვის JSX-ის დამატება არ მოითხოვს (bundler-ის მსგავს) რთულ ინსტრუმენტებს ან დეველოპმენტის სერვერს. არსებითად, JSX-ის დამატების პროცესი **ძალიან ჰგავს CSS-პრეპროცესორის დამატების პროცესს.** ერთადერთი მოთხოვნა ის არის, რომ თქვენს კომპიუტერზე [Node.js](https://nodejs.org/) ეყენოს.
 
-Go to your project folder in the terminal, and paste these two commands:
+ტერმინალის (ან CMD-ის) გამოყენებით შედით თქვენი პროექტის საქაღალდეში და გაუშვით შემდეგი ბრძანებები:
 
-1. **Step 1:** Run `npm init -y` (if it fails, [here's a fix](https://gist.github.com/gaearon/246f6380610e262f8a648e3e51cad40d))
-2. **Step 2:** Run `npm install babel-cli@6 babel-preset-react-app@3`
+1. **ნაბიჯი 1:** გაუშვით ბრძანება `npm init -y` (თუ არ იმუშავებს, სცადეთ [ეს ხერხი](https://gist.github.com/gaearon/246f6380610e262f8a648e3e51cad40d))
+2. **ნაბიჯი 2:** გაუშვით ბრძანება `npm install babel-cli@6 babel-preset-react-app@3`
 
->Tip
+>რჩევა
 >
->We're **using npm here only to install the JSX preprocessor;** you won't need it for anything else. Both React and the application code can stay as `<script>` tags with no changes.
+>ჩვენ **ამ მაგალითში npm-ს მხოლოდ JSX-პრეპროცესორის დასაყენებლად ვიყენებთ.** React და აპლიკაციის კოდი შეგვიძლია უცვლელად დავტოვოთ `<script>`-ტეგებად.
 
-Congratulations! You just added a **production-ready JSX setup** to your project.
+გილოცავთ! ახლახან თქვენს პროექტს დაამატეთ **JSX-ის მხარდაჭერა, რომელიც მზად არის წარმოებაში ჩაშვებისათვის**.
 
 
-### Run JSX Preprocessor {#run-jsx-preprocessor}
+### JSX-პრეპროცესორის გაშვება {#run-jsx-preprocessor}
 
-Create a folder called `src` and run this terminal command:
+შექმენით საქაღალდე, სახელად `src` და ტერმინალში გაუშვით შემდეგი ბრძანება:
 
 ```
 npx babel --watch src --out-dir . --presets react-app/prod
 ```
 
->Note
+>შენიშვნა
 >
->`npx` is not a typo -- it's a [package runner tool that comes with npm 5.2+](https://medium.com/@maybekatz/introducing-npx-an-npm-package-runner-55f7d4bd282b).
+>`npx` არ არის ბეჭდვითი შეცდომა. ეს არის [პაკეტის გამშვები ინსტრუმენტი, რომელიც მოყვება npm-ის 5.2+ ვერსიას](https://medium.com/@maybekatz/introducing-npx-an-npm-package-runner-55f7d4bd282b).
 >
->If you see an error message saying "You have mistakenly installed the `babel` package", you might have missed [the previous step](#add-jsx-to-a-project). Perform it in the same folder, and then try again.
+>თუ თქვენ დაინახავთ მსგავს შეცდომის შეტყობინებას: „You have mistakenly installed the `babel` package“ (თქვენ არასწორად დააყენეთ `babel`-პაკეტი), ეს ნიშნავს, რომ უნდა გაიაროთ [წინა ნაბიჯი](#add-jsx-to-a-project) და შემდეგ ხელახლა გაუშვათ ბრძანება.
 
-Don't wait for it to finish -- this command starts an automated watcher for JSX.
+ნუ დაელოდებით ბრძანების დასრულებას -- ეს ბრძანება JSX-ისათვის ააქტიურებს ავტომატურ დამკვირვებელს, რომელიც კოდის ნებისმიერ ცვლილებაზე რეაგირებს.
 
-If you now create a file called `src/like_button.js` with this **[JSX starter code](https://gist.github.com/gaearon/c8e112dc74ac44aac4f673f2c39d19d1/raw/09b951c86c1bf1116af741fa4664511f2f179f0a/like_button.js)**, the watcher will create a preprocessed `like_button.js` with the plain JavaScript code suitable for the browser. When you edit the source file with JSX, the transform will re-run automatically.
+ახლა სცადეთ, შექმნათ ფაილი, სახელად `src/like_button.js` და ამ ფაილში ჩაწეროთ **[ეს JSX საწყისი კოდი](https://gist.github.com/gaearon/c8e112dc74ac44aac4f673f2c39d19d1/raw/09b951c86c1bf1116af741fa4664511f2f179f0a/like_button.js)**. დამკვირვებელი შექმნის პრეპროცესირებულ `like_button.js`-ს უბრალო JavaScript-კოდით, რომელიც გასაგებია ბრაუზერისათვის. JSX-კოდის რედაქტირებისას, ავტომატურად, ხელახლა მოხდება გარდაქმნა.
 
-As a bonus, this also lets you use modern JavaScript syntax features like classes without worrying about breaking older browsers. The tool we just used is called Babel, and you can learn more about it from [its documentation](https://babeljs.io/docs/en/babel-cli/).
+JSX-პრეპროცესორთან ერთად, ბონუსის სახით, იღებთ JavaScript-ის თანამედროვე სინტაქსისათვის დამახასიათებელი ფუნქციონალის გამოყენების შესაძლებლობას, -- როგორიცაა კლასები, -- და ძველ ბრაუზერებთან შეუთავსებლობაზე არ გიწევთ დარდი. ხელსაწყოს, რომელიც ახლახან გამოვიყენეთ, ეწოდება Babel, და მასთან დაკავშირებით მეტი ინფორმაციის მიღება შეგიძლიათ [მისი დოკუმენტაციიდან](https://babeljs.io/docs/en/babel-cli/).
 
-If you notice that you're getting comfortable with build tools and want them to do more for you, [the next section](/docs/create-a-new-react-app.html) describes some of the most popular and approachable toolchains. If not -- those script tags will do just fine!
+თუ ფიქრობთ, რომ თავისუფლად ფლობთ განხილულ ხელსაწყოებს და გინდათ, რომ მათ მეტი სარგებელი მოგიტანოთ, [შემდეგ განყოფილებაში](/docs/create-a-new-react-app.html) განვიხილავთ რამდენიმე, ყველაზე პოპულარულ ხელსაწყოთა ნაკრებს. თუ ასე არ ფიქრობთ, არ იდარდოთ, ზემოთ განხილული `script`-ტეგებიც საკმარისად გამოსადეგია!
