@@ -105,7 +105,7 @@ class CodeEditor extends Component {
                 color: colors.white,
               }}>
               <MetaTitle onDark={true}>
-                JSX-ის მყისიერი რედაქტორი
+                ინტერაქტიული JSX-რედაქტორი
                 <label
                   css={{
                     fontSize: 14,
