@@ -1,6 +1,6 @@
 ---
 id: getting-started
-title: Getting Started
+title: პირველი ნაბიჯები
 permalink: docs/getting-started.html
 next: add-react-to-a-website.html
 redirect_from:
@@ -18,109 +18,109 @@ redirect_from:
   - "docs/environments.html"
 ---
 
-This page is an overview of the React documentation and related resources.
+ამ გვერდზე მოცემულია React-ის დოკუმენტაციისა და მასთან დაკავშირებული წყაროების მიმოხილვა.
 
-**React** is a JavaScript library for building user interfaces. Learn what React is all about on [our homepage](/) or [in the tutorial](/tutorial/tutorial.html).
+**React** არის JavaScript-ბიბლიოთეკა, რომელიც მომხმარებლის ინტერფეისების შესაქმნელად გამოიყენება. React-თან დაკავშირებით პირველი შთაბეჭდილებების შესაქმნელად, იხილეთ [მთავარი გვერდი](/) ან [სახელმძღვანელო](/tutorial/tutorial.html).
 
 ---
 
-- [Try React](#try-react)
-- [Learn React](#learn-react)
-- [Staying Informed](#staying-informed)
-- [Versioned Documentation](#versioned-documentation)
-- [Something Missing?](#something-missing)
+- [სცადეთ React](#try-react)
+- [ისწავლეთ React](#learn-react)
+- [იყავით ინფორმირებული](#staying-informed)
+- [დოკუმენტაცია ვერსიების მიხედვით](#versioned-documentation)
+- [რამე გამოგვრჩა?](#something-missing)
 
-## Try React {#try-react}
+## სცადეთ React {#try-react}
 
-React has been designed from the start for gradual adoption, and **you can use as little or as much React as you need.** Whether you want to get a taste of React, add some interactivity to a simple HTML page, or start a complex React-powered app, the links in this section will help you get started.
+React თავიდანვე იმისათვის შეიქმნა, რომ მისი დანერგვა თანდათანობით მომხდარიყო. ასე რომ, **საჭიროების შესაბამისად, React შეგიძლიათ გამოიყენოთ დიდი ან მცირე რაოდენობით.** ამ გვერდზე მოცემული ბმულები დაგაკვალიანებთ და დაგეხმარებათ გადადგათ პირველი ნაბიჯები: გამოსცადოთ React, მარტივი HTML-გვერდი გახადოთ ინტერაქტიული ან წამოიწყოთ React-ზე დაფუძნებული რთული აპლიკაციის შექმნა.
 
-### Online Playgrounds {#online-playgrounds}
+### ონლაინ სივრცეები {#online-playgrounds}
 
-If you're interested in playing around with React, you can use an online code playground. Try a Hello World template on [CodePen](codepen://hello-world), [CodeSandbox](https://codesandbox.io/s/new), or [Stackblitz](https://stackblitz.com/fork/react).
+თუ გსურთ React-ს „წაეთამაშოთ“, შეგიძლიათ გამოიყენოთ კოდის წერისათვის განკუთვნილი ონლაინ სივრცეები. სცადეთ მარტივი შაბლონით დაწყება [CodePen](codepen://hello-world)-ზე, [CodeSandbox](https://codesandbox.io/s/new)-ზე ან [Stackblitz](https://stackblitz.com/fork/react)-ზე.
 
-If you prefer to use your own text editor, you can also [download this HTML file](https://raw.githubusercontent.com/reactjs/reactjs.org/main/static/html/single-file-example.html), edit it, and open it from the local filesystem in your browser. It does a slow runtime code transformation, so we'd only recommend using this for simple demos.
+თუ უპირატესობას თქვენს რედაქტორში მუშაობას ანიჭებთ, შეგიძლიათ [გადმოიწეროთ ეს HTML-ფაილი](https://raw.githubusercontent.com/reactjs/reactjs.org/main/static/html/single-file-example.html), გადააკეთოთ და გახსნათ თქვენს ბრაუზერში, რის შემდეგაც, გაშვების მომენტში მოხდება კოდის გარდაქმნა, თუმცა ეს მოხდება ძალიან ნელა, ამიტომ ამ ფაილის გამოყენებას გირჩევთ მხოლოდ სადემონსტრაციო მიზნებისათვის.
 
-### Add React to a Website {#add-react-to-a-website}
+### ვებსაიტისათვის React-ის დამატება {#add-react-to-a-website}
 
-You can [add React to an HTML page in one minute](/docs/add-react-to-a-website.html). You can then either gradually expand its presence, or keep it contained to a few dynamic widgets.
+თქვენ შეგიძლიათ [HTML-გვერდს დაამატოთ React ერთ წუთში](/docs/add-react-to-a-website.html). შემდგომ ამისა, React შეგიძლიათ გამოიყენოთ მხოლოდ რამდენიმე დინამიური ვიჯეტისათვის ან თანდათანობით გაზარდოთ მისი მასშტაბურობა თქვენს პროექტში.
 
-### Create a New React App {#create-a-new-react-app}
+### ახალი React-აპლიკაციის შექმნა {#create-a-new-react-app}
 
-When starting a React project, a [simple HTML page with script tags](/docs/add-react-to-a-website.html) might still be the best option. It only takes a minute to set up!
+React-ზე პროექტის წამოსაწყებად, ისევ და ისევ, [მარტივი HTML-გვერდი script-ტეგებით](/docs/add-react-to-a-website.html) შეიძლება იყოს საუკეთესო ვარიანტი. მისი გამართვა ერთ წუთშია შესაძლებელი!
 
-As your application grows, you might want to consider a more integrated setup. There are several JavaScript toolchains we recommend for larger applications. Each of them can work with little to no configuration and lets you take full advantage of the rich React ecosystem. [Learn how.](/docs/create-a-new-react-app.html)
+აპლიკაციის ზრდასთან ერთად შესაძლებელია მოგინდეთ განიხილოთ მისი მეტად ინტეგრირებულად მოწყობა. არსებობს JavaScript-ის რამდენიმე ხელსაწყოთა ნაკრები, რომლებსაც ჩვენ გირჩევთ უფრო რთული (დიდი) აპლიკაციებისათვის. თითოეული მათგანი საჭიროებს მინიმალურ (ან ნულოვან) კონფიგურაციას და React-ის მდიდარი ეკოსისტემით სრულად სარგებლობის საშუალებას გაძლევთ. [ისწავლეთ, როგორ.](/docs/create-a-new-react-app.html)
 
-## Learn React {#learn-react}
+## ისწავლეთ React {#learn-react}
 
-People come to React from different backgrounds and with different learning styles. Whether you prefer a more theoretical or a practical approach, we hope you'll find this section helpful.
+React-ამდე მოდიან მრავალფეროვანი გამოცდილებისა და სწავლისადმი სხვადასხვანაირი მიდგომების მქონე ადამიანები. მიუხედავად იმისა, თუ რომელ მიდგომას - მეტად თეორიულს თუ პრაქტიკულს - ანიჭებთ უპირატესობას, ვიმედოვნებთ, რომ ეს განყოფილება გამოგადგებათ.
 
-* If you prefer to **learn by doing**, start with our [practical tutorial](/tutorial/tutorial.html).
-* If you prefer to **learn concepts step by step**, start with our [guide to main concepts](/docs/hello-world.html).
+* თუ თქვენ ამჯობინებთ, რომ **ისწავლოთ კეთებით**, დაიწყეთ [პრაქტიკული სახელმძღვანელოთი](/tutorial/tutorial.html).
+* თუ უპირატესობას **ცნებების მიყოლებით შესწავლას** ანიჭებთ, დაიწყეთ [ძირითადი ცნებების ეტაპობრივი სახელმძღვანელოთი](/docs/hello-world.html).
 
-Like any unfamiliar technology, React does have a learning curve. With practice and some patience, you *will* get the hang of it.
+როგორც ყველაფერი ახლის, React-ის შესწავლაც თავდაპირველად გარკვეულ ძალისხმევას მოითხოვს, მაგრამ ვარჯიშით და ცოტა მოთმინებით თქვენ *აუცილებლად* შეძლებთ მის ათვისებას.
 
-### First Examples {#first-examples}
+### პირველი მაგალითები {#first-examples}
 
-The [React homepage](/) contains a few small React examples with a live editor. Even if you don't know anything about React yet, try changing their code and see how it affects the result.
+[მთავარ გვერდზე](/) მოცემულია React-ის გამოყენების რამდენიმე მარტივი მაგალითი, რომელთა რედაქტირებაც ინტერაქტიული რედაქტორის გამოყენებით იქვეა შესაძლებელი. თუნდაც საერთოდ არაფერი იცოდეთ React-ის შესახებ, სცადეთ ამ მაგალითებისათვის განკუთვნილი კოდის რედაქტირება და დააკვირდით, თუ როგორ იმოქმედებს ეს ცვლილებები კოდის შედეგზე.
 
-### React for Beginners {#react-for-beginners}
+### React დამწყებთათვის {#react-for-beginners}
 
-If you feel that the React documentation goes at a faster pace than you're comfortable with, check out [this overview of React by Tania Rascia](https://www.taniarascia.com/getting-started-with-react/). It introduces the most important React concepts in a detailed, beginner-friendly way. Once you're done, give the documentation another try!
+თუ ფიქრობთ, რომ დოკუმენტაცია იმაზე სწრაფი ტემპით მიიწევს წინ, ვიდრე ეს თქვენთვის არის კომფორტული, გადახედეთ [React-ის ამ მიმოხილვას, რომლის ავტორია ტანია რასჩია (Tania Rascia)](https://www.taniarascia.com/getting-started-with-react/). მასში დამწყებთათვის გასაგები ენით დეტალურად არის აღწერილი React-ის უმნიშვნელოვანესი ცნებები. წაიკითხეთ აღნიშნული მიმოხილვა და შემდეგ ისევ დაუბრუნდით დოკუმენტაციას.
 
-### React for Designers {#react-for-designers}
+### React დიზაინერთათვის {#react-for-designers}
 
-If you're coming from a design background, [these resources](https://reactfordesigners.com/) are a great place to get started.
+დიზაინერი ხართ და React-ის შესწავლა გსურთ? [ეს წყაროები](https://reactfordesigners.com/) მშვენიერი საწყისი წერტილია.
 
-### JavaScript Resources {#javascript-resources}
+### JavaScript წყაროები {#javascript-resources}
 
-The React documentation assumes some familiarity with programming in the JavaScript language. You don't have to be an expert, but it's harder to learn both React and JavaScript at the same time.
+React-ის სწავლა მოითხოვს JavaScript ენაზე პროგრამირების გარკვეულ ცოდნას. სიღრმისეული ცოდნა არ არის საჭირო, მაგრამ React-ისა და JavaScript-ის პარალელურად სწავლამ შეიძლება საქმე გაართულოს.
 
-We recommend going through [this JavaScript overview](https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript) to check your knowledge level. It will take you between 30 minutes and an hour but you will feel more confident learning React.
+გირჩევთ, გადახედოთ [JavaScript-ის ამ მიმოხილვას](https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript), რათა შეამოწმოთ თქვენი ცოდნის დონე. ამას 30 წუთიდან ერთ საათამდე დასჭირდება, მაგრამ ამის შემდეგ უფრო თავდაჯერებულად გააგრძელებთ React-ის შესწავლას.
 
->Tip
+>რჩევა
 >
->Whenever you get confused by something in JavaScript, [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript) and [javascript.info](https://javascript.info/) are great websites to check. There are also [community support forums](/community/support.html) where you can ask for help.
+>როცა JavaScript-თან დაკავშირებული რაიმე საკითხი თქვენთვის გაუგებარი იქნება, [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript) და [javascript.info](https://javascript.info/) დიდებული წყაროებია გაუგებრობის დასაძლევად. ასევე, არსებობს [საზოგადოების მხარდაჭერის წყაროები](/community/support.html), სადაც შეგიძლიათ ითხოვოთ დახმარება.
 
-### Practical Tutorial {#practical-tutorial}
+### პრაქტიკული სახელმძღვანელო {#practical-tutorial}
 
-If you prefer to **learn by doing,** check out our [practical tutorial](/tutorial/tutorial.html). In this tutorial, we build a tic-tac-toe game in React. You might be tempted to skip it because you're not into building games -- but give it a chance. The techniques you'll learn in the tutorial are fundamental to building *any* React apps, and mastering it will give you a much deeper understanding.
+თუ თქვენ ამჯობინებთ **ისწავლოთ კეთებით,** იხილეთ ჩვენი [პრაქტიკული სახელმძღვანელო](/tutorial/tutorial.html). ამ სახელმძღვანელოში React-ის გამოყენებით შევქმნით თამაშს - „ჯვრები და ნულები“. იმ შემთხვევაშიც კი, თუ თქვენ მომავალში არ გეგმავთ თამაშების შექმნას, უმჯობესია არ გამოტოვოთ ეს სახელმძღვანელო. მიდგომები, რომლებსაც ამ სახელმძღვანელოდან შეიმეცნებთ, ფუნდამენტურია *ნებისმიერი* React-აპლიკაციისათვის და მათი დაუფლება გაგიმარტივებთ React-ის სიღრმისეულად გააზრებას.
 
-### Step-by-Step Guide {#step-by-step-guide}
+### ეტაპობრივი სახელმძღვანელო {#step-by-step-guide}
 
-If you prefer to **learn concepts step by step,** our [guide to main concepts](/docs/hello-world.html) is the best place to start. Every next chapter in it builds on the knowledge introduced in the previous chapters so you won't miss anything as you go along.
+თუ თქვენ ამჯობინებთ **ცნებები მიყოლებით შეისწავლოთ,** [ეტაპობრივი სახელმძღვანელო](/docs/hello-world.html) საუკეთესო საწყისი წერტილია. სახელმძღვანელოს ყოველი შემდეგი თავი წინა თავიდან მიღებულ ცოდნაზეა დაფუძნებული, ასე რომ, მასალის შესწავლისას არაფერი გამოგრჩებათ.
 
-### Thinking in React {#thinking-in-react}
+### React-ის ფილოსოფია {#thinking-in-react}
 
-Many React users credit reading [Thinking in React](/docs/thinking-in-react.html) as the moment React finally "clicked" for them. It's probably the oldest React walkthrough but it's still just as relevant.
+React-ის ბევრი მომხმარებელი [React-ის ფილოსოფიის](/docs/thinking-in-react.html) წაკითხვას თვლის იმ ნაბიჯად, რომელმაც მათთვის ყველაფერი თავის ადგილზე დააყენა. ეს, ალბათ, React-ის უძველესი სახელმძღვანელოა, მაგრამ აქტუალურობას არ კარგავს.
 
-### Recommended Courses {#recommended-courses}
+### რეკომენდებული კურსები {#recommended-courses}
 
-Sometimes people find third-party books and video courses more helpful than the official documentation. We maintain [a list of commonly recommended resources](/community/courses.html), some of which are free.
+ზოგიერთისთვის მესამე მხარის მიერ შექმნილი წიგნები და ვიდეო კურსები უფრო გამოსადეგი აღმოჩნდება ხოლმე, ვიდრე ოფიციალური დოკუმენტაცია. გთავაზობთ [რეკომენდებული წყაროების სიას](/community/courses.html), რომელთაგანაც ზოგიერთი უფასოა.
 
-### Advanced Concepts {#advanced-concepts}
+### სიღრმისეული ცნებები {#advanced-concepts}
 
-Once you're comfortable with the [main concepts](/docs/hello-world.html) and played with React a little bit, you might be interested in more advanced topics. This section will introduce you to the powerful, but less commonly used React features like [context](/docs/context.html) and [refs](/docs/refs-and-the-dom.html).
+მას შემდეგ, რაც [ძირითად საკითხებს](/docs/hello-world.html) გაეცნობით და React-ს ცოტათი წაეთამაშებით, ალბათ, დაინტერესდებით შედარებით სიღრმისეული საკითხებით. ამ განყოფილებაში React-ის მძლავრ, მაგრამ ნაკლებად გამოყენებად მახასიათებლებს გაეცნობით, როგორებიცაა, მაგალითად, [კონტექსტი](/docs/context.html) და [რეფერენციები](/docs/refs-and-the-dom.html).
 
-### API Reference {#api-reference}
+### API-სქოლიო {#api-reference}
 
-This documentation section is useful when you want to learn more details about a particular React API. For example, [`React.Component` API reference](/docs/react-component.html) can provide you with details on how `setState()` works, and what different lifecycle methods are useful for.
+დოკუმენტაციის ეს განყოფილება გამოსადეგია მაშინ, როდესაც React-ის კონკრეტული API-ს შესახებ გსურთ მეტად დეტალური ინფორმაციის მიღება. მაგალითად, [`React.Component` API-სქოლიო](/docs/react-component.html) მოგაწვდით დეტალურ ინფორმაციას იმის შესახებ, თუ როგორ მუშაობს `setState()` და რისთვის გამოიყენება სასიცოცხლო ციკლის სხვადასხვა მეთოდები.
 
-### Glossary and FAQ {#glossary-and-faq}
+### ტერმინთა ლექსიკონი და ხშირად დასმული კითხვები {#glossary-and-faq}
 
-The [glossary](/docs/glossary.html) contains an overview of the most common terms you'll see in the React documentation. There is also a FAQ section dedicated to short questions and answers about common topics, including [making AJAX requests](/docs/faq-ajax.html), [component state](/docs/faq-state.html), and [file structure](/docs/faq-structure.html).
+ტერმინთა ლექსიკონი შეიცავს ისეთ ტერმინთა მიმოხილვას, რომლებსაც ხშირად შეხვდებით React-ის დოკუმენტაციაში. ასევე, გვაქვს FAQ (ხშირად დასმული კითხვები) განყოფილება, რომელშიც ჩამოთვლილია მოკლე კითხვები და პასუხები ყველაზე მწვავე თემების გარშემო, როგორებიცაა: [AJAX მოთხოვნების განხორციელება](/docs/faq-ajax.html), [კომპონენტის მდგომარეობა](/docs/faq-state.html) ან [პროექტის სტრუქტურა](/docs/faq-structure.html).
 
-## Staying Informed {#staying-informed}
+## იყავით ინფორმირებული {#staying-informed}
 
-The [React blog](/blog/) is the official source for the updates from the React team. Anything important, including release notes or deprecation notices, will be posted there first.
+[React-ის ბლოგი](/blog/) არის ოფიციალური წყარო, სადაც React-ის გუნდი აქვეყნებს ინფორმაციას განახლებების შესახებ. ყველაფერი მნიშვნელოვანი, მათ შორის ცვლილებების ჟურნალი ან გაფრთხილებები (ფუნქციების) მოძველებულობის შესახებ, პირველ რიგში, გამოქვეყნდება აქ.
 
-You can also follow the [@reactjs account](https://twitter.com/reactjs) on Twitter, but you won't miss anything essential if you only read the blog.
+ასევე, შეგიძლიათ მიყვეთ [@reactjs ანგარიშს](https://twitter.com/reactjs) Twitter-ზე, თუმცა არსებითი ინფორმაციის მისაღებად ბლოგი სრულიად საკმარის ცნობებს იძლევა.
 
-Not every React release deserves its own blog post, but you can find a detailed changelog for every release in the [`CHANGELOG.md` file in the React repository](https://github.com/facebook/react/blob/main/CHANGELOG.md), as well as on the [Releases](https://github.com/facebook/react/releases) page.
+ბლოგში არ ხორციელდება React-ის ყოველი ვერსიის მიმოხილვა, მაგრამ ცვლილებების დეტალური ჩამონათვალი ყოველი ვერსიისათვის მოცემულია [React-ის საცავის (repository) `CHANGELOG.md` ფაილში](https://github.com/facebook/react/blob/main/CHANGELOG.md) ისევე, როგორც [ვერსიების](https://github.com/facebook/react/releases) გვერდზე.
 
-## Versioned Documentation {#versioned-documentation}
+## დოკუმენტაცია ვერსიების მიხედვით {#versioned-documentation}
 
-This documentation always reflects the latest stable version of React. Since React 16, you can find older versions of the documentation on a [separate page](/versions). Note that documentation for past versions is snapshotted at the time of the release, and isn't being continuously updated.
+ეს დოკუმენტაცია ყოველთვის React-ის უახლეს, სტაბილურ ვერსიას ეფუძნება. React-ის 16 ვერსიიდან მოყოლებული, შეგიძლიათ იხილოთ დოკუმენტაციის მოძველებული ვერსიები [განცალკევებულ გვერდზე](/versions). გაითვალისწინეთ, რომ ახალი ვერსიის გამოსვლისას იქმნება დოკუმენტაციის ასლი, რომლის განახლებაც აღარ მოხდება. 
 
-## Something Missing? {#something-missing}
+## რამე გამოგვრჩა? {#something-missing}
 
-If something is missing in the documentation or if you found some part confusing, please [file an issue for the documentation repository](https://github.com/reactjs/reactjs.org/issues/new) with your suggestions for improvement, or tweet at the [@reactjs account](https://twitter.com/reactjs). We love hearing from you!
+თუ დოკუმენტაციას რამე აკლია ან მასში აღმოაჩენთ რაიმე უზუსტობას, გთხოვთ, [წამოჭერით პრობლემა დოკუმენტაციის საცავში (repository)](https://github.com/reactjs/reactjs.org/issues/new) და ახსენით პრობლემის მოგვარების თქვენეული ვარიანტი ან უბრალოდ „და-tweet-ეთ“ [@reactjs ანგარიშზე](https://twitter.com/reactjs). ჩვენ ყოველთვის გვახარებს თქვენი მოსმენა!
