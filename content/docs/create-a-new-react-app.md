@@ -8,38 +8,38 @@ prev: add-react-to-a-website.html
 next: cdn-links.html
 ---
 
-Use an integrated toolchain for the best user and developer experience.
+უფრო კომფორტულად მუშაობისათვის გამოიყენეთ ინტეგრირებული ხელსაწყოთა ნაკრები.
 
-This page describes a few popular React toolchains which help with tasks like:
+ამ გვერდზე განხილულია რამდენიმე პოპულარული ხელსაწყოთა ნაკრები React-ისათვის, რომლებიც დაგეხმარებათ ისეთი ამოცანების შესრულებაში, როგორებიცაა:
 
-* Scaling to many files and components.
-* Using third-party libraries from npm.
-* Detecting common mistakes early.
-* Live-editing CSS and JS in development.
-* Optimizing the output for production.
+* ფაილებისა და კომპონენტების მასშტაბირება.
+* მესამე მხარის (მიერ უზრუნველყოფილი) ბიბლიოთეკების გამოყენება npm-დან.
+* ხშირი შეცდომების ადრეული გამოვლენა.
+* დეველოპმენტის პროცესში CSS-ისა და JS-ის მყისიერი რედაქტირება.
+* კოდის წარმადობის გაუმჯობესება წარმოებაში ჩაშვებისათვის.
 
-The toolchains recommended on this page **don't require configuration to get started**.
+ამ გვერდზე განხილული ხელსაწყოთა ნაკრაბების **ასამუშავებლად დამატებითი კონფიგურაცია საჭირო არ არის**.
 
-## You Might Not Need a Toolchain {#you-might-not-need-a-toolchain}
+## შესაძლოა, თქვენ არ გჭირდებოდეთ ხელსაწყოთა ნაკრები {#you-might-not-need-a-toolchain}
 
-If you don't experience the problems described above or don't feel comfortable using JavaScript tools yet, consider [adding React as a plain `<script>` tag on an HTML page](/docs/add-react-to-a-website.html), optionally [with JSX](/docs/add-react-to-a-website.html#optional-try-react-with-jsx).
+თუ არ გაქვთ ზემოთ აღწერილი პრობლემები, ან (ჯერჯერობით) საკმარისად კარგად არ ფლობთ JavaScript-ის ინსტრუმენტებს, განიხილეთ [React-ის დამატება HTML-გვერდზე `<script>` ტეგის გამოყენებით](/docs/add-react-to-a-website.html), საჭიროების შემთხვევაში [JSX-თან ერთად](/docs/add-react-to-a-website.html#optional-try-react-with-jsx).
 
-This is also **the easiest way to integrate React into an existing website.** You can always add a larger toolchain if you find it helpful!
+ეს ასევე არის **უმარტივესი გზა, არსებულ ვებსაიტზე React-ის დასამატებლად.** საჭიროების შემთხვევაში, უფრო დიდი ხელსაწყოთა ნაკრების დამატება ყოველთვის შეგეძლებათ.
 
-## Recommended Toolchains {#recommended-toolchains}
+## რეკომენდებული ხელსაწყოთა ნაკრებები {#recommended-toolchains}
 
-The React team primarily recommends these solutions:
+React-ის გუნდი, პირველ რიგში რეკომენდაციას უწევს შემდეგ გადაწყვეტილებებს:
 
-- If you're **learning React** or **creating a new [single-page](/docs/glossary.html#single-page-application) app,** use [Create React App](#create-react-app).
-- If you're building a **server-rendered website with Node.js,** try [Next.js](#nextjs).
-- If you're building a **static content-oriented website,** try [Gatsby](#gatsby).
-- If you're building a **component library** or **integrating with an existing codebase**, try [More Flexible Toolchains](#more-flexible-toolchains).
+- თუ თქვენ **სწავლობთ React-ს** ან **ქმნის ახალ [ერთგვერდიან](/docs/glossary.html#single-page-application) აპლიკაციას,** გამოიყენეთ [Create React App](#create-react-app).
+- თუ თქვენ ქმნით **სერვერის მხარეს ასახვად (server-rendered) ვებსაიტს Node.js-ის გამოყენებით,** სცადეთ [Next.js](#nextjs).
+- თუ თქვენ ქმნით **სტატიკურ შინაარსზე ორიენტირებულ ვებსაიტს,** სცადეთ [Gatsby](#gatsby).
+- თუ თქვენ ქმნით **კომპონენტთა ბიბლიოთეკას** ან **ახდენს არსებულ კოდთან ინტეგრირებას**, სცადეთ [უფრო მოქნილი ხელსაწყოთა ნაკრებები](#more-flexible-toolchains).
 
 ### Create React App {#create-react-app}
 
-[Create React App](https://github.com/facebookincubator/create-react-app) is a comfortable environment for **learning React**, and is the best way to start building **a new [single-page](/docs/glossary.html#single-page-application) application** in React.
+[Create React App](https://github.com/facebookincubator/create-react-app) არის კომფორტული გარემო **React-ის სწავლისათვის** და საუკეთესო გზა React-ის გამოყენებით **ახალი [ერთგვერდიანი](/docs/glossary.html#single-page-application) აპლიკაციის** შესაქმნელად.
 
-It sets up your development environment so that you can use the latest JavaScript features, provides a nice developer experience, and optimizes your app for production. You’ll need to have [Node >= 10.16 and npm >= 5.6](https://nodejs.org/en/) on your machine. To create a project, run:
+აღნიშნული ხელსაწყო უზრუნველყოფს დეველოპმენტის გარემოს მოწყობას, რათა შეძლოთ JavaScript-ის უახლესი ფუნქციონალით სარგებლობა, უფრო სასიამოვნოს ხდის დეველოპმენტის პროცესს, აუმჯობესებს თქვენი აპლიკაციის წარმადობას და ამზადებს მას წარმოებაში ჩასაშვებად. საჭიროა, თქვენს მოწყობილებაზე ეყენოს [Node ვერსია >= 10.16 და npm ვერსია >= 5.6](https://nodejs.org/en/). პროექტის შესაქმნელად (და გასაშვებად), გაუშვით შემდეგი ბრძანებები:
 
 ```bash
 npx create-react-app my-app
@@ -47,48 +47,48 @@ cd my-app
 npm start
 ```
 
->Note
+>შენიშვნა
 >
->`npx` on the first line is not a typo -- it's a [package runner tool that comes with npm 5.2+](https://medium.com/@maybekatz/introducing-npx-an-npm-package-runner-55f7d4bd282b).
+>პირველ ხაზზე მოცემული `npx` არ არის ბეჭდვითი შეცდომა. ეს არის [პაკეტის გამშვები ინსტრუმენტი, რომელიც მოყვება npm-ის 5.2+ ვერსიას](https://medium.com/@maybekatz/introducing-npx-an-npm-package-runner-55f7d4bd282b).
 
-Create React App doesn't handle backend logic or databases; it just creates a frontend build pipeline, so you can use it with any backend you want. Under the hood, it uses [Babel](https://babeljs.io/) and [webpack](https://webpack.js.org/), but you don't need to know anything about them.
+Create React App არ ამუშავებს backend-ის ლოგიკას ან მონაცემთა ბაზებს, ის მხოლოდ frontend-ის შესაქმნელად განკუთვნილ ბრძანებებს უზრუნველყოფს, ასე რომ, მისი გამოყენება შეგიძლიათ ნებისმიერ, თქვენთვის სასურველ backend-თან. რეალურად, აღნიშნული ხელსაწყო იყენებს [Babel](https://babeljs.io/)-ს და [webpack](https://webpack.js.org/)-ს, მაგრამ მათ შესახებ რაიმეს ცოდნა არ გჭირდებათ.
 
-When you're ready to deploy to production, running `npm run build` will create an optimized build of your app in the `build` folder. You can learn more about Create React App [from its README](https://github.com/facebookincubator/create-react-app#create-react-app--) and the [User Guide](https://facebook.github.io/create-react-app/).
+როცა თქვენი აპლიკაცია მზად იქნება წარმოებაში ჩასაშვებად, გაუშვით ბრძანება `npm run build`, რომელიც `build` საქაღალდეში შექმნის თქვენი აპლიკაციის ოპტიმიზირებულ ვარიანტს. შეიტყვეთ მეტი Create React App-ის შესახებ [მისი README-დან](https://github.com/facebookincubator/create-react-app#create-react-app--) და [მომხმარებლის გზამკვლევიდან](https://facebook.github.io/create-react-app/).
 
 ### Next.js {#nextjs}
 
-[Next.js](https://nextjs.org/) is a popular and lightweight framework for **static and server‑rendered applications** built with React. It includes **styling and routing solutions** out of the box, and assumes that you're using [Node.js](https://nodejs.org/) as the server environment.
+[Next.js](https://nextjs.org/) არის პოპულარული და მსუბუქი framework, რომელიც React-ის გამოყენებით **სტატიკური და სერვერის მხარეს ასახვადი (server-rendered) აპლიკაციების** შექმნაში გვეხმარება. იგი შეიცავს **სტილიზაციისა და მარშრუტიზაციის** მზა გადაწყვეტილებებს და ვარაუდობს, რომ სერვერის მხარეს იყენებთ [Node.js](https://nodejs.org/)-ს.
 
-Learn Next.js from [its official guide](https://nextjs.org/learn/).
+ისწავლეთ Next.js [მისი ოფიციალური გზამკვლევიდან](https://nextjs.org/learn/).
 
 ### Gatsby {#gatsby}
 
-[Gatsby](https://www.gatsbyjs.org/) is the best way to create **static websites** with React. It lets you use React components, but outputs pre-rendered HTML and CSS to guarantee the fastest load time.
+[Gatsby](https://www.gatsbyjs.org/) არის საუკეთესო გზა React-ის გამოყენებით **სტატიკური ვებსაიტების** შესაქმნელად. იგი საშუალებას გაძლევთ, გამოიყენოთ React-კომპონენტები, მაგრამ შედეგად აბრუნებს წინასწარ ასახულ (pre-rendered) HTML-ს და CSS-ს, რაც უსწრაფესი ჩატვირთვის დროის გარანტიას იძლევა.
 
-Learn Gatsby from [its official guide](https://www.gatsbyjs.org/docs/) and a [gallery of starter kits](https://www.gatsbyjs.org/docs/gatsby-starters/).
+ისწავლეთ Gatsby [მისი ოფიციალური გზამკვლევიდან](https://www.gatsbyjs.org/docs/) და [საწყის ნაკრებთა გალერეიდან](https://www.gatsbyjs.org/docs/gatsby-starters/).
 
-### More Flexible Toolchains {#more-flexible-toolchains}
+### უფრო მოქნილი ხელსაწყოთა ნაკრებები {#more-flexible-toolchains}
 
-The following toolchains offer more flexibility and choice. We recommend them to more experienced users:
+შემდეგი ხელსაწყოთა ნაკრებები მეტ მოქნილობასა და არჩევანს გვთავაზობს. მათ ჩვენ უფრო გამოცდილ დეველოპერებს ვურჩევთ:
 
-- **[Neutrino](https://neutrinojs.org/)** combines the power of [webpack](https://webpack.js.org/) with the simplicity of presets, and includes a preset for [React apps](https://neutrinojs.org/packages/react/) and [React components](https://neutrinojs.org/packages/react-components/).
+- **[Neutrino](https://neutrinojs.org/)** აერთიანებს [webpack](https://webpack.js.org/)-ის ძალას და *preset-ების* სიმარტივეს. ინსტრუმენტი შეიცავს *preset*-ს [React-აპლიკაციებისათვის](https://neutrinojs.org/packages/react/) და [React-კომპონენტებისათვის](https://neutrinojs.org/packages/react-components/).
 
-- **[Nx](https://nx.dev/react)** is a toolkit for full-stack monorepo development, with built-in support for React, Next.js, [Express](https://expressjs.com/), and more.
+- **[Nx](https://nx.dev/react)** არის ხელსაწყოთა ნაკრები full-stack *monorepo* დეველოპმენტისათვის, რომელშიც ჩაშენებულია -- React-ის, Next.js-ის, [Express](https://expressjs.com/)-ის და სხვ. -- მხარდაჭერა.
 
-- **[Parcel](https://parceljs.org/)** is a fast, zero configuration web application bundler that [works with React](https://parceljs.org/recipes.html#react).
+- **[Parcel](https://parceljs.org/)** არის სწრაფი, ნულოვანი კონფიგურაციის ვებ-აპლიკაციის *bundler*, რომელიც [მუშაობს React-თან](https://parceljs.org/recipes.html#react).
 
-- **[Razzle](https://github.com/jaredpalmer/razzle)** is a server-rendering framework that doesn't require any configuration, but offers more flexibility than Next.js.
+- **[Razzle](https://github.com/jaredpalmer/razzle)** არის სერვერის მხარეს ასახვადი (server-rendering) framework, რომელიც არ საჭიროებს არანაირ კონფიგურაციას, მაგრამ გვთავაზობს Next.js-ზე მეტ მოქნილობას.
 
-## Creating a Toolchain from Scratch {#creating-a-toolchain-from-scratch}
+## ხელსაწყოთა ნაკრების შექმნა ნულიდან {#creating-a-toolchain-from-scratch}
 
-A JavaScript build toolchain typically consists of:
+JavaScript-ის ხელსაწყოთა ნაკრები, როგორც წესი, მოიცავს:
 
-* A **package manager**, such as [Yarn](https://yarnpkg.com/) or [npm](https://www.npmjs.com/). It lets you take advantage of a vast ecosystem of third-party packages, and easily install or update them.
+* **პაკეტის მენეჯერს**, როგორიცაა [Yarn](https://yarnpkg.com/) ან [npm](https://www.npmjs.com/). იგი საშუალებას გაძლევთ, ისარგებლოთ მესამე მხარის (third-party) პაკეთთა უზარმაზარი ეკოსისტემით და მარტივად დააყენოთ ან განაახლოთ ისინი.
 
-* A **bundler**, such as [webpack](https://webpack.js.org/) or [Parcel](https://parceljs.org/). It lets you write modular code and bundle it together into small packages to optimize load time.
+* **bundler**-ს, როგორიცაა [webpack](https://webpack.js.org/) ან [Parcel](https://parceljs.org/). იგი საშუალებას გაძლევთ, წეროთ მოდულარული კოდი და გააერთიანოთ ისინი პატარა პაკეტებში, რათა მოხდეს ჩატვირთვის დროის ოპტიმიზაცია.
 
-* A **compiler** such as [Babel](https://babeljs.io/). It lets you write modern JavaScript code that still works in older browsers.
+* **კომპილატორს**, როგორიცაა [Babel](https://babeljs.io/). იგი საშუალებას გაძლევთ, წეროთ თანამედროვე JavaScript-კოდი, რომელიც მუშაობს მოძველებულ ბრაუზერებზეც.
 
-If you prefer to set up your own JavaScript toolchain from scratch, [check out this guide](https://blog.usejournal.com/creating-a-react-app-from-scratch-f3c693b84658) that re-creates some of the Create React App functionality.
+თუ ხელსაწყოთა ნაკრების შექმნას ნულიდან ამჯობინებთ, [იხილეთ ეს გზამკვლევი](https://blog.usejournal.com/creating-a-react-app-from-scratch-f3c693b84658), სადაც ხორციელდება Create React App-ის ზოგიერთი ფუნქციონალის ხელახლა შექმნა.
 
-Don't forget to ensure your custom toolchain [is correctly set up for production](/docs/optimizing-performance.html#use-the-production-build).
+არ დაგავიწყდეთ, დარწმუნდეთ, რომ თქვენი ხელსაწყოთა ნაკრები [სათანადოდ არის გამართული წარმოებაში ჩასაშვებად](/docs/optimizing-performance.html#use-the-production-build).
