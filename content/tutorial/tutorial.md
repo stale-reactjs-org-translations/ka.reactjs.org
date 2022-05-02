@@ -98,9 +98,9 @@ del *
 cd ..
 ```
 
-4. `src/` საქაღალდეში შექმენით ფაილი, სახელად `index.css` და ჩაწერეთ მასში [ეს CSS-კოდი](https://codepen.io/gaearon/pen/oWWQNa?editors=0100).
+4. `src/` საქაღალდეში შექმენით ფაილი სახელად `index.css` და ჩაწერეთ მასში [ეს CSS-კოდი](https://codepen.io/gaearon/pen/oWWQNa?editors=0100).
 
-5. `src/` საქაღალდეში შექმენით ფაილი, სახელად `index.js` და ჩაწერეთ მასში [ეს JS-კოდი](https://codepen.io/gaearon/pen/oWWQNa?editors=0010).
+5. `src/` საქაღალდეში შექმენით ფაილი სახელად `index.js` და ჩაწერეთ მასში [ეს JS-კოდი](https://codepen.io/gaearon/pen/oWWQNa?editors=0010).
 
 6. `src/` საქაღალდეში არსებულ `index.js` ფაილის თავში (ზემოთ), დაამატეთ ეს სამი ხაზი:
 
