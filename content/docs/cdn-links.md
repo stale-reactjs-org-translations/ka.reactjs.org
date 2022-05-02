@@ -20,7 +20,7 @@ next: release-channels.html
 <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
 ```
 
-`react`-ისა და `react-dom`-ის კონკრეტული ვერსიის ჩასატვირთად, ჩაანაცვლეთ `17` სასურველი ვერსიის ნომრით.
+`react`-ისა და `react-dom`-ის კონკრეტული ვერსიის ჩასატვირთად ჩაანაცვლეთ `17` სასურველი ვერსიის ნომრით.
 
 ### რატომ `crossorigin` ატრიბუტი? {#why-the-crossorigin-attribute}
 
@@ -34,4 +34,4 @@ next: release-channels.html
 
 ![Access-Control-Allow-Origin: *](../images/docs/cdn-cors-header.png)
 
-React 16 და უფრო ახალ ვერსიებში, ეს აუმჯობესებს [შეცდომების დამუშავების პრაქტიკას](/blog/2017/07/26/error-handling-in-react-16.html).
+React 16 და უფრო ახალ ვერსიებში ეს აუმჯობესებს [შეცდომების დამუშავების პრაქტიკას](/blog/2017/07/26/error-handling-in-react-16.html).
